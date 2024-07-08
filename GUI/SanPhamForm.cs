@@ -25,12 +25,12 @@ namespace GUI
         {
             SanPham sanPham = new();
 
-            sanPham.MaSp = txtMaSanPham.Text;
-            sanPham.TenSp = txtTenSP.Text;
-            sanPham.GiaSp = txtGiaTien.Text;
-            sanPham.SoLuong = NumberSoLuong.Value;
-            sanPham.Hsd = txtHsd.Text;
-            sanPham.Nsx = txtNsx.Text;
+            // sanPham.MaSp = txtMaSanPham.Text;
+            // sanPham.TenSp = txtTenSP.Text;
+            // sanPham.GiaSp = txtGiaTien.Text;
+            // sanPham.SoLuong = NumberSoLuong.Value;
+            // sanPham.Hsd = txtHsd.Text;
+            // sanPham.Nsx = txtNsx.Text;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -49,7 +49,7 @@ namespace GUI
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            dgvSanPham.DataSource = bus.SearchData(txtSearch.Text);
+            // dgvSanPham.DataSource = bus.SearchData(txtSearch.Text);
         }
 
         private void dgvSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -75,14 +75,14 @@ namespace GUI
                 return;
             }
 
-            SanPham sanPham = new();
-            sanPham.MaSp = txtMaSanPham.Text;
-            sanPham.TenSp = txtTenSP.Text;
-            sanPham.GiaSp = txtGiaTien.Text;
-            sanPham.SoLuong = NumberSoLuong.Value;
-            sanPham.Hsd = txtHsd.Text;
-            sanPham.Nsx = txtNsx.Text;
-            bus.UpdateData(sanPham);
+            // SanPham sanPham = new();
+            // sanPham.MaSp = txtMaSanPham.Text;
+            // sanPham.TenSp = txtTenSP.Text;
+            // sanPham.GiaSp = txtGiaTien.Text;
+            // sanPham.SoLuong = NumberSoLuong.Value;
+            // sanPham.Hsd = txtHsd.Text;
+            // sanPham.Nsx = txtNsx.Text;
+            // bus.UpdateData(sanPham);
 
             MessageBox.Show("Sửa thành công");
         }

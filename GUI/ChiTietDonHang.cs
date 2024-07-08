@@ -21,18 +21,18 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            ChiTietDonHangBus chiTietDonHang = new();
-
-            chiTietDonHang.MaDH = txtMaDonHang.Text;
-            chiTietDonHang.MaSP = txtMaSanPham.Text;
-            chiTietDonHang.SoLuong = int.Parse(NumberSoLuong.Value.ToString());
-            chiTietDonHang.CuaHang = cobCuaHang.Text;
-            chiTietDonHang.TenKhachHang = txtTenKhachHang.Text;
-            chiTietDonHang.GiaTien = txtGiaTien.Text;
-            chiTietDonHang.MaKhachHang = txtMaKH.Text;
-            chiTietDonHang.NgayTao = dateNgayNhap.Value;
-            chiTietDonHang.Sdt = txtSdt.Text;
-            bus.Add(chiTietDonHang);
+            // ChiTietDonHangBus chiTietDonHang = new();
+            //
+            // chiTietDonHang.MaDH = txtMaDonHang.Text;
+            // chiTietDonHang.MaSP = txtMaSanPham.Text;
+            // chiTietDonHang.SoLuong = int.Parse(NumberSoLuong.Value.ToString());
+            // chiTietDonHang.CuaHang = cobCuaHang.Text;
+            // chiTietDonHang.TenKhachHang = txtTenKhachHang.Text;
+            // chiTietDonHang.GiaTien = txtGiaTien.Text;
+            // chiTietDonHang.MaKhachHang = txtMaKH.Text;
+            // chiTietDonHang.NgayTao = dateNgayNhap.Value;
+            // chiTietDonHang.Sdt = txtSdt.Text;
+            // bus.Add(chiTietDonHang);
 
             // if (txtMaDonHang.Text != "" && txtMaSanPham.Text != "" && txtTenSP.Text != "" && txtTenKhachHang.Text != "" && txtGiaTien.Text != "" && txtMaKH.Text != "" && txtSdt.Text != "")
             // {

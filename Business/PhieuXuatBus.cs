@@ -32,7 +32,7 @@ public class PhieuXuatBus: IBus<PhieuXuat>
         var data = GetAllData();
         foreach (var item in data)
         {
-            dt.Rows.Add(item.MaPhieuXuat, item.NgayXuat, item.CuaHangNhap, item.CuaHangNhan, item.NhanVienXuat, item.MaNV, item.DiaChi, item.SoDienThoai, item.TenSanPham, item.MaSP, item.SoLuong, item.DonGia);
+            dt.Rows.Add(item.MaPx, item.NgayXuat, item.CuaHangNhap, item.CuaHangNhan, item.NhanVienXuat, item.MaNV, item.DiaChi, item.SoDienThoai, item.TenSanPham, item.MaSP, item.SoLuong, item.DonGia);
         }
 
         return dt;

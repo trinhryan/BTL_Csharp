@@ -10,7 +10,7 @@ public class PhieuNhapBus: IBus<PhieuNhap>
     MyDbContext db = new MyDbContext();
     public List<PhieuNhap> GetAllData()
     {
-        return DbType.PhieuNhaps.ToList();
+        return db.PhieuNhaps.ToList();
     }
 
     public DataTable GetAllDataTable()
@@ -27,11 +27,11 @@ public class PhieuNhapBus: IBus<PhieuNhap>
         dt.Columns.Add("MaSP");
         dt.Columns.Add("SoLuong");
         dt.Columns.Add("DonGia");
-        
+
         var data = GetAllData();
         foreach (var item in data)
         {
-               dt.Rows.Add(item.MaPhieuNhap, item.NgayNhap, item.CuaHangNhap, item.NhanVienNhap, item.NhaCungcap, item.MaNCC, item.SoDienThoai, item.TenSanPham, item.MaSP, item.SoLuong, item.DonGia);
+               dt.Rows.Add(item.MaPn, item.NgayNhap, item.MaCHNNavigation?.TenCuaHang, item.MaQlNavigation?.TenQl, item.MaNccNavigation.TenNcc, item.SoDienThoai, item.TenSanPham, item.MaSP, item.SoLuong, item.DonGia);
             
         }
 
@@ -40,7 +40,7 @@ public class PhieuNhapBus: IBus<PhieuNhap>
 
     public PhieuNhap GetDataById(object id)
     {
-        return db.PhieuNhaps.FirstOrDefault(e=>e.MaPhieuNhap == (int)id);
+        return db.PhieuNhaps.FirstOrDefault(e=>e.MaPn == (int)id);
         
     }
 
@@ -53,12 +53,11 @@ public class PhieuNhapBus: IBus<PhieuNhap>
     public void UpdateData(PhieuNhap obj)
     {
         PhieuNhap phieuNhap = (PhieuNhap)obj;
-        PhieuNhap phieuNhapUpdate = db.PhieuNhaps.FirstOrDefault(e=>e.MaPhieuNhap == phieuNhap.MaPhieuNhap);
+        PhieuNhap phieuNhapUpdate = db.PhieuNhaps.FirstOrDefault(e=>e.MaPn == phieuNhap.MaPn);
         phieuNhapUpdate.NgayNhap = phieuNhap.NgayNhap;
-        phieuNhapUpdate.CuaHangNhap = phieuNhap.CuaHangNhap;
-        phieuNhapUpdate.NhanVienNhap = phieuNhap.NhanVienNhap;
-        phieuNhapUpdate.NhaCungcap = phieuNhap.NhaCungcap;
-        phieuNhapUpdate.MaNCC = phieuNhap.MaNCC;
+        phieuNhapUpdate.MaCuaHang = phieuNhap.MaCHNNavigation.MaCuaHang;
+        phieuNhapUpdate.MaQl = phieuNhap.MaQlNavigation.MaQl;
+        phieuNhapUpdate.MaNcc = phieuNhap.MaNccNavigation.MaNcc;
         phieuNhapUpdate.SoDienThoai = phieuNhap.SoDienThoai;
         phieuNhapUpdate.TenSanPham = phieuNhap.TenSanPham;
         phieuNhapUpdate.MaSP = phieuNhap.MaSP;
@@ -69,7 +68,7 @@ public class PhieuNhapBus: IBus<PhieuNhap>
 
     public void DeleteData(object id)
     {
-        PhieuNhap phieuNhap = db.PhieuNhaps.FirstOrDefault(e=>e.MaPhieuNhap == (int)id);
+        PhieuNhap phieuNhap = db.PhieuNhaps.FirstOrDefault(e=>e.MaPn == (int)id);
         db.PhieuNhaps.Remove(phieuNhap);
         db.SaveChanges();
     }
@@ -78,4 +77,5 @@ public class PhieuNhapBus: IBus<PhieuNhap>
     {
         return db.PhieuNhaps.Where(e=>e.TenSanPham.Contains(tuKhoa)).ToList();
     }
+
 }

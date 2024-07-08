@@ -24,12 +24,12 @@ namespace GUI
         private void btnThem_Click(object sender, EventArgs e)
         {
             PhieuXuat phieuXuat = new();
-            phieuXuat.MaPhieuXuat = txtMaPhieuXuat.Text;
-            phieuXuat.NgayXuat = DateTime.Parse(dateNgayNhap.Text);
+            phieuXuat.MaPx = Convert.ToInt32(txtMaPhieuXuat.Text);
+            phieuXuat.NgayXuat = DateOnly.Parse(dateNgayNhap.Text);
             phieuXuat.CuaHangXuat = cobCHNhap.Text;
             phieuXuat.CuaHangNhan = cobCHXuat.Text;
             phieuXuat.NhanVienXuat = txtTenNV.Text;
-            phieuXuat.MaNV = txtMaNV.Text;
+            phieuXuat.MaNV = Convert.ToInt32(txtMaNV.Text);
             phieuXuat.Sdt = txtSdt.Text;
             phieuXuat.DiaChi = txtDiaChi.Text;
             phieuXuat.TenSanPham = txtTenSP.Text;

@@ -33,14 +33,13 @@ namespace GUI
         private void btnThem_Click(object sender, EventArgs e)
         {
             PhieuNhap pn = new PhieuNhap();
-            pn.MaPhieuNhap = txtMaPhieuNhap.Text;
-            pn.NgayNhap = DateTime.Parse(dateNgayNhap.Text);
-            
+            pn.MaPn = int.Parse(txtMaPhieuNhap.Text);
+            if (dateNgayNhap.Text != null) pn.NgayNhap = DateOnly.FromDateTime(DateTime.Parse(dateNgayNhap.Text));
         }
 
         private void btnReload_Click(object sender, EventArgs e)
         {
-            dgvPhieuNhapHang.DataSource = bus.GetData();
+            dgvPhieuNhapHang.DataSource = bus.GetAllDataTable();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

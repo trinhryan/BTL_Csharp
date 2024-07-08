@@ -45,5 +45,19 @@ namespace GUI
                 MessageBox.Show("Đăng nhập thất bại");
             }
         }
+
+        private void btnDangKi_Click(object? sender, EventArgs e)
+        {
+           var form = new DangKiForm();
+           form.Show();
+           this.Hide();
+        }
+
+        private void btnQuenMatKhau_Click(object? sender, EventArgs e)
+        {
+            var form = new QuenMatKhauForm();
+            form.Show();
+            this.Hide();
+        }
     }
 }

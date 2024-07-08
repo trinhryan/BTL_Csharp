@@ -106,6 +106,7 @@
             btnThoat.TabIndex = 10;
             btnThoat.Text = "Thoát";
             btnThoat.UseVisualStyleBackColor = false;
+            btnThoat.Click += new EventHandler(btnThoat_Click);
             // 
             // btnDangKi
             // 
@@ -117,6 +118,7 @@
             btnDangKi.TabIndex = 9;
             btnDangKi.Text = "Đăng kí";
             btnDangKi.UseVisualStyleBackColor = false;
+            btnDangKi.Click += new EventHandler(btnDangKi_Click);
             // 
             // btnDangNhap
             // 
@@ -128,6 +130,7 @@
             btnDangNhap.TabIndex = 7;
             btnDangNhap.Text = "Đăng Nhập";
             btnDangNhap.UseVisualStyleBackColor = false;
+            btnDangKi.Click += new EventHandler(btnDangNhap_Click);
             // 
             // groupBox1
             // 

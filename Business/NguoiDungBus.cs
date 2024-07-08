@@ -93,4 +93,14 @@ public class NguoiDungBus : IBus<NguoiDung>
         }
         return false;
     }
+
+    public bool KiemTraTenDangNhap(string tenDangNhap)
+    {
+        var nguoiDung = db.NguoiDungs.FirstOrDefault(e => e.TenDangNhap == tenDangNhap);
+        if (nguoiDung != null)
+        {
+            return true;
+        }
+        return false;
+    }
 }

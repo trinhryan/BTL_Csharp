@@ -54,7 +54,6 @@
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Size = new System.Drawing.Size(369, 20);
             this.txtMatKhau.TabIndex = 3;
-         //   this.txtMatKhau.TextChanged += new System.EventHandler(this.txtMatKhau_TextChanged);
             // 
             // txtTenDangNhap
             // 
@@ -78,7 +77,6 @@
             this.label1.Size = new System.Drawing.Size(128, 40);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên đăng nhập";
-          //  this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnDangNhap
             // 
@@ -100,6 +98,7 @@
             this.btnQuenMatKhau.TabIndex = 2;
             this.btnQuenMatKhau.Text = "Quên mật khẩu";
             this.btnQuenMatKhau.UseVisualStyleBackColor = false;
+            this.btnQuenMatKhau.Click += new System.EventHandler(this.btnQuenMatKhau_Click);
             // 
             // btnDangKi
             // 
@@ -110,6 +109,7 @@
             this.btnDangKi.TabIndex = 3;
             this.btnDangKi.Text = "Đăng kí";
             this.btnDangKi.UseVisualStyleBackColor = false;
+            this.btnDangKi.Click += new System.EventHandler(this.btnDangKi_Click);
             // 
             // btnThoat
             // 

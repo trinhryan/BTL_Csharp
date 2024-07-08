@@ -2708,11 +2708,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kieu Anh\\RiderProjects\\BTLCSharp\\GUI\\GUI.csproj",
+      "projectUniqueName": "C:\\Users\\Kieu Anh\\Desktop\\GITHUB\\BTL_Csharp\\GUI\\GUI.csproj",
       "projectName": "GUI",
-      "projectPath": "C:\\Users\\Kieu Anh\\RiderProjects\\BTLCSharp\\GUI\\GUI.csproj",
+      "projectPath": "C:\\Users\\Kieu Anh\\Desktop\\GITHUB\\BTL_Csharp\\GUI\\GUI.csproj",
       "packagesPath": "C:\\Users\\Kieu Anh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kieu Anh\\RiderProjects\\BTLCSharp\\GUI\\obj\\",
+      "outputPath": "C:\\Users\\Kieu Anh\\Desktop\\GITHUB\\BTL_Csharp\\GUI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Kieu Anh\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2730,8 +2730,8 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "C:\\Users\\Kieu Anh\\RiderProjects\\BTLCSharp\\Business\\Business.csproj": {
-              "projectPath": "C:\\Users\\Kieu Anh\\RiderProjects\\BTLCSharp\\Business\\Business.csproj"
+            "C:\\Users\\Kieu Anh\\Desktop\\GITHUB\\BTL_Csharp\\Business\\Business.csproj": {
+              "projectPath": "C:\\Users\\Kieu Anh\\Desktop\\GITHUB\\BTL_Csharp\\Business\\Business.csproj"
             }
           }
         }

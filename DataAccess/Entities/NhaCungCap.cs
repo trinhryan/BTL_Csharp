@@ -11,7 +11,7 @@ public partial class NhaCungCap
 
     public string? DiaChi { get; set; }
 
-    public string? Email { get; set; }
+    public string? Sdt { get; set; }
 
     public virtual ICollection<PhieuNhap> PhieuNhaps { get; set; } = new List<PhieuNhap>();
 }

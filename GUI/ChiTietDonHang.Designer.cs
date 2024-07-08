@@ -30,8 +30,8 @@
         {
             components = new System.ComponentModel.Container();
             gbThongTInDonHang = new GroupBox();
-            dateTimePicker1 = new DateTimePicker();
-            txtSoDienThoai = new TextBox();
+            dateNgayNhap = new DateTimePicker();
+            txtSdt = new TextBox();
             btnTaoKH = new Button();
             txtTenKhachHang = new TextBox();
             txtMaKH = new TextBox();
@@ -44,9 +44,10 @@
             label2 = new Label();
             label1 = new Label();
             gbThongTinSapPham = new GroupBox();
+            btnReload = new Button();
             NumberSoLuong = new NumericUpDown();
             txtGiaTien = new TextBox();
-            textBox9 = new TextBox();
+            txtTenSP = new TextBox();
             txtMaSanPham = new TextBox();
             btnThoat = new Button();
             btnThem = new Button();
@@ -64,23 +65,17 @@
             trangChủToolStripMenuItem = new ToolStripMenuItem();
             quảnLýNgườiDùngToolStripMenuItem = new ToolStripMenuItem();
             danhMụcNhânToolStripMenuItem = new ToolStripMenuItem();
-            nhânViênBánToolStripMenuItem = new ToolStripMenuItem();
-            nhânViênKhoToolStripMenuItem = new ToolStripMenuItem();
+            DanhMucSanPhamToolStripMenuItem = new ToolStripMenuItem();
+            DanhMucNhanVienToolStripMenuItem = new ToolStripMenuItem();
             danhMụcKháchHàngToolStripMenuItem1 = new ToolStripMenuItem();
             danhMụcNhàCungCấpToolStripMenuItem = new ToolStripMenuItem();
             giaoDịchToolStripMenuItem = new ToolStripMenuItem();
             hóaĐơnToolStripMenuItem = new ToolStripMenuItem();
             đơnHàngToolStripMenuItem = new ToolStripMenuItem();
-            đơnHàngĐãĐặtToolStripMenuItem = new ToolStripMenuItem();
-            đơnHàngĐãGiaoToolStripMenuItem = new ToolStripMenuItem();
-            tạoPhiếuĐặtHàngToolStripMenuItem = new ToolStripMenuItem();
             quảnLýKhoToolStripMenuItem = new ToolStripMenuItem();
             phiếuNhậpHàngToolStripMenuItem = new ToolStripMenuItem();
             phiếuXuấtHàngToolStripMenuItem = new ToolStripMenuItem();
-            thốngKêHàngTồnToolStripMenuItem = new ToolStripMenuItem();
             báoCáoToolStripMenuItem = new ToolStripMenuItem();
-            báoCáoTàiChínhToolStripMenuItem = new ToolStripMenuItem();
-            báoCáoDoanhToolStripMenuItem = new ToolStripMenuItem();
             đăngXuấtToolStripMenuItem = new ToolStripMenuItem();
             orderitemsBindingSource = new BindingSource(components);
             gbThongTInDonHang.SuspendLayout();
@@ -94,8 +89,8 @@
             // 
             // gbThongTInDonHang
             // 
-            gbThongTInDonHang.Controls.Add(dateTimePicker1);
-            gbThongTInDonHang.Controls.Add(txtSoDienThoai);
+            gbThongTInDonHang.Controls.Add(dateNgayNhap);
+            gbThongTInDonHang.Controls.Add(txtSdt);
             gbThongTInDonHang.Controls.Add(btnTaoKH);
             gbThongTInDonHang.Controls.Add(txtTenKhachHang);
             gbThongTInDonHang.Controls.Add(txtMaKH);
@@ -116,21 +111,21 @@
             gbThongTInDonHang.TabStop = false;
             gbThongTInDonHang.Text = "Thông tin đơn hàng";
             // 
-            // dateTimePicker1
+            // dateNgayNhap
             // 
-            dateTimePicker1.Location = new Point(90, 38);
-            dateTimePicker1.Margin = new Padding(4, 3, 4, 3);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(204, 23);
-            dateTimePicker1.TabIndex = 18;
+            dateNgayNhap.Location = new Point(90, 38);
+            dateNgayNhap.Margin = new Padding(4, 3, 4, 3);
+            dateNgayNhap.Name = "dateNgayNhap";
+            dateNgayNhap.Size = new Size(204, 23);
+            dateNgayNhap.TabIndex = 18;
             // 
-            // txtSoDienThoai
+            // txtSdt
             // 
-            txtSoDienThoai.Location = new Point(427, 141);
-            txtSoDienThoai.Margin = new Padding(4, 3, 4, 3);
-            txtSoDienThoai.Name = "txtSoDienThoai";
-            txtSoDienThoai.Size = new Size(207, 23);
-            txtSoDienThoai.TabIndex = 17;
+            txtSdt.Location = new Point(427, 141);
+            txtSdt.Margin = new Padding(4, 3, 4, 3);
+            txtSdt.Name = "txtSdt";
+            txtSdt.Size = new Size(207, 23);
+            txtSdt.TabIndex = 17;
             // 
             // btnTaoKH
             // 
@@ -231,9 +226,10 @@
             // 
             // gbThongTinSapPham
             // 
+            gbThongTinSapPham.Controls.Add(btnReload);
             gbThongTinSapPham.Controls.Add(NumberSoLuong);
             gbThongTinSapPham.Controls.Add(txtGiaTien);
-            gbThongTinSapPham.Controls.Add(textBox9);
+            gbThongTinSapPham.Controls.Add(txtTenSP);
             gbThongTinSapPham.Controls.Add(txtMaSanPham);
             gbThongTinSapPham.Controls.Add(btnThoat);
             gbThongTinSapPham.Controls.Add(btnThem);
@@ -252,6 +248,17 @@
             gbThongTinSapPham.TabStop = false;
             gbThongTinSapPham.Text = "Thông tin sản phầm";
             // 
+            // btnReload
+            // 
+            btnReload.Location = new Point(348, 147);
+            btnReload.Margin = new Padding(4, 3, 4, 3);
+            btnReload.Name = "btnReload";
+            btnReload.Size = new Size(121, 38);
+            btnReload.TabIndex = 24;
+            btnReload.Text = "Reload";
+            btnReload.UseVisualStyleBackColor = true;
+            btnReload.Click += btnReload_Click;
+            // 
             // NumberSoLuong
             // 
             NumberSoLuong.Location = new Point(427, 27);
@@ -268,13 +275,13 @@
             txtGiaTien.Size = new Size(207, 23);
             txtGiaTien.TabIndex = 22;
             // 
-            // textBox9
+            // txtTenSP
             // 
-            textBox9.Location = new Point(90, 29);
-            textBox9.Margin = new Padding(4, 3, 4, 3);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(207, 23);
-            textBox9.TabIndex = 20;
+            txtTenSP.Location = new Point(90, 29);
+            txtTenSP.Margin = new Padding(4, 3, 4, 3);
+            txtTenSP.Name = "txtTenSP";
+            txtTenSP.Size = new Size(207, 23);
+            txtTenSP.TabIndex = 20;
             // 
             // txtMaSanPham
             // 
@@ -293,16 +300,18 @@
             btnThoat.TabIndex = 15;
             btnThoat.Text = "Thoát";
             btnThoat.UseVisualStyleBackColor = true;
+            btnThoat.Click += btnThoat_Click;
             // 
             // btnThem
             // 
-            btnThem.Location = new Point(349, 147);
+            btnThem.Location = new Point(219, 147);
             btnThem.Margin = new Padding(4, 3, 4, 3);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(121, 38);
             btnThem.TabIndex = 14;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
             // 
             // btnXoa
             // 
@@ -313,6 +322,7 @@
             btnXoa.TabIndex = 13;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnHuy
             // 
@@ -323,6 +333,7 @@
             btnHuy.TabIndex = 12;
             btnHuy.Text = "Sửa ";
             btnHuy.UseVisualStyleBackColor = true;
+            btnHuy.Click += btnHuy_Click;
             // 
             // label12
             // 
@@ -371,10 +382,11 @@
             dgvChiTietDonHang.Name = "dgvChiTietDonHang";
             dgvChiTietDonHang.Size = new Size(912, 207);
             dgvChiTietDonHang.TabIndex = 5;
+            dgvChiTietDonHang.CellClick += dgvChiTietDonHang_CellClick;
             // 
             // chiTietDonHangBindingSource
             // 
-            chiTietDonHangBindingSource.DataMember = "ChiTietDonHang";
+            chiTietDonHangBindingSource.DataMember = "ChiTietDonHangBus";
             // 
             // label13
             // 
@@ -402,6 +414,7 @@
             menuStrip1.Size = new Size(933, 24);
             menuStrip1.TabIndex = 31;
             menuStrip1.Text = "menuStrip1";
+            menuStrip1.ItemClicked += menuStrip1_ItemClicked;
             // 
             // trangChủToolStripMenuItem
             // 
@@ -415,37 +428,42 @@
             quảnLýNgườiDùngToolStripMenuItem.Name = "quảnLýNgườiDùngToolStripMenuItem";
             quảnLýNgườiDùngToolStripMenuItem.Size = new Size(180, 22);
             quảnLýNgườiDùngToolStripMenuItem.Text = "Quản lý người dùng";
+            quảnLýNgườiDùngToolStripMenuItem.Click += quảnLýNgườiDùngToolStripMenuItem_Click;
             // 
             // danhMụcNhânToolStripMenuItem
             // 
-            danhMụcNhânToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { nhânViênBánToolStripMenuItem, nhânViênKhoToolStripMenuItem, danhMụcKháchHàngToolStripMenuItem1, danhMụcNhàCungCấpToolStripMenuItem });
+            danhMụcNhânToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { DanhMucSanPhamToolStripMenuItem, DanhMucNhanVienToolStripMenuItem, danhMụcKháchHàngToolStripMenuItem1, danhMụcNhàCungCấpToolStripMenuItem });
             danhMụcNhânToolStripMenuItem.Name = "danhMụcNhânToolStripMenuItem";
             danhMụcNhânToolStripMenuItem.Size = new Size(74, 20);
             danhMụcNhânToolStripMenuItem.Text = "Danh mục";
             // 
-            // nhânViênBánToolStripMenuItem
+            // DanhMucSanPhamToolStripMenuItem
             // 
-            nhânViênBánToolStripMenuItem.Name = "nhânViênBánToolStripMenuItem";
-            nhânViênBánToolStripMenuItem.Size = new Size(204, 22);
-            nhânViênBánToolStripMenuItem.Text = "Danh mục sản phẩm";
+            DanhMucSanPhamToolStripMenuItem.Name = "DanhMucSanPhamToolStripMenuItem";
+            DanhMucSanPhamToolStripMenuItem.Size = new Size(204, 22);
+            DanhMucSanPhamToolStripMenuItem.Text = "Danh mục sản phẩm";
+            DanhMucSanPhamToolStripMenuItem.Click += DanhMucSanPhamToolStripMenuItem_Click;
             // 
-            // nhânViênKhoToolStripMenuItem
+            // DanhMucNhanVienToolStripMenuItem
             // 
-            nhânViênKhoToolStripMenuItem.Name = "nhânViênKhoToolStripMenuItem";
-            nhânViênKhoToolStripMenuItem.Size = new Size(204, 22);
-            nhânViênKhoToolStripMenuItem.Text = "Danh mục nhân viên";
+            DanhMucNhanVienToolStripMenuItem.Name = "DanhMucNhanVienToolStripMenuItem";
+            DanhMucNhanVienToolStripMenuItem.Size = new Size(204, 22);
+            DanhMucNhanVienToolStripMenuItem.Text = "Danh mục nhân viên";
+            DanhMucNhanVienToolStripMenuItem.Click += DanhMucNhanVienToolStripMenuItem_Click;
             // 
             // danhMụcKháchHàngToolStripMenuItem1
             // 
             danhMụcKháchHàngToolStripMenuItem1.Name = "danhMụcKháchHàngToolStripMenuItem1";
             danhMụcKháchHàngToolStripMenuItem1.Size = new Size(204, 22);
             danhMụcKháchHàngToolStripMenuItem1.Text = "Danh mục khách hàng";
+            danhMụcKháchHàngToolStripMenuItem1.Click += danhMụcKháchHàngToolStripMenuItem1_Click;
             // 
             // danhMụcNhàCungCấpToolStripMenuItem
             // 
             danhMụcNhàCungCấpToolStripMenuItem.Name = "danhMụcNhàCungCấpToolStripMenuItem";
             danhMụcNhàCungCấpToolStripMenuItem.Size = new Size(204, 22);
             danhMụcNhàCungCấpToolStripMenuItem.Text = "Danh mục nhà cung cấp";
+            danhMụcNhàCungCấpToolStripMenuItem.Click += danhMụcNhàCungCấpToolStripMenuItem_Click;
             // 
             // giaoDịchToolStripMenuItem
             // 
@@ -457,37 +475,20 @@
             // hóaĐơnToolStripMenuItem
             // 
             hóaĐơnToolStripMenuItem.Name = "hóaĐơnToolStripMenuItem";
-            hóaĐơnToolStripMenuItem.Size = new Size(180, 22);
+            hóaĐơnToolStripMenuItem.Size = new Size(120, 22);
             hóaĐơnToolStripMenuItem.Text = "Hóa đơn";
+            hóaĐơnToolStripMenuItem.Click += hóaĐơnToolStripMenuItem_Click;
             // 
             // đơnHàngToolStripMenuItem
             // 
-            đơnHàngToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { đơnHàngĐãĐặtToolStripMenuItem, đơnHàngĐãGiaoToolStripMenuItem, tạoPhiếuĐặtHàngToolStripMenuItem });
             đơnHàngToolStripMenuItem.Name = "đơnHàngToolStripMenuItem";
             đơnHàngToolStripMenuItem.Size = new Size(73, 20);
             đơnHàngToolStripMenuItem.Text = "Đơn Hàng";
-            // 
-            // đơnHàngĐãĐặtToolStripMenuItem
-            // 
-            đơnHàngĐãĐặtToolStripMenuItem.Name = "đơnHàngĐãĐặtToolStripMenuItem";
-            đơnHàngĐãĐặtToolStripMenuItem.Size = new Size(181, 22);
-            đơnHàngĐãĐặtToolStripMenuItem.Text = "Đơn hàng khách đặt";
-            // 
-            // đơnHàngĐãGiaoToolStripMenuItem
-            // 
-            đơnHàngĐãGiaoToolStripMenuItem.Name = "đơnHàngĐãGiaoToolStripMenuItem";
-            đơnHàngĐãGiaoToolStripMenuItem.Size = new Size(181, 22);
-            đơnHàngĐãGiaoToolStripMenuItem.Text = "Đơn hàng đã giao";
-            // 
-            // tạoPhiếuĐặtHàngToolStripMenuItem
-            // 
-            tạoPhiếuĐặtHàngToolStripMenuItem.Name = "tạoPhiếuĐặtHàngToolStripMenuItem";
-            tạoPhiếuĐặtHàngToolStripMenuItem.Size = new Size(181, 22);
-            tạoPhiếuĐặtHàngToolStripMenuItem.Text = "Tạo phiếu đặt hàng";
+            đơnHàngToolStripMenuItem.Click += đơnHàngToolStripMenuItem_Click;
             // 
             // quảnLýKhoToolStripMenuItem
             // 
-            quảnLýKhoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { phiếuNhậpHàngToolStripMenuItem, phiếuXuấtHàngToolStripMenuItem, thốngKêHàngTồnToolStripMenuItem });
+            quảnLýKhoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { phiếuNhậpHàngToolStripMenuItem, phiếuXuấtHàngToolStripMenuItem });
             quảnLýKhoToolStripMenuItem.Name = "quảnLýKhoToolStripMenuItem";
             quảnLýKhoToolStripMenuItem.Size = new Size(83, 20);
             quảnLýKhoToolStripMenuItem.Text = "Quản lý kho";
@@ -495,39 +496,23 @@
             // phiếuNhậpHàngToolStripMenuItem
             // 
             phiếuNhậpHàngToolStripMenuItem.Name = "phiếuNhậpHàngToolStripMenuItem";
-            phiếuNhậpHàngToolStripMenuItem.Size = new Size(174, 22);
+            phiếuNhậpHàngToolStripMenuItem.Size = new Size(164, 22);
             phiếuNhậpHàngToolStripMenuItem.Text = "Phiếu nhập hàng";
+            phiếuNhậpHàngToolStripMenuItem.Click += phiếuNhậpHàngToolStripMenuItem_Click;
             // 
             // phiếuXuấtHàngToolStripMenuItem
             // 
             phiếuXuấtHàngToolStripMenuItem.Name = "phiếuXuấtHàngToolStripMenuItem";
-            phiếuXuấtHàngToolStripMenuItem.Size = new Size(174, 22);
+            phiếuXuấtHàngToolStripMenuItem.Size = new Size(164, 22);
             phiếuXuấtHàngToolStripMenuItem.Text = "Phiếu xuất hàng";
-            // 
-            // thốngKêHàngTồnToolStripMenuItem
-            // 
-            thốngKêHàngTồnToolStripMenuItem.Name = "thốngKêHàngTồnToolStripMenuItem";
-            thốngKêHàngTồnToolStripMenuItem.Size = new Size(174, 22);
-            thốngKêHàngTồnToolStripMenuItem.Text = "Thống kê hàng tồn";
+            phiếuXuấtHàngToolStripMenuItem.Click += phiếuXuấtHàngToolStripMenuItem_Click;
             // 
             // báoCáoToolStripMenuItem
             // 
-            báoCáoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { báoCáoTàiChínhToolStripMenuItem, báoCáoDoanhToolStripMenuItem });
             báoCáoToolStripMenuItem.Name = "báoCáoToolStripMenuItem";
             báoCáoToolStripMenuItem.Size = new Size(63, 20);
             báoCáoToolStripMenuItem.Text = "Báo Cáo";
-            // 
-            // báoCáoTàiChínhToolStripMenuItem
-            // 
-            báoCáoTàiChínhToolStripMenuItem.Name = "báoCáoTàiChínhToolStripMenuItem";
-            báoCáoTàiChínhToolStripMenuItem.Size = new Size(174, 22);
-            báoCáoTàiChínhToolStripMenuItem.Text = "Báo cáo tài chính";
-            // 
-            // báoCáoDoanhToolStripMenuItem
-            // 
-            báoCáoDoanhToolStripMenuItem.Name = "báoCáoDoanhToolStripMenuItem";
-            báoCáoDoanhToolStripMenuItem.Size = new Size(174, 22);
-            báoCáoDoanhToolStripMenuItem.Text = "Báo cáo doanh thu";
+            báoCáoToolStripMenuItem.Click += báoCáoToolStripMenuItem_Click;
             // 
             // đăngXuấtToolStripMenuItem
             // 
@@ -571,13 +556,11 @@
         private System.Windows.Forms.ToolStripMenuItem danhMụcKháchHàngToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem danhMụcNhàCungCấpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hóaĐơnToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tạoPhiếuĐặtHàngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quảnLýKhoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem phiếuNhậpHàngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem phiếuXuấtHàngToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem thốngKêHàngTồnToolStripMenuItem;
 
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateNgayNhap;
 
         private System.Windows.Forms.NumericUpDown NumberSoLuong;
 
@@ -587,9 +570,9 @@
         private System.Windows.Forms.DataGridView dgvChiTietDonHang;
 
         private System.Windows.Forms.Button btnTaoKH;
-        private System.Windows.Forms.TextBox txtSoDienThoai;
+        private System.Windows.Forms.TextBox txtSdt;
         private System.Windows.Forms.TextBox txtMaSanPham;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtTenSP;
         private System.Windows.Forms.TextBox txtGiaTien;
 
         private System.Windows.Forms.TextBox txtMaDonHang;
@@ -614,17 +597,13 @@
 
         private System.Windows.Forms.ToolStripMenuItem trangChủToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem đơnHàngToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem đơnHàngĐãĐặtToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem đơnHàngĐãGiaoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem giaoDịchToolStripMenuItem;
         private System.Windows.Forms.GroupBox gbThongTInDonHang;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem danhMụcNhânToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nhânViênBánToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nhânViênKhoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DanhMucSanPhamToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DanhMucNhanVienToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem báoCáoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem báoCáoTàiChínhToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem báoCáoDoanhToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
         private System.Windows.Forms.GroupBox gbThongTinSapPham;
         private System.Windows.Forms.Label label1;
@@ -649,5 +628,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tenSPDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn soLuongSPDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tongGiaTienDataGridViewTextBoxColumn;
+        private Button btnReload;
     }
 }

@@ -80,7 +80,7 @@ public class NguoiDungBus : IBus<NguoiDung>
 
     public List<NguoiDung> SearchData(string tuKhoa)
     {
-        throw new NotImplementedException();
+        return db.NguoiDungs.Where(e => e.HoTen.Contains(tuKhoa)).ToList();
     }
 
     public bool DangNhap(string text, string s)

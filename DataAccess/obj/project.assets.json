@@ -4022,11 +4022,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kieu Anh\\RiderProjects\\BTLCSharp\\DataAccess\\DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\Kieu Anh\\Desktop\\GITHUB\\BTL_Csharp\\DataAccess\\DataAccess.csproj",
       "projectName": "DataAccess",
-      "projectPath": "C:\\Users\\Kieu Anh\\RiderProjects\\BTLCSharp\\DataAccess\\DataAccess.csproj",
+      "projectPath": "C:\\Users\\Kieu Anh\\Desktop\\GITHUB\\BTL_Csharp\\DataAccess\\DataAccess.csproj",
       "packagesPath": "C:\\Users\\Kieu Anh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kieu Anh\\RiderProjects\\BTLCSharp\\DataAccess\\obj\\",
+      "outputPath": "C:\\Users\\Kieu Anh\\Desktop\\GITHUB\\BTL_Csharp\\DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Kieu Anh\\AppData\\Roaming\\NuGet\\NuGet.Config",

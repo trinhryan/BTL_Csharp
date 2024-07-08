@@ -42,12 +42,19 @@ public class KhachHangBus: IBus<KhachHang>
 
     public void AddData(KhachHang obj)
     {
-        throw new NotImplementedException();
+        // KhachHang khachHang = (KhachHang)T;
+        // db.KhachHangs.Add(khachHang);
+        // db.SaveChanges();
+        
+        //su dung cau lenh sql
+        KhachHang khachHang = (KhachHang)obj;
+        db.Database.ExecuteSqlRaw("insert into KhachHang(TenKh, Sdt, DiaChi) values({0}, {1}, {2})", khachHang.TenKh, khachHang.Sdt, khachHang.DiaChi);
     }
 
     public void UpdateData(KhachHang obj)
     {
         throw new NotImplementedException();
+        
     }
 
     public void AddData(object T)
@@ -63,12 +70,23 @@ public class KhachHangBus: IBus<KhachHang>
 
     public void UpdateData(object T)
     {
-        throw new NotImplementedException();
+        KhachHang khachHang = (KhachHang)T;
+        KhachHang khachHangUpdate = db.KhachHangs.FirstOrDefault(e => e.MaKh == khachHang.MaKh);
+        khachHangUpdate.TenKh = khachHang.TenKh;
+        khachHangUpdate.Sdt = khachHang.Sdt;
+        khachHangUpdate.DiaChi = khachHang.DiaChi;
+        db.SaveChanges();
     }
 
     public void DeleteData(object id)
     {
-        throw new NotImplementedException();
+        //su entity framework
+        KhachHang khachHang = db.KhachHangs.FirstOrDefault(e => e.MaKh == (int)id);
+        db.KhachHangs.Remove(khachHang);
+        db.SaveChanges();
+        
+        //su dung cau lenh sql
+        //db.Database.ExecuteSqlRaw("delete from KhachHang where MaKh = {0}", id);
     }
 
     public List<KhachHang> SearchData(string ten)

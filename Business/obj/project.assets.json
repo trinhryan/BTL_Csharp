@@ -2687,11 +2687,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kieu Anh\\RiderProjects\\BTLCSharp\\Business\\Business.csproj",
+      "projectUniqueName": "C:\\Users\\Kieu Anh\\Desktop\\GITHUB\\BTL_Csharp\\Business\\Business.csproj",
       "projectName": "Business",
-      "projectPath": "C:\\Users\\Kieu Anh\\RiderProjects\\BTLCSharp\\Business\\Business.csproj",
+      "projectPath": "C:\\Users\\Kieu Anh\\Desktop\\GITHUB\\BTL_Csharp\\Business\\Business.csproj",
       "packagesPath": "C:\\Users\\Kieu Anh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kieu Anh\\RiderProjects\\BTLCSharp\\Business\\obj\\",
+      "outputPath": "C:\\Users\\Kieu Anh\\Desktop\\GITHUB\\BTL_Csharp\\Business\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Kieu Anh\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2709,8 +2709,8 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "C:\\Users\\Kieu Anh\\RiderProjects\\BTLCSharp\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "C:\\Users\\Kieu Anh\\RiderProjects\\BTLCSharp\\DataAccess\\DataAccess.csproj"
+            "C:\\Users\\Kieu Anh\\Desktop\\GITHUB\\BTL_Csharp\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\Kieu Anh\\Desktop\\GITHUB\\BTL_Csharp\\DataAccess\\DataAccess.csproj"
             }
           }
         }

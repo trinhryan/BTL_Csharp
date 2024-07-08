@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PZpKYhXcleQ=",
+  "dgSpecHash": "Y+2zWWxdApE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kieu Anh\\RiderProjects\\BTLCSharp\\GUI\\GUI.csproj",
+  "projectFilePath": "C:\\Users\\Kieu Anh\\Desktop\\GITHUB\\BTL_Csharp\\GUI\\GUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kieu Anh\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Kieu Anh\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

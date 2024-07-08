@@ -82,4 +82,15 @@ public class NguoiDungBus : IBus<NguoiDung>
     {
         throw new NotImplementedException();
     }
+
+    public bool DangNhap(string text, string s)
+    {
+        // kiểm tra xem có tồn tại người dùng có tên đăng nhập và mật khẩu không
+        var nguoiDung = db.NguoiDungs.FirstOrDefault(e => e.TenDangNhap == text && e.MatKhau == s);
+        if (nguoiDung != null)
+        {
+            return true;
+        }
+        return false;
+    }
 }

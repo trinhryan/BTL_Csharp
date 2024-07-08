@@ -21,135 +21,147 @@
         }
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtMatKhau = new System.Windows.Forms.TextBox();
-            this.txtTenDangNhap = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnDangNhap = new System.Windows.Forms.Button();
-            this.btnQuenMatKhau = new System.Windows.Forms.Button();
-            this.btnDangKi = new System.Windows.Forms.Button();
-            this.btnThoat = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
-            this.SuspendLayout();
+            groupBox1 = new GroupBox();
+            txtMatKhau = new TextBox();
+            txtTenDangNhap = new TextBox();
+            label2 = new Label();
+            label1 = new Label();
+            btnDangNhap = new Button();
+            btnQuenMatKhau = new Button();
+            btnDangKi = new Button();
+            btnThoat = new Button();
+            label3 = new Label();
+            groupBox1.SuspendLayout();
+            SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.groupBox1.Controls.Add(this.txtMatKhau);
-            this.groupBox1.Controls.Add(this.txtTenDangNhap);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(19, 115);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(445, 228);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thông tin đăng nhập";
+            groupBox1.BackColor = SystemColors.GradientActiveCaption;
+            groupBox1.Controls.Add(txtMatKhau);
+            groupBox1.Controls.Add(txtTenDangNhap);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Location = new Point(25, 142);
+            groupBox1.Margin = new Padding(4, 4, 4, 4);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Padding = new Padding(4, 4, 4, 4);
+            groupBox1.Size = new Size(593, 281);
+            groupBox1.TabIndex = 0;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Thông tin đăng nhập";
             // 
             // txtMatKhau
             // 
-            this.txtMatKhau.Location = new System.Drawing.Point(53, 150);
-            this.txtMatKhau.Name = "txtMatKhau";
-            this.txtMatKhau.Size = new System.Drawing.Size(369, 20);
-            this.txtMatKhau.TabIndex = 3;
+            txtMatKhau.Location = new Point(71, 185);
+            txtMatKhau.Margin = new Padding(4, 4, 4, 4);
+            txtMatKhau.Name = "txtMatKhau";
+            txtMatKhau.Size = new Size(491, 23);
+            txtMatKhau.TabIndex = 3;
             // 
             // txtTenDangNhap
             // 
-            this.txtTenDangNhap.Location = new System.Drawing.Point(53, 74);
-            this.txtTenDangNhap.Name = "txtTenDangNhap";
-            this.txtTenDangNhap.Size = new System.Drawing.Size(369, 20);
-            this.txtTenDangNhap.TabIndex = 2;
+            txtTenDangNhap.Location = new Point(71, 91);
+            txtTenDangNhap.Margin = new Padding(4, 4, 4, 4);
+            txtTenDangNhap.Name = "txtTenDangNhap";
+            txtTenDangNhap.Size = new Size(491, 23);
+            txtTenDangNhap.TabIndex = 2;
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(20, 119);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 40);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Mật khẩu";
+            label2.Location = new Point(27, 146);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(171, 49);
+            label2.TabIndex = 1;
+            label2.Text = "Mật khẩu";
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(20, 44);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 40);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Tên đăng nhập";
+            label1.Location = new Point(27, 54);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(171, 49);
+            label1.TabIndex = 0;
+            label1.Text = "Tên đăng nhập";
             // 
             // btnDangNhap
             // 
-            this.btnDangNhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnDangNhap.Location = new System.Drawing.Point(524, 115);
-            this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(122, 40);
-            this.btnDangNhap.TabIndex = 1;
-            this.btnDangNhap.Text = "Đăng Nhập";
-            this.btnDangNhap.UseVisualStyleBackColor = false;
-            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
+            btnDangNhap.BackColor = Color.FromArgb(255, 192, 255);
+            btnDangNhap.Location = new Point(699, 142);
+            btnDangNhap.Margin = new Padding(4, 4, 4, 4);
+            btnDangNhap.Name = "btnDangNhap";
+            btnDangNhap.Size = new Size(163, 49);
+            btnDangNhap.TabIndex = 1;
+            btnDangNhap.Text = "Đăng Nhập";
+            btnDangNhap.UseVisualStyleBackColor = false;
+            btnDangNhap.Click += btnDangNhap_Click;
             // 
             // btnQuenMatKhau
             // 
-            this.btnQuenMatKhau.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnQuenMatKhau.Location = new System.Drawing.Point(524, 178);
-            this.btnQuenMatKhau.Name = "btnQuenMatKhau";
-            this.btnQuenMatKhau.Size = new System.Drawing.Size(122, 40);
-            this.btnQuenMatKhau.TabIndex = 2;
-            this.btnQuenMatKhau.Text = "Quên mật khẩu";
-            this.btnQuenMatKhau.UseVisualStyleBackColor = false;
-            this.btnQuenMatKhau.Click += new System.EventHandler(this.btnQuenMatKhau_Click);
+            btnQuenMatKhau.BackColor = Color.FromArgb(255, 192, 255);
+            btnQuenMatKhau.Location = new Point(699, 219);
+            btnQuenMatKhau.Margin = new Padding(4, 4, 4, 4);
+            btnQuenMatKhau.Name = "btnQuenMatKhau";
+            btnQuenMatKhau.Size = new Size(163, 49);
+            btnQuenMatKhau.TabIndex = 2;
+            btnQuenMatKhau.Text = "Quên mật khẩu";
+            btnQuenMatKhau.UseVisualStyleBackColor = false;
+            btnQuenMatKhau.Click += btnQuenMatKhau_Click;
             // 
             // btnDangKi
             // 
-            this.btnDangKi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnDangKi.Location = new System.Drawing.Point(524, 245);
-            this.btnDangKi.Name = "btnDangKi";
-            this.btnDangKi.Size = new System.Drawing.Size(122, 40);
-            this.btnDangKi.TabIndex = 3;
-            this.btnDangKi.Text = "Đăng kí";
-            this.btnDangKi.UseVisualStyleBackColor = false;
-            this.btnDangKi.Click += new System.EventHandler(this.btnDangKi_Click);
+            btnDangKi.BackColor = Color.FromArgb(255, 192, 255);
+            btnDangKi.Location = new Point(699, 302);
+            btnDangKi.Margin = new Padding(4, 4, 4, 4);
+            btnDangKi.Name = "btnDangKi";
+            btnDangKi.Size = new Size(163, 49);
+            btnDangKi.TabIndex = 3;
+            btnDangKi.Text = "Đăng kí";
+            btnDangKi.UseVisualStyleBackColor = false;
+            btnDangKi.Click += btnDangKi_Click;
             // 
             // btnThoat
             // 
-            this.btnThoat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnThoat.Location = new System.Drawing.Point(524, 303);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(122, 40);
-            this.btnThoat.TabIndex = 4;
-            this.btnThoat.Text = "Thoát";
-            this.btnThoat.UseVisualStyleBackColor = false;
+            btnThoat.BackColor = Color.FromArgb(255, 192, 255);
+            btnThoat.Location = new Point(699, 373);
+            btnThoat.Margin = new Padding(4, 4, 4, 4);
+            btnThoat.Name = "btnThoat";
+            btnThoat.Size = new Size(163, 49);
+            btnThoat.TabIndex = 4;
+            btnThoat.Text = "Thoát";
+            btnThoat.UseVisualStyleBackColor = false;
+            btnThoat.Click += btnThoat_Click;
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(30, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(556, 75);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "ĐĂNG NHẬP VÀO HỆ THỐNG";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            label3.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.Red;
+            label3.Location = new Point(40, 25);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(741, 92);
+            label3.TabIndex = 5;
+            label3.Text = "ĐĂNG NHẬP VÀO HỆ THỐNG";
+            label3.TextAlign = ContentAlignment.TopCenter;
             // 
             // DangNhapForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(672, 395);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnThoat);
-            this.Controls.Add(this.btnDangKi);
-            this.Controls.Add(this.btnQuenMatKhau);
-            this.Controls.Add(this.btnDangNhap);
-            this.Controls.Add(this.groupBox1);
-            this.Name = "DangNhapForm";
-            this.Text = "DangNhapForm";
-           // this.Load += new System.EventHandler(this.DangNhapForm_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(8F, 16F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.GradientInactiveCaption;
+            ClientSize = new Size(896, 486);
+            Controls.Add(label3);
+            Controls.Add(btnThoat);
+            Controls.Add(btnDangKi);
+            Controls.Add(btnQuenMatKhau);
+            Controls.Add(btnDangNhap);
+            Controls.Add(groupBox1);
+            Margin = new Padding(4, 4, 4, 4);
+            Name = "DangNhapForm";
+            Text = "DangNhapForm";
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ResumeLayout(false);
         }
 
         private System.Windows.Forms.Label label3;

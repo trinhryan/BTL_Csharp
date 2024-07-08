@@ -12,45 +12,57 @@ using DataAccess.Entities;
 
 namespace GUI
 {
-    public partial class DangKiForm : Form
+    public partial class DangKyForm : Form
     {
-        NguoiDungBus bus = new ();
+        NguoiDungBus bus = new();
 
-        public DangKiForm()
+        public DangKyForm()
         {
             InitializeComponent();
         }
 
-        private void btnDangKi_Click(object? sender, EventArgs e)
+        private void btnDangNhap_Click(object? sender, EventArgs e)
+        {
+            var form = new DangNhapForm();
+            form.Show();
+            this.Hide();
+        }
+
+        private void btnThoat_Click(object? sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnDangKy_Click(object? sender, EventArgs e)
         {
             var hoTen = txtHoVaTen.Text;
             var tenDangNhap = txtTenDangNhap.Text;
             var matKhau = txtMatKhau.Text;
-            var gioiTinh = rdbNam.Checked ? "Nam" : "Nữ";
+            var gioiTinh = rdbNam.Checked ? "1" : "0";
             var sdt = txtSdt.Text;
             var diaChi = txtDiaChi.Text;
-            
+
             // check if hoTen, tenDangNhap, matKhau, sdt, diaChi are empty
             if (string.IsNullOrEmpty(hoTen) || string.IsNullOrEmpty(tenDangNhap) || string.IsNullOrEmpty(matKhau) || string.IsNullOrEmpty(sdt) || string.IsNullOrEmpty(diaChi))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
                 return;
             }
-            
+
             // check if matKhau is less than 6 characters
             if (matKhau.Length < 6)
             {
                 MessageBox.Show("Mật khẩu phải có ít nhất 6 ký tự");
                 return;
             }
-            
+
             // check if sdt is not a number
             if (!int.TryParse(sdt, out _))
             {
                 MessageBox.Show("Số điện thoại phải là số");
                 return;
             }
-            
+
             // check if tenDangNhap already exists
             var isExist = bus.KiemTraTenDangNhap(tenDangNhap);
             if (isExist)
@@ -70,20 +82,21 @@ namespace GUI
             };
             // add new user
             bus.AddData(nguoiDung);
-            
+
             MessageBox.Show("Đăng kí thành công");
+
+            ClearData();
         }
 
-        private void btnDangNhap_Click(object? sender, EventArgs e)
+        private void ClearData()
         {
-            var form = new DangNhapForm();
-            form.Show();
-            this.Hide();
-        }
-
-        private void btnThoat_Click(object? sender, EventArgs e)
-        {
-            this.Close();
+            txtHoVaTen.Text = String.Empty;
+            txtDiaChi.Text = String.Empty;
+            txtMatKhau.Text = String.Empty;
+            txtSdt.Text = String.Empty;
+            txtTenDangNhap.Text = String.Empty;
+            rdbNam.Checked = false;
+            rdbNu.Checked = false;
         }
     }
 }

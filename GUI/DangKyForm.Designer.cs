@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class DangKiForm
+    partial class DangKyForm
     {
         /// <summary>
         /// Required designer variable.
@@ -52,35 +52,35 @@
             // 
             // txtMatKhau
             // 
-            txtMatKhau.Location = new Point(166, 133);
-            txtMatKhau.Margin = new Padding(4, 3, 4, 3);
+            txtMatKhau.Location = new Point(190, 142);
+            txtMatKhau.Margin = new Padding(5, 3, 5, 3);
             txtMatKhau.Name = "txtMatKhau";
-            txtMatKhau.Size = new Size(362, 23);
+            txtMatKhau.Size = new Size(413, 23);
             txtMatKhau.TabIndex = 3;
             // 
             // txtTenDangNhap
             // 
-            txtTenDangNhap.Location = new Point(166, 82);
-            txtTenDangNhap.Margin = new Padding(4, 3, 4, 3);
+            txtTenDangNhap.Location = new Point(190, 87);
+            txtTenDangNhap.Margin = new Padding(5, 3, 5, 3);
             txtTenDangNhap.Name = "txtTenDangNhap";
-            txtTenDangNhap.Size = new Size(362, 23);
+            txtTenDangNhap.Size = new Size(413, 23);
             txtTenDangNhap.TabIndex = 2;
             // 
             // label2
             // 
-            label2.Location = new Point(30, 133);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(34, 142);
+            label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
-            label2.Size = new Size(92, 21);
+            label2.Size = new Size(105, 22);
             label2.TabIndex = 1;
             label2.Text = "Mật khẩu";
             // 
             // label1
             // 
-            label1.Location = new Point(30, 82);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(34, 87);
+            label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(108, 23);
+            label1.Size = new Size(123, 25);
             label1.TabIndex = 0;
             label1.Text = "Tên đăng nhập";
             // 
@@ -88,10 +88,10 @@
             // 
             label3.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Red;
-            label3.Location = new Point(134, 32);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(153, 34);
+            label3.Margin = new Padding(5, 0, 5, 0);
             label3.Name = "label3";
-            label3.Size = new Size(404, 51);
+            label3.Size = new Size(462, 54);
             label3.TabIndex = 11;
             label3.Text = "ĐĂNG KÝ VÀO HỆ THỐNG";
             label3.TextAlign = ContentAlignment.TopCenter;
@@ -99,38 +99,38 @@
             // btnThoat
             // 
             btnThoat.BackColor = Color.FromArgb(255, 192, 255);
-            btnThoat.Location = new Point(478, 459);
-            btnThoat.Margin = new Padding(4, 3, 4, 3);
+            btnThoat.Location = new Point(546, 490);
+            btnThoat.Margin = new Padding(5, 3, 5, 3);
             btnThoat.Name = "btnThoat";
-            btnThoat.Size = new Size(142, 46);
+            btnThoat.Size = new Size(162, 49);
             btnThoat.TabIndex = 10;
             btnThoat.Text = "Thoát";
             btnThoat.UseVisualStyleBackColor = false;
-            btnThoat.Click += new EventHandler(btnThoat_Click);
+            btnThoat.Click += btnThoat_Click;
             // 
             // btnDangKi
             // 
             btnDangKi.BackColor = Color.FromArgb(255, 192, 255);
-            btnDangKi.Location = new Point(329, 459);
-            btnDangKi.Margin = new Padding(4, 3, 4, 3);
+            btnDangKi.Location = new Point(376, 490);
+            btnDangKi.Margin = new Padding(5, 3, 5, 3);
             btnDangKi.Name = "btnDangKi";
-            btnDangKi.Size = new Size(142, 46);
+            btnDangKi.Size = new Size(162, 49);
             btnDangKi.TabIndex = 9;
             btnDangKi.Text = "Đăng kí";
             btnDangKi.UseVisualStyleBackColor = false;
-            btnDangKi.Click += new EventHandler(btnDangKi_Click);
+            btnDangKi.Click += btnDangKy_Click;
             // 
             // btnDangNhap
             // 
             btnDangNhap.BackColor = Color.FromArgb(255, 192, 255);
-            btnDangNhap.Location = new Point(124, 453);
-            btnDangNhap.Margin = new Padding(4, 3, 4, 3);
+            btnDangNhap.Location = new Point(204, 490);
+            btnDangNhap.Margin = new Padding(5, 3, 5, 3);
             btnDangNhap.Name = "btnDangNhap";
-            btnDangNhap.Size = new Size(142, 46);
+            btnDangNhap.Size = new Size(162, 49);
             btnDangNhap.TabIndex = 7;
             btnDangNhap.Text = "Đăng Nhập";
             btnDangNhap.UseVisualStyleBackColor = false;
-            btnDangKi.Click += new EventHandler(btnDangNhap_Click);
+            btnDangNhap.Click += btnDangNhap_Click;
             // 
             // groupBox1
             // 
@@ -148,21 +148,21 @@
             groupBox1.Controls.Add(txtTenDangNhap);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(33, 100);
-            groupBox1.Margin = new Padding(4, 3, 4, 3);
+            groupBox1.Location = new Point(38, 107);
+            groupBox1.Margin = new Padding(5, 3, 5, 3);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(4, 3, 4, 3);
-            groupBox1.Size = new Size(588, 346);
+            groupBox1.Padding = new Padding(5, 3, 5, 3);
+            groupBox1.Size = new Size(672, 369);
             groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin đăng kí";
             // 
             // rdbNu
             // 
-            rdbNu.Location = new Point(329, 181);
-            rdbNu.Margin = new Padding(4, 3, 4, 3);
+            rdbNu.Location = new Point(376, 193);
+            rdbNu.Margin = new Padding(5, 3, 5, 3);
             rdbNu.Name = "rdbNu";
-            rdbNu.Size = new Size(121, 28);
+            rdbNu.Size = new Size(138, 30);
             rdbNu.TabIndex = 16;
             rdbNu.TabStop = true;
             rdbNu.Text = "Nữ";
@@ -170,10 +170,10 @@
             // 
             // rdbNam
             // 
-            rdbNam.Location = new Point(166, 181);
-            rdbNam.Margin = new Padding(4, 3, 4, 3);
+            rdbNam.Location = new Point(190, 193);
+            rdbNam.Margin = new Padding(5, 3, 5, 3);
             rdbNam.Name = "rdbNam";
-            rdbNam.Size = new Size(121, 28);
+            rdbNam.Size = new Size(138, 30);
             rdbNam.TabIndex = 15;
             rdbNam.TabStop = true;
             rdbNam.Text = "Nam";
@@ -181,87 +181,87 @@
             // 
             // label4
             // 
-            label4.Location = new Point(30, 181);
-            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Location = new Point(34, 193);
+            label4.Margin = new Padding(5, 0, 5, 0);
             label4.Name = "label4";
-            label4.Size = new Size(74, 32);
+            label4.Size = new Size(85, 34);
             label4.TabIndex = 14;
             label4.Text = "Giới tính";
             // 
             // txtHoVaTen
             // 
-            txtHoVaTen.Location = new Point(166, 39);
-            txtHoVaTen.Margin = new Padding(4, 3, 4, 3);
+            txtHoVaTen.Location = new Point(190, 42);
+            txtHoVaTen.Margin = new Padding(5, 3, 5, 3);
             txtHoVaTen.Name = "txtHoVaTen";
-            txtHoVaTen.Size = new Size(362, 23);
+            txtHoVaTen.Size = new Size(413, 23);
             txtHoVaTen.TabIndex = 13;
             // 
             // label7
             // 
-            label7.Location = new Point(30, 43);
-            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Location = new Point(34, 46);
+            label7.Margin = new Padding(5, 0, 5, 0);
             label7.Name = "label7";
-            label7.Size = new Size(84, 20);
+            label7.Size = new Size(96, 21);
             label7.TabIndex = 12;
             label7.Text = "Họ và tên";
             // 
             // txtDiaChi
             // 
-            txtDiaChi.Location = new Point(166, 283);
-            txtDiaChi.Margin = new Padding(4, 3, 4, 3);
+            txtDiaChi.Location = new Point(190, 302);
+            txtDiaChi.Margin = new Padding(5, 3, 5, 3);
             txtDiaChi.Name = "txtDiaChi";
-            txtDiaChi.Size = new Size(361, 23);
+            txtDiaChi.Size = new Size(412, 23);
             txtDiaChi.TabIndex = 11;
             // 
             // label5
             // 
-            label5.Location = new Point(30, 276);
-            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Location = new Point(34, 294);
+            label5.Margin = new Padding(5, 0, 5, 0);
             label5.Name = "label5";
-            label5.Size = new Size(59, 30);
+            label5.Size = new Size(67, 32);
             label5.TabIndex = 10;
             label5.Text = "Địa chỉ";
             // 
             // txtSdt
             // 
-            txtSdt.Location = new Point(166, 237);
-            txtSdt.Margin = new Padding(4, 3, 4, 3);
+            txtSdt.Location = new Point(190, 253);
+            txtSdt.Margin = new Padding(5, 3, 5, 3);
             txtSdt.Name = "txtSdt";
-            txtSdt.Size = new Size(361, 23);
+            txtSdt.Size = new Size(412, 23);
             txtSdt.TabIndex = 9;
             // 
             // label6
             // 
-            label6.Location = new Point(30, 237);
-            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Location = new Point(34, 253);
+            label6.Margin = new Padding(5, 0, 5, 0);
             label6.Name = "label6";
-            label6.Size = new Size(84, 30);
+            label6.Size = new Size(96, 32);
             label6.TabIndex = 6;
             label6.Text = "Số điện thoại";
             // 
             // label8
             // 
-            label8.Location = new Point(33, 459);
-            label8.Margin = new Padding(4, 0, 4, 0);
+            label8.Location = new Point(38, 490);
+            label8.Margin = new Padding(5, 0, 5, 0);
             label8.Name = "label8";
-            label8.Size = new Size(100, 53);
+            label8.Size = new Size(157, 49);
             label8.TabIndex = 12;
             label8.Text = "Bạn đã có tài khoản";
             // 
-            // DangKiForm
+            // DangKyForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(648, 519);
+            ClientSize = new Size(741, 554);
             Controls.Add(label8);
             Controls.Add(label3);
             Controls.Add(btnThoat);
             Controls.Add(btnDangKi);
             Controls.Add(btnDangNhap);
             Controls.Add(groupBox1);
-            Margin = new Padding(4, 3, 4, 3);
-            Name = "DangKiForm";
-            Text = "DangKiForm";
+            Margin = new Padding(5, 3, 5, 3);
+            Name = "DangKyForm";
+            Text = "DangKyForm";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);

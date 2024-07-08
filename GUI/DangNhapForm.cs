@@ -29,14 +29,14 @@ namespace GUI
                 MessageBox.Show("Vui lòng nhập tên đăng nhập và mật khẩu");
                 return;
             }
-            
+
             var result = bus.DangNhap(tenDangNhap, matKhau);
-            
+
             if (result)
             {
                 MessageBox.Show("Đăng nhập thành công");
                 this.Hide();
-                var mainForm = new SanPhamForm();
+                var mainForm = new NguoiDungForm();
                 mainForm.ShowDialog();
                 this.Close();
             }
@@ -48,9 +48,9 @@ namespace GUI
 
         private void btnDangKi_Click(object? sender, EventArgs e)
         {
-           var form = new DangKiForm();
-           form.Show();
-           this.Hide();
+            var form = new DangKyForm();
+            form.Show();
+            this.Hide();
         }
 
         private void btnQuenMatKhau_Click(object? sender, EventArgs e)
@@ -58,6 +58,12 @@ namespace GUI
             var form = new QuenMatKhauForm();
             form.Show();
             this.Hide();
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            // exit the application
+            Application.Exit();
         }
     }
 }

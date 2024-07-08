@@ -219,7 +219,7 @@ public partial class MyDbContext : DbContext
             entity.Property(e => e.DiaChi)
                 .HasMaxLength(255)
                 .IsUnicode(false);
-            entity.Property(e => e.Email)
+            entity.Property(e => e.Sdt)
                 .HasMaxLength(100)
                 .IsUnicode(false);
             entity.Property(e => e.TenNcc)

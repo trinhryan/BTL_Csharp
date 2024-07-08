@@ -28,6 +28,8 @@ public partial class NguoiDungForm : Form
         nguoiDung.DiaChi = txtDiaChi.Text;
         nguoiDung.Sdt = txtSdt.Text;
         bus.AddData(nguoiDung);
+        
+        MessageBox.Show("Thêm thành công");
     }
 
     private void btnXoa_Click(object sender, EventArgs e)

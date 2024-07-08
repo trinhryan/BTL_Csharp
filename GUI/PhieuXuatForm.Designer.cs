@@ -41,29 +41,29 @@ namespace GUI
             btnThoat = new Button();
             btnThem = new Button();
             btnXoa = new Button();
-            btnHuy = new Button();
+            btnSua = new Button();
             label12 = new Label();
             label11 = new Label();
             label10 = new Label();
             label9 = new Label();
             gbThongTInDonHang = new GroupBox();
+            txtMaPhieuXuat = new TextBox();
+            label5 = new Label();
+            txtMaNV = new TextBox();
+            label8 = new Label();
+            txtTenNV = new TextBox();
+            label4 = new Label();
+            cobCHNhap = new ComboBox();
+            label2 = new Label();
             dateNgayNhap = new DateTimePicker();
             txtSdt = new TextBox();
             txtDiaChi = new TextBox();
-            txtLiDoXuat = new TextBox();
             cobCHXuat = new ComboBox();
             label7 = new Label();
             label6 = new Label();
-            label5 = new Label();
             label3 = new Label();
             label1 = new Label();
-            label2 = new Label();
-            cobCHNhap = new ComboBox();
             btnInPhieu = new Button();
-            label4 = new Label();
-            txtTenNV = new TextBox();
-            label8 = new Label();
-            txtMaNV = new TextBox();
             ((System.ComponentModel.ISupportInitialize)NumberSoLuong).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvPhieuXuatHang).BeginInit();
             gbThongTinSapPham.SuspendLayout();
@@ -87,6 +87,7 @@ namespace GUI
             dgvPhieuXuatHang.Name = "dgvPhieuXuatHang";
             dgvPhieuXuatHang.Size = new Size(912, 207);
             dgvPhieuXuatHang.TabIndex = 11;
+            dgvPhieuXuatHang.CellClick += dgvPhieuXuatHang_CellClick;
             // 
             // gbThongTinSapPham
             // 
@@ -98,7 +99,7 @@ namespace GUI
             gbThongTinSapPham.Controls.Add(btnThoat);
             gbThongTinSapPham.Controls.Add(btnThem);
             gbThongTinSapPham.Controls.Add(btnXoa);
-            gbThongTinSapPham.Controls.Add(btnHuy);
+            gbThongTinSapPham.Controls.Add(btnSua);
             gbThongTinSapPham.Controls.Add(label12);
             gbThongTinSapPham.Controls.Add(label11);
             gbThongTinSapPham.Controls.Add(label10);
@@ -121,6 +122,7 @@ namespace GUI
             btnReload.TabIndex = 24;
             btnReload.Text = "Reload";
             btnReload.UseVisualStyleBackColor = true;
+            btnReload.Click += btnReload_Click;
             // 
             // txtGiaTien
             // 
@@ -155,6 +157,7 @@ namespace GUI
             btnThoat.TabIndex = 15;
             btnThoat.Text = "Thoát";
             btnThoat.UseVisualStyleBackColor = true;
+            btnThoat.Click += btnThoat_Click;
             // 
             // btnThem
             // 
@@ -165,6 +168,7 @@ namespace GUI
             btnThem.TabIndex = 14;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
             // 
             // btnXoa
             // 
@@ -175,16 +179,18 @@ namespace GUI
             btnXoa.TabIndex = 13;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click;
             // 
-            // btnHuy
+            // btnSua
             // 
-            btnHuy.Location = new Point(606, 147);
-            btnHuy.Margin = new Padding(4, 3, 4, 3);
-            btnHuy.Name = "btnHuy";
-            btnHuy.Size = new Size(121, 38);
-            btnHuy.TabIndex = 12;
-            btnHuy.Text = "Sửa ";
-            btnHuy.UseVisualStyleBackColor = true;
+            btnSua.Location = new Point(606, 147);
+            btnSua.Margin = new Padding(4, 3, 4, 3);
+            btnSua.Name = "btnSua";
+            btnSua.Size = new Size(121, 38);
+            btnSua.TabIndex = 12;
+            btnSua.Text = "Sửa ";
+            btnSua.UseVisualStyleBackColor = true;
+            btnSua.Click += btnHuy_Click;
             // 
             // label12
             // 
@@ -224,6 +230,8 @@ namespace GUI
             // 
             // gbThongTInDonHang
             // 
+            gbThongTInDonHang.Controls.Add(txtMaPhieuXuat);
+            gbThongTInDonHang.Controls.Add(label5);
             gbThongTInDonHang.Controls.Add(txtMaNV);
             gbThongTInDonHang.Controls.Add(label8);
             gbThongTInDonHang.Controls.Add(txtTenNV);
@@ -233,11 +241,9 @@ namespace GUI
             gbThongTInDonHang.Controls.Add(dateNgayNhap);
             gbThongTInDonHang.Controls.Add(txtSdt);
             gbThongTInDonHang.Controls.Add(txtDiaChi);
-            gbThongTInDonHang.Controls.Add(txtLiDoXuat);
             gbThongTInDonHang.Controls.Add(cobCHXuat);
             gbThongTInDonHang.Controls.Add(label7);
             gbThongTInDonHang.Controls.Add(label6);
-            gbThongTInDonHang.Controls.Add(label5);
             gbThongTInDonHang.Controls.Add(label3);
             gbThongTInDonHang.Controls.Add(label1);
             gbThongTInDonHang.Location = new Point(63, -1);
@@ -249,9 +255,78 @@ namespace GUI
             gbThongTInDonHang.TabStop = false;
             gbThongTInDonHang.Text = "Thông tin phiếu xuất";
             // 
+            // txtMaPhieuXuat
+            // 
+            txtMaPhieuXuat.Location = new Point(90, 31);
+            txtMaPhieuXuat.Margin = new Padding(4, 3, 4, 3);
+            txtMaPhieuXuat.Name = "txtMaPhieuXuat";
+            txtMaPhieuXuat.Size = new Size(207, 23);
+            txtMaPhieuXuat.TabIndex = 26;
+            // 
+            // label5
+            // 
+            label5.Location = new Point(4, 34);
+            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(88, 27);
+            label5.TabIndex = 25;
+            label5.Text = "Mã phiếu xuất";
+            // 
+            // txtMaNV
+            // 
+            txtMaNV.Location = new Point(477, 80);
+            txtMaNV.Margin = new Padding(4, 3, 4, 3);
+            txtMaNV.Name = "txtMaNV";
+            txtMaNV.Size = new Size(207, 23);
+            txtMaNV.TabIndex = 24;
+            // 
+            // label8
+            // 
+            label8.Location = new Point(381, 83);
+            label8.Margin = new Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(88, 23);
+            label8.TabIndex = 23;
+            label8.Text = "Mã nhân viên";
+            // 
+            // txtTenNV
+            // 
+            txtTenNV.Location = new Point(477, 38);
+            txtTenNV.Margin = new Padding(4, 3, 4, 3);
+            txtTenNV.Name = "txtTenNV";
+            txtTenNV.Size = new Size(207, 23);
+            txtTenNV.TabIndex = 22;
+            // 
+            // label4
+            // 
+            label4.Location = new Point(381, 38);
+            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(88, 32);
+            label4.TabIndex = 21;
+            label4.Text = "Nhân viên  xuất phiếu";
+            // 
+            // cobCHNhap
+            // 
+            cobCHNhap.FormattingEnabled = true;
+            cobCHNhap.Location = new Point(90, 124);
+            cobCHNhap.Margin = new Padding(4, 3, 4, 3);
+            cobCHNhap.Name = "cobCHNhap";
+            cobCHNhap.Size = new Size(204, 23);
+            cobCHNhap.TabIndex = 20;
+            // 
+            // label2
+            // 
+            label2.Location = new Point(4, 127);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(88, 27);
+            label2.TabIndex = 19;
+            label2.Text = "Cửa hàng nhập";
+            // 
             // dateNgayNhap
             // 
-            dateNgayNhap.Location = new Point(90, 38);
+            dateNgayNhap.Location = new Point(477, 180);
             dateNgayNhap.Margin = new Padding(4, 3, 4, 3);
             dateNgayNhap.Name = "dateNgayNhap";
             dateNgayNhap.Size = new Size(204, 23);
@@ -273,18 +348,10 @@ namespace GUI
             txtDiaChi.Size = new Size(207, 23);
             txtDiaChi.TabIndex = 12;
             // 
-            // txtLiDoXuat
-            // 
-            txtLiDoXuat.Location = new Point(477, 172);
-            txtLiDoXuat.Margin = new Padding(4, 3, 4, 3);
-            txtLiDoXuat.Name = "txtLiDoXuat";
-            txtLiDoXuat.Size = new Size(207, 23);
-            txtLiDoXuat.TabIndex = 11;
-            // 
             // cobCHXuat
             // 
             cobCHXuat.FormattingEnabled = true;
-            cobCHXuat.Location = new Point(90, 80);
+            cobCHXuat.Location = new Point(90, 76);
             cobCHXuat.Margin = new Padding(4, 3, 4, 3);
             cobCHXuat.Name = "cobCHXuat";
             cobCHXuat.Size = new Size(204, 23);
@@ -308,15 +375,6 @@ namespace GUI
             label6.TabIndex = 5;
             label6.Text = "Địa chỉ";
             // 
-            // label5
-            // 
-            label5.Location = new Point(381, 168);
-            label5.Margin = new Padding(4, 0, 4, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(88, 27);
-            label5.TabIndex = 4;
-            label5.Text = "Lí do xuất";
-            // 
             // label3
             // 
             label3.Location = new Point(0, 76);
@@ -328,30 +386,12 @@ namespace GUI
             // 
             // label1
             // 
-            label1.Location = new Point(7, 35);
+            label1.Location = new Point(381, 176);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(88, 27);
             label1.TabIndex = 0;
             label1.Text = "Ngày xuất";
-            // 
-            // label2
-            // 
-            label2.Location = new Point(4, 127);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(88, 27);
-            label2.TabIndex = 19;
-            label2.Text = "Cửa hàng nhập";
-            // 
-            // cobCHNhap
-            // 
-            cobCHNhap.FormattingEnabled = true;
-            cobCHNhap.Location = new Point(90, 124);
-            cobCHNhap.Margin = new Padding(4, 3, 4, 3);
-            cobCHNhap.Name = "cobCHNhap";
-            cobCHNhap.Size = new Size(204, 23);
-            cobCHNhap.TabIndex = 20;
             // 
             // btnInPhieu
             // 
@@ -362,40 +402,7 @@ namespace GUI
             btnInPhieu.TabIndex = 26;
             btnInPhieu.Text = "In phiếu";
             btnInPhieu.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            label4.Location = new Point(381, 38);
-            label4.Margin = new Padding(4, 0, 4, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(88, 32);
-            label4.TabIndex = 21;
-            label4.Text = "Nhân viên  xuất phiếu";
-            // 
-            // txtTenNV
-            // 
-            txtTenNV.Location = new Point(477, 38);
-            txtTenNV.Margin = new Padding(4, 3, 4, 3);
-            txtTenNV.Name = "txtTenNV";
-            txtTenNV.Size = new Size(207, 23);
-            txtTenNV.TabIndex = 22;
-            // 
-            // label8
-            // 
-            label8.Location = new Point(381, 83);
-            label8.Margin = new Padding(4, 0, 4, 0);
-            label8.Name = "label8";
-            label8.Size = new Size(88, 23);
-            label8.TabIndex = 23;
-            label8.Text = "Mã nhân viên";
-            // 
-            // txtMaNV
-            // 
-            txtMaNV.Location = new Point(477, 80);
-            txtMaNV.Margin = new Padding(4, 3, 4, 3);
-            txtMaNV.Name = "txtMaNV";
-            txtMaNV.Size = new Size(207, 23);
-            txtMaNV.TabIndex = 24;
+            btnInPhieu.Click += btnInPhieu_Click;
             // 
             // PhieuXuatForm
             // 
@@ -429,7 +436,7 @@ namespace GUI
         private Button btnThoat;
         private Button btnThem;
         private Button btnXoa;
-        private Button btnHuy;
+        private Button btnSua;
         private Label label12;
         private Label label11;
         private Label label10;
@@ -438,11 +445,9 @@ namespace GUI
         private DateTimePicker dateNgayNhap;
         private TextBox txtSdt;
         private TextBox txtDiaChi;
-        private TextBox txtLiDoXuat;
         private ComboBox cobCHXuat;
         private Label label7;
         private Label label6;
-        private Label label5;
         private Label label3;
         private Label label1;
         private ComboBox cobCHNhap;
@@ -452,5 +457,7 @@ namespace GUI
         private Label label8;
         private TextBox txtTenNV;
         private Label label4;
+        private TextBox txtMaPhieuXuat;
+        private Label label5;
     }
 }

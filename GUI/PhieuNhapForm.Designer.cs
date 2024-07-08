@@ -47,6 +47,12 @@ namespace GUI
             label10 = new Label();
             label9 = new Label();
             gbThongTInDonHang = new GroupBox();
+            txtMaPhieuNhap = new TextBox();
+            label2 = new Label();
+            txtMaNV = new TextBox();
+            label8 = new Label();
+            txtTenNV = new TextBox();
+            label4 = new Label();
             dateNgayNhap = new DateTimePicker();
             txtSdt = new TextBox();
             txtTenNCC = new TextBox();
@@ -57,10 +63,6 @@ namespace GUI
             label5 = new Label();
             label3 = new Label();
             label1 = new Label();
-            txtMaNV = new TextBox();
-            label8 = new Label();
-            txtTenNV = new TextBox();
-            label4 = new Label();
             btnInPhieu = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvPhieuNhapHang).BeginInit();
             gbThongTinSapPham.SuspendLayout();
@@ -77,6 +79,7 @@ namespace GUI
             dgvPhieuNhapHang.Name = "dgvPhieuNhapHang";
             dgvPhieuNhapHang.Size = new Size(912, 207);
             dgvPhieuNhapHang.TabIndex = 8;
+            dgvPhieuNhapHang.CellClick += dgvPhieuNhapHang_CellClick;
             // 
             // gbThongTinSapPham
             // 
@@ -111,6 +114,7 @@ namespace GUI
             btnReload.TabIndex = 24;
             btnReload.Text = "Reload";
             btnReload.UseVisualStyleBackColor = true;
+            btnReload.Click += btnReload_Click;
             // 
             // NumberSoLuong
             // 
@@ -154,6 +158,7 @@ namespace GUI
             btnThoat.TabIndex = 15;
             btnThoat.Text = "Thoát";
             btnThoat.UseVisualStyleBackColor = true;
+            btnThoat.Click += btnThoat_Click;
             // 
             // btnThem
             // 
@@ -164,6 +169,7 @@ namespace GUI
             btnThem.TabIndex = 14;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
             // 
             // btnXoa
             // 
@@ -174,6 +180,7 @@ namespace GUI
             btnXoa.TabIndex = 13;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnHuy
             // 
@@ -184,6 +191,7 @@ namespace GUI
             btnHuy.TabIndex = 12;
             btnHuy.Text = "Sửa ";
             btnHuy.UseVisualStyleBackColor = true;
+            btnHuy.Click += btnHuy_Click;
             // 
             // label12
             // 
@@ -223,6 +231,8 @@ namespace GUI
             // 
             // gbThongTInDonHang
             // 
+            gbThongTInDonHang.Controls.Add(txtMaPhieuNhap);
+            gbThongTInDonHang.Controls.Add(label2);
             gbThongTInDonHang.Controls.Add(txtMaNV);
             gbThongTInDonHang.Controls.Add(label8);
             gbThongTInDonHang.Controls.Add(txtTenNV);
@@ -246,9 +256,60 @@ namespace GUI
             gbThongTInDonHang.TabStop = false;
             gbThongTInDonHang.Text = "Thông tin phiếu nhập";
             // 
+            // txtMaPhieuNhap
+            // 
+            txtMaPhieuNhap.Location = new Point(136, 37);
+            txtMaPhieuNhap.Margin = new Padding(4, 3, 4, 3);
+            txtMaPhieuNhap.Name = "txtMaPhieuNhap";
+            txtMaPhieuNhap.Size = new Size(204, 23);
+            txtMaPhieuNhap.TabIndex = 30;
+            // 
+            // label2
+            // 
+            label2.Location = new Point(8, 40);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(88, 27);
+            label2.TabIndex = 29;
+            label2.Text = "MaPhieuNhap";
+            // 
+            // txtMaNV
+            // 
+            txtMaNV.Location = new Point(136, 180);
+            txtMaNV.Margin = new Padding(4, 3, 4, 3);
+            txtMaNV.Name = "txtMaNV";
+            txtMaNV.Size = new Size(204, 23);
+            txtMaNV.TabIndex = 28;
+            // 
+            // label8
+            // 
+            label8.Location = new Point(7, 183);
+            label8.Margin = new Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(290, 66);
+            label8.TabIndex = 27;
+            label8.Text = "Mã nhân viên";
+            // 
+            // txtTenNV
+            // 
+            txtTenNV.Location = new Point(136, 135);
+            txtTenNV.Margin = new Padding(4, 3, 4, 3);
+            txtTenNV.Name = "txtTenNV";
+            txtTenNV.Size = new Size(204, 23);
+            txtTenNV.TabIndex = 26;
+            // 
+            // label4
+            // 
+            label4.Location = new Point(7, 138);
+            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(290, 68);
+            label4.TabIndex = 25;
+            label4.Text = "Nhân viến xuất phiếu";
+            // 
             // dateNgayNhap
             // 
-            dateNgayNhap.Location = new Point(136, 48);
+            dateNgayNhap.Location = new Point(539, 177);
             dateNgayNhap.Margin = new Padding(4, 3, 4, 3);
             dateNgayNhap.Name = "dateNgayNhap";
             dateNgayNhap.Size = new Size(204, 23);
@@ -326,46 +387,12 @@ namespace GUI
             // 
             // label1
             // 
-            label1.Location = new Point(4, 48);
+            label1.Location = new Point(426, 177);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(88, 27);
             label1.TabIndex = 0;
             label1.Text = "Ngày Nhập";
-            // 
-            // txtMaNV
-            // 
-            txtMaNV.Location = new Point(136, 180);
-            txtMaNV.Margin = new Padding(4, 3, 4, 3);
-            txtMaNV.Name = "txtMaNV";
-            txtMaNV.Size = new Size(204, 23);
-            txtMaNV.TabIndex = 28;
-            // 
-            // label8
-            // 
-            label8.Location = new Point(7, 183);
-            label8.Margin = new Padding(4, 0, 4, 0);
-            label8.Name = "label8";
-            label8.Size = new Size(290, 66);
-            label8.TabIndex = 27;
-            label8.Text = "Mã nhân viên";
-            // 
-            // txtTenNV
-            // 
-            txtTenNV.Location = new Point(136, 135);
-            txtTenNV.Margin = new Padding(4, 3, 4, 3);
-            txtTenNV.Name = "txtTenNV";
-            txtTenNV.Size = new Size(204, 23);
-            txtTenNV.TabIndex = 26;
-            // 
-            // label4
-            // 
-            label4.Location = new Point(7, 138);
-            label4.Margin = new Padding(4, 0, 4, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(290, 68);
-            label4.TabIndex = 25;
-            label4.Text = "Nhân viến xuất phiếu";
             // 
             // btnInPhieu
             // 
@@ -430,5 +457,7 @@ namespace GUI
         private TextBox txtTenNV;
         private Label label4;
         private Button btnInPhieu;
+        private TextBox txtMaPhieuNhap;
+        private Label label2;
     }
 }

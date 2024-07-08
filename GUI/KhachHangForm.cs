@@ -24,7 +24,7 @@ namespace GUI
         private void btnThem_Click(object sender, EventArgs e)
         {
             KhachHang khachHang = new();
-            khachHang.MaKh = txtMaKH.Text;
+            khachHang.MaKh = int.Parse(txtMaKH.Text);
             khachHang.TenKh = txtTenKH.Text;
             khachHang.DiaChi = txtDiaChi.Text;
             khachHang.Sdt = txtSdt.Text;
@@ -54,7 +54,7 @@ namespace GUI
             }
 
             KhachHang khachHang = new();
-            khachHang.MaKh = txtMaKH.Text;
+            khachHang.MaKh = int.Parse(txtMaKH.Text);
             khachHang.TenKh = txtTenKH.Text;
             khachHang.DiaChi = txtDiaChi.Text;
             khachHang.Sdt = txtSdt.Text;

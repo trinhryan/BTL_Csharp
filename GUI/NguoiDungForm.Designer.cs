@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace GUI;
@@ -32,7 +33,7 @@ partial class NguoiDungForm
     /// </summary>
     private void InitializeComponent()
     {
-        txtSeach = new TextBox();
+        txtSearch = new TextBox();
         btnSearch = new Button();
         btnReload = new Button();
         btnSua = new Button();
@@ -69,13 +70,13 @@ partial class NguoiDungForm
         menuStrip1.SuspendLayout();
         SuspendLayout();
         // 
-        // txtSeach
+        // txtSearch
         // 
-        txtSeach.Location = new Point(584, 235);
-        txtSeach.Margin = new Padding(4, 3, 4, 3);
-        txtSeach.Name = "txtSeach";
-        txtSeach.Size = new Size(190, 23);
-        txtSeach.TabIndex = 29;
+        txtSearch.Location = new Point(584, 235);
+        txtSearch.Margin = new Padding(4, 3, 4, 3);
+        txtSearch.Name = "txtSearch";
+        txtSearch.Size = new Size(190, 23);
+        txtSearch.TabIndex = 29;
         // 
         // btnSearch
         // 
@@ -87,6 +88,7 @@ partial class NguoiDungForm
         btnSearch.TabIndex = 28;
         btnSearch.Text = "Search";
         btnSearch.UseVisualStyleBackColor = false;
+        btnSearch.Click += btnSearch_Click;
         // 
         // btnReload
         // 
@@ -361,7 +363,7 @@ partial class NguoiDungForm
         Controls.Add(label3);
         Controls.Add(label2);
         Controls.Add(label1);
-        Controls.Add(txtSeach);
+        Controls.Add(txtSearch);
         Controls.Add(btnSearch);
         Controls.Add(btnReload);
         Controls.Add(btnSua);
@@ -387,7 +389,7 @@ partial class NguoiDungForm
     private System.Windows.Forms.Label label2;
     private System.Windows.Forms.Label label1;
 
-    private System.Windows.Forms.TextBox txtSeach;
+    private System.Windows.Forms.TextBox txtSearch;
     private System.Windows.Forms.Button btnSearch;
     private System.Windows.Forms.Button btnReload;
     private System.Windows.Forms.Button btnSua;

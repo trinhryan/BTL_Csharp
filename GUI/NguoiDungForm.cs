@@ -162,4 +162,15 @@ public partial class NguoiDungForm : Form
         form.Show();
         this.Hide();
     }
+
+    private void btnSearch_Click(object? sender, EventArgs e)
+    {
+        if (txtSearch.Text == "")
+        {
+            MessageBox.Show("Chưa nhập từ khóa tìm kiếm");
+            return;
+        }
+
+        dgvNguoiDung.DataSource = bus.SearchData(txtSearch.Text);
+    }
 }

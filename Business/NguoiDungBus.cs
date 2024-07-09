@@ -83,7 +83,13 @@ public class NguoiDungBus : IBus<NguoiDung>
 
     public List<NguoiDung> SearchData(string tuKhoa)
     {
-        return db.NguoiDungs.Where(e => e.HoTen.Contains(tuKhoa)).ToList();
+        return db.NguoiDungs.Where(e => 
+            e.HoTen.Contains(tuKhoa) ||
+            e.TenDangNhap.Contains(tuKhoa) ||
+            e.GioiTinh.Contains(tuKhoa) ||
+            e.Sdt.Contains(tuKhoa) ||
+            e.DiaChi.Contains(tuKhoa)
+        ).ToList();
     }
 
     public bool DangNhap(string text, string s)

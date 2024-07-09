@@ -12,17 +12,4 @@
       <ProjectReference Include="..\Business\Business.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Compile Update="BaoCaoForm.cs">
-        <SubType>Form</SubType>
-      </Compile>
-      <Compile Update="HoaDonForm.cs">
-        <SubType>Form</SubType>
-      </Compile>
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="obj\Debug\net8.0-windows\" />
-    </ItemGroup>
-
 </Project>

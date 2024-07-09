@@ -11,7 +11,12 @@ public partial class NhaCungCap
 
     public string? DiaChi { get; set; }
 
-    public string? Sdt { get; set; }
+    public int? Sdt { get; set; }
 
     public virtual ICollection<PhieuNhap> PhieuNhaps { get; set; } = new List<PhieuNhap>();
+
+    public void AddData(NhaCungCap nhaCungCap)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -34,18 +34,18 @@ namespace GUI
             groupBox1 = new GroupBox();
             label1 = new Label();
             label2 = new Label();
-            txtSeach = new TextBox();
             label3 = new Label();
-            btnSearch = new Button();
             label4 = new Label();
-            btnReload = new Button();
             txtMaNCC = new TextBox();
-            btnSua = new Button();
-            txtMaNNCC = new TextBox();
-            btnXoa = new Button();
+            txtTenNCC = new TextBox();
             txtSdt = new TextBox();
-            btnThem = new Button();
             txtDiaChi = new TextBox();
+            txtSeach = new TextBox();
+            btnSearch = new Button();
+            btnReload = new Button();
+            btnSua = new Button();
+            btnXoa = new Button();
+            btnThem = new Button();
             label5 = new Label();
             dataGridView1 = new DataGridView();
             menuStrip1 = new MenuStrip();
@@ -76,7 +76,7 @@ namespace GUI
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(txtMaNCC);
-            groupBox1.Controls.Add(txtMaNNCC);
+            groupBox1.Controls.Add(txtTenNCC);
             groupBox1.Controls.Add(txtSdt);
             groupBox1.Controls.Add(txtDiaChi);
             groupBox1.Location = new Point(12, 27);
@@ -104,14 +104,6 @@ namespace GUI
             label2.TabIndex = 70;
             label2.Text = "Tên nhà cung cấp";
             // 
-            // txtSeach
-            // 
-            txtSeach.Location = new Point(225, 367);
-            txtSeach.Margin = new Padding(4, 3, 4, 3);
-            txtSeach.Name = "txtSeach";
-            txtSeach.Size = new Size(223, 23);
-            txtSeach.TabIndex = 82;
-            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -120,6 +112,51 @@ namespace GUI
             label3.Size = new Size(76, 15);
             label3.TabIndex = 71;
             label3.Text = "Số điện thoại";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(17, 215);
+            label4.Name = "label4";
+            label4.Size = new Size(43, 15);
+            label4.TabIndex = 72;
+            label4.Text = "Địa chỉ";
+            // 
+            // txtMaNCC
+            // 
+            txtMaNCC.Location = new Point(123, 29);
+            txtMaNCC.Name = "txtMaNCC";
+            txtMaNCC.Size = new Size(223, 23);
+            txtMaNCC.TabIndex = 73;
+            // 
+            // txtTenNCC
+            // 
+            txtTenNCC.Location = new Point(123, 90);
+            txtTenNCC.Name = "txtTenNCC";
+            txtTenNCC.Size = new Size(223, 23);
+            txtTenNCC.TabIndex = 74;
+            // 
+            // txtSdt
+            // 
+            txtSdt.Location = new Point(123, 150);
+            txtSdt.Name = "txtSdt";
+            txtSdt.Size = new Size(223, 23);
+            txtSdt.TabIndex = 75;
+            // 
+            // txtDiaChi
+            // 
+            txtDiaChi.Location = new Point(123, 215);
+            txtDiaChi.Name = "txtDiaChi";
+            txtDiaChi.Size = new Size(223, 23);
+            txtDiaChi.TabIndex = 76;
+            // 
+            // txtSeach
+            // 
+            txtSeach.Location = new Point(225, 367);
+            txtSeach.Margin = new Padding(4, 3, 4, 3);
+            txtSeach.Name = "txtSeach";
+            txtSeach.Size = new Size(223, 23);
+            txtSeach.TabIndex = 82;
             // 
             // btnSearch
             // 
@@ -131,15 +168,7 @@ namespace GUI
             btnSearch.TabIndex = 81;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = false;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(17, 215);
-            label4.Name = "label4";
-            label4.Size = new Size(43, 15);
-            label4.TabIndex = 72;
-            label4.Text = "Địa chỉ";
+            btnSearch.Click += btnSearch_Click;
             // 
             // btnReload
             // 
@@ -151,13 +180,7 @@ namespace GUI
             btnReload.TabIndex = 80;
             btnReload.Text = "Reload";
             btnReload.UseVisualStyleBackColor = false;
-            // 
-            // txtMaNCC
-            // 
-            txtMaNCC.Location = new Point(123, 29);
-            txtMaNCC.Name = "txtMaNCC";
-            txtMaNCC.Size = new Size(223, 23);
-            txtMaNCC.TabIndex = 73;
+            btnReload.Click += btnReload_Click;
             // 
             // btnSua
             // 
@@ -169,13 +192,7 @@ namespace GUI
             btnSua.TabIndex = 79;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = false;
-            // 
-            // txtMaNNCC
-            // 
-            txtMaNNCC.Location = new Point(123, 90);
-            txtMaNNCC.Name = "txtMaNNCC";
-            txtMaNNCC.Size = new Size(223, 23);
-            txtMaNNCC.TabIndex = 74;
+            btnSua.Click += btnSua_Click;
             // 
             // btnXoa
             // 
@@ -187,13 +204,7 @@ namespace GUI
             btnXoa.TabIndex = 78;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
-            // 
-            // txtSdt
-            // 
-            txtSdt.Location = new Point(123, 150);
-            txtSdt.Name = "txtSdt";
-            txtSdt.Size = new Size(223, 23);
-            txtSdt.TabIndex = 75;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnThem
             // 
@@ -205,13 +216,7 @@ namespace GUI
             btnThem.TabIndex = 77;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = false;
-            // 
-            // txtDiaChi
-            // 
-            txtDiaChi.Location = new Point(123, 215);
-            txtDiaChi.Name = "txtDiaChi";
-            txtDiaChi.Size = new Size(223, 23);
-            txtDiaChi.TabIndex = 76;
+            btnThem.Click += btnThem_Click;
             // 
             // label5
             // 
@@ -382,7 +387,7 @@ namespace GUI
         private Button btnReload;
         private TextBox txtMaNCC;
         private Button btnSua;
-        private TextBox txtMaNNCC;
+        private TextBox txtTenNCC;
         private Button btnXoa;
         private TextBox txtSdt;
         private Button btnThem;

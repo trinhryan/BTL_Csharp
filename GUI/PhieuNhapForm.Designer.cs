@@ -33,19 +33,19 @@ namespace GUI
         {
             dgvPhieuNhapHang = new DataGridView();
             gbThongTinSapPham = new GroupBox();
-            btnReload = new Button();
             NumberSoLuong = new NumericUpDown();
             txtGiaTien = new TextBox();
             txtTenSP = new TextBox();
             txtMaSanPham = new TextBox();
-            btnThoat = new Button();
-            btnThem = new Button();
-            btnXoa = new Button();
-            btnHuy = new Button();
             label12 = new Label();
             label11 = new Label();
             label10 = new Label();
             label9 = new Label();
+            btnReload = new Button();
+            btnThoat = new Button();
+            btnThem = new Button();
+            btnXoa = new Button();
+            btnHuy = new Button();
             gbThongTInDonHang = new GroupBox();
             txtMaPhieuNhap = new TextBox();
             label2 = new Label();
@@ -101,17 +101,6 @@ namespace GUI
             gbThongTinSapPham.TabStop = false;
             gbThongTinSapPham.Text = "Thông tin sản phầm nhập";
             // 
-            // btnReload
-            // 
-            btnReload.Location = new Point(851, 231);
-            btnReload.Margin = new Padding(4, 3, 4, 3);
-            btnReload.Name = "btnReload";
-            btnReload.Size = new Size(121, 38);
-            btnReload.TabIndex = 24;
-            btnReload.Text = "Reload";
-            btnReload.UseVisualStyleBackColor = true;
-            btnReload.Click += btnReload_Click;
-            // 
             // NumberSoLuong
             // 
             NumberSoLuong.Location = new Point(538, 22);
@@ -144,6 +133,53 @@ namespace GUI
             txtMaSanPham.Name = "txtMaSanPham";
             txtMaSanPham.Size = new Size(207, 23);
             txtMaSanPham.TabIndex = 19;
+            // 
+            // label12
+            // 
+            label12.Location = new Point(424, 76);
+            label12.Margin = new Padding(4, 0, 4, 0);
+            label12.Name = "label12";
+            label12.Size = new Size(88, 27);
+            label12.TabIndex = 11;
+            label12.Text = "Giá tiền";
+            // 
+            // label11
+            // 
+            label11.Location = new Point(426, 19);
+            label11.Margin = new Padding(4, 0, 4, 0);
+            label11.Name = "label11";
+            label11.Size = new Size(88, 27);
+            label11.TabIndex = 10;
+            label11.Text = "Số lượng";
+            // 
+            // label10
+            // 
+            label10.Location = new Point(4, 32);
+            label10.Margin = new Padding(4, 0, 4, 0);
+            label10.Name = "label10";
+            label10.Size = new Size(88, 27);
+            label10.TabIndex = 9;
+            label10.Text = "Tên sản phẩm";
+            // 
+            // label9
+            // 
+            label9.Location = new Point(7, 76);
+            label9.Margin = new Padding(4, 0, 4, 0);
+            label9.Name = "label9";
+            label9.Size = new Size(88, 27);
+            label9.TabIndex = 8;
+            label9.Text = "Mã sản phẩm";
+            // 
+            // btnReload
+            // 
+            btnReload.Location = new Point(851, 231);
+            btnReload.Margin = new Padding(4, 3, 4, 3);
+            btnReload.Name = "btnReload";
+            btnReload.Size = new Size(121, 38);
+            btnReload.TabIndex = 24;
+            btnReload.Text = "Reload";
+            btnReload.UseVisualStyleBackColor = true;
+            btnReload.Click += btnReload_Click;
             // 
             // btnThoat
             // 
@@ -188,42 +224,6 @@ namespace GUI
             btnHuy.Text = "Sửa ";
             btnHuy.UseVisualStyleBackColor = true;
             btnHuy.Click += btnHuy_Click;
-            // 
-            // label12
-            // 
-            label12.Location = new Point(424, 76);
-            label12.Margin = new Padding(4, 0, 4, 0);
-            label12.Name = "label12";
-            label12.Size = new Size(88, 27);
-            label12.TabIndex = 11;
-            label12.Text = "Giá tiền";
-            // 
-            // label11
-            // 
-            label11.Location = new Point(426, 19);
-            label11.Margin = new Padding(4, 0, 4, 0);
-            label11.Name = "label11";
-            label11.Size = new Size(88, 27);
-            label11.TabIndex = 10;
-            label11.Text = "Số lượng";
-            // 
-            // label10
-            // 
-            label10.Location = new Point(4, 32);
-            label10.Margin = new Padding(4, 0, 4, 0);
-            label10.Name = "label10";
-            label10.Size = new Size(88, 27);
-            label10.TabIndex = 9;
-            label10.Text = "Tên sản phẩm";
-            // 
-            // label9
-            // 
-            label9.Location = new Point(7, 76);
-            label9.Margin = new Padding(4, 0, 4, 0);
-            label9.Name = "label9";
-            label9.Size = new Size(88, 27);
-            label9.TabIndex = 8;
-            label9.Text = "Mã sản phẩm";
             // 
             // gbThongTInDonHang
             // 
@@ -338,6 +338,7 @@ namespace GUI
             // cobCuaHang
             // 
             cobCuaHang.FormattingEnabled = true;
+            cobCuaHang.Items.AddRange(new object[] { "Shop quần áo", "Shop giầy dép" });
             cobCuaHang.Location = new Point(136, 92);
             cobCuaHang.Margin = new Padding(4, 3, 4, 3);
             cobCuaHang.Name = "cobCuaHang";

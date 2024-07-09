@@ -112,7 +112,7 @@ namespace GUI
             sale.DiaChi= txtDiaChi.Text;
             sale.NgaySinh= DateOnly.Parse(dateNgaySinh.Text);
             sale.GioiTinh= rdbNam.Checked ? "Nam" : "Nữ";
-            Sale.ChucVu =int.Parse( cobChucVu.Text);
+            // sale.MaCV =int.Parse(cobChucVu.Text);
             bus.InsertData(sale);
             
             MessageBox.Show("Thêm thành công");
@@ -149,7 +149,7 @@ namespace GUI
             sale.DiaChi = txtDiaChi.Text;
             sale.NgaySinh = DateOnly.Parse(dateNgaySinh.Text);
             sale.GioiTinh = rdbNam.Checked ? "Nam" : "Nữ";
-            Sale.ChucVu = int.Parse(cobChucVu.Text);
+            sale.ChucVu = int.Parse(cobChucVu.Text);
             sale.TenDangNhap = txtTenDangNhap.Text;
 
             bus.UpdateData(sale);

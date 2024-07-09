@@ -5,7 +5,7 @@ namespace DataAccess.Entities;
 
 public partial class Sale
 {
-    public object? MaCV;
+    public int? MaCV;
     public int MaSale { get; set; }
 
     public string? TenSale { get; set; }
@@ -18,7 +18,7 @@ public partial class Sale
 
     public string? Sdt { get; set; }
 
-    public static int? ChucVu { get; set; }
+    public  int? ChucVu { get; set; }
 
     public int? MaCuaHang { get; set; }
 

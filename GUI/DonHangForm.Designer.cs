@@ -149,7 +149,7 @@ namespace GUI
             // hóaĐơnToolStripMenuItem
             // 
             hóaĐơnToolStripMenuItem.Name = "hóaĐơnToolStripMenuItem";
-            hóaĐơnToolStripMenuItem.Size = new Size(180, 22);
+            hóaĐơnToolStripMenuItem.Size = new Size(120, 22);
             hóaĐơnToolStripMenuItem.Text = "Hóa đơn";
             hóaĐơnToolStripMenuItem.Click += hóaĐơnToolStripMenuItem_Click;
             // 
@@ -279,6 +279,7 @@ namespace GUI
             // cobCuaHang
             // 
             cobCuaHang.FormattingEnabled = true;
+            cobCuaHang.Items.AddRange(new object[] { "Shop quần áo", "Shop giầy dép" });
             cobCuaHang.Location = new Point(90, 147);
             cobCuaHang.Margin = new Padding(4, 3, 4, 3);
             cobCuaHang.Name = "cobCuaHang";

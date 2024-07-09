@@ -177,6 +177,7 @@ namespace GUI
             // cobChucVu
             // 
             cobChucVu.FormattingEnabled = true;
+            cobChucVu.Items.AddRange(new object[] { "Quản lý", "Nhân viên" });
             cobChucVu.Location = new Point(540, 145);
             cobChucVu.Name = "cobChucVu";
             cobChucVu.Size = new Size(223, 23);
@@ -339,7 +340,6 @@ namespace GUI
             dgvNhanVien.Name = "dgvNhanVien";
             dgvNhanVien.Size = new Size(826, 248);
             dgvNhanVien.TabIndex = 86;
-       //     dgvNhanVien.CellClick += dgvNhanVien_CellClick;
             // 
             // menuStrip1
             // 

@@ -38,10 +38,16 @@ public class CuaHangBus:IBus<CuaHang>
         
     }
 
-    public void AddData(CuaHang obj)
+    public bool AddData(CuaHang obj)
     {
+        var cuaHangExist = db.CuaHangs.FirstOrDefault(e => e.MaCuaHang == obj.MaCuaHang);
+        if (cuaHangExist != null)
+        {
+            return false;
+        }
         CuaHang cuaHang = (CuaHang)obj;
         db.Database.ExecuteSqlRaw("insert into CuaHang(TenCh, DiaChi) values({0}, {1})", cuaHang.TenCuaHang, cuaHang.DiaChi);
+        return true;
     }
 
     public void UpdateData(CuaHang obj)

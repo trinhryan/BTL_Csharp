@@ -39,23 +39,22 @@ public class NguoiDungBus : IBus<NguoiDung>
         return db.NguoiDungs.FirstOrDefault(e=>e.TenDangNhap == id);
     }
 
-    public void AddData(NguoiDung obj)
+    public bool AddData(NguoiDung obj)
     {
+        var nguoiDung = db.NguoiDungs.FirstOrDefault(e => e.TenDangNhap == obj.TenDangNhap);
+        if (nguoiDung != null)
+        {
+            return false;
+        }
         db.NguoiDungs.Add(obj);
         db.SaveChanges();
+        
+        return true;
     }
 
     public void UpdateData(NguoiDung obj)
     {
         throw new NotImplementedException();
-    }
-
-    public void AddData(object T)
-    {
-        // ép kiểu object về kiểu NguoiDung
-        NguoiDung nguoiDung = (NguoiDung)T;
-        db.NguoiDungs.Add(nguoiDung);
-        db.SaveChanges();
     }
 
     public void UpdateData(object T)

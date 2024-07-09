@@ -112,7 +112,7 @@ namespace GUI
             sale.DiaChi= txtDiaChi.Text;
             sale.NgaySinh= DateOnly.Parse(dateNgaySinh.Text);
             sale.GioiTinh= rdbNam.Checked ? "Nam" : "Nữ";
-            Sale.ChucVu = cobChucVu.Text;
+            // sale.ChucVu = cobChucVu.Text;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

@@ -49,15 +49,20 @@ public class SanPhamBus: IBus<SanPham>
         //return db.SanPhams.FromSqlRaw("select * from SanPham where MaSp = {0}", id).FirstOrDefault();
     }
 
-    public void AddData(SanPham obj)
+    public bool AddData(SanPham obj)
     {
         // SanPham sanPham = (SanPham)T;
         // db.SanPhams.Add(sanPham);
         // db.SaveChanges();
-        
+        var exist = db.SanPhams.FirstOrDefault(e => e.MaSp == obj.MaSp);
+        if (exist != null)
+        {
+            return false;
+        }
         //su dung cau lenh sql
         SanPham sanPham = (SanPham)obj;
         db.Database.ExecuteSqlRaw("insert into SanPham(TenSp, GiaSp, Hsd, Nsx, PhanLoaiSp) values({0}, {1}, {2}, {3}, {4})", sanPham.TenSp, sanPham.GiaSp, sanPham.Hsd, sanPham.Nsx, sanPham.PhanLoaiSp);
+        return true;
     }
 
     public void UpdateData(SanPham obj)

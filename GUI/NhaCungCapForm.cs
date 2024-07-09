@@ -7,14 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Business;
 
 namespace GUI
 {
     public partial class NhaCungCapForm : Form
     {
+        NhaCungCapBus bus = new();
         public NhaCungCapForm()
         {
             InitializeComponent();
+            dgvNcc.DataSource = bus.GetAllDataTable();
         }
 
         private void quảnLýNgườiDùngToolStripMenuItem_Click(object sender, EventArgs e)

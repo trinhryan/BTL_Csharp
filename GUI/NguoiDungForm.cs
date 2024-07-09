@@ -12,6 +12,7 @@ public partial class NguoiDungForm : Form
     public NguoiDungForm()
     {
         InitializeComponent();
+        dgvNguoiDung.DataSource = bus.GetAllDataTable();
     }
 
     private void btnReload_Click(object sender, EventArgs e)
@@ -21,15 +22,29 @@ public partial class NguoiDungForm : Form
 
     private void btnThem_Click(object sender, EventArgs e)
     {
+        // kiem tra nguoi dung da nhap day du thong tin chua
+        if (txtTenDangNhap.Text == "" || txtMatKhau.Text == "" || txtHoTen.Text == "" || txtDiaChi.Text == "" || txtSdt.Text == "")
+        {
+            MessageBox.Show("Chưa nhập đủ thông tin");
+            return;
+        }
+        
         NguoiDung nguoiDung = new();
         nguoiDung.TenDangNhap = txtTenDangNhap.Text;
         nguoiDung.MatKhau = txtMatKhau.Text;
         nguoiDung.HoTen = txtHoTen.Text;
         nguoiDung.DiaChi = txtDiaChi.Text;
         nguoiDung.Sdt = txtSdt.Text;
-        bus.AddData(nguoiDung);
-        
-        MessageBox.Show("Thêm thành công");
+        var ketqua = bus.AddData(nguoiDung);
+
+        if (ketqua)
+        {
+            MessageBox.Show("Thêm thành công");
+        }
+        else
+        {
+            MessageBox.Show("Tên đăng nhập đã tồn tại");
+        }
     }
 
     private void btnXoa_Click(object sender, EventArgs e)

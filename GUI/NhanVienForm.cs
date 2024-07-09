@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Business;
+using DataAccess.Entities;
 
 namespace GUI
 {
     public partial class NhanVienForm : Form
     {
+        SaleBus bus = new();
         public NhanVienForm()
         {
             InitializeComponent();
@@ -90,5 +93,46 @@ namespace GUI
             this.Hide();
         }
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if(txtSeach.Text == "")
+            {
+                MessageBox.Show("Chưa nhập thông tin tìm kiếm");
+                return;
+            }
+            dgvNhanVien.DataSource = bus.SearchData(txtSeach.Text);
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            Sale sale = new();
+            sale.MaSale = int.Parse(txtMaNV.Text);
+            sale.TenSale= txtTenNV.Text;
+            sale.Sdt= txtSdt.Text;
+            sale.DiaChi= txtDiaChi.Text;
+            sale.NgaySinh= DateOnly.Parse(dateNgaySinh.Text);
+            sale.GioiTinh= rdbNam.Checked ? "Nam" : "Nữ";
+            Sale.ChucVu = cobChucVu.Text;
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

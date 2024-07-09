@@ -32,7 +32,6 @@ namespace GUI
         private void InitializeComponent()
         {
             gbThongTinSapPham = new GroupBox();
-            txtSeach = new TextBox();
             txtPhanLoai = new TextBox();
             txtNsx = new TextBox();
             txtHsd = new TextBox();
@@ -70,6 +69,7 @@ namespace GUI
             phiếuXuấtHàngToolStripMenuItem = new ToolStripMenuItem();
             báoCáoToolStripMenuItem = new ToolStripMenuItem();
             đăngXuấtToolStripMenuItem = new ToolStripMenuItem();
+            txtSeach = new TextBox();
             gbThongTinSapPham.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NumberSoLuong).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvSanPham).BeginInit();
@@ -78,7 +78,7 @@ namespace GUI
             // 
             // gbThongTinSapPham
             // 
-            gbThongTinSapPham.Controls.Add(txtSeach);
+            gbThongTinSapPham.Controls.Add(btnReload);
             gbThongTinSapPham.Controls.Add(txtPhanLoai);
             gbThongTinSapPham.Controls.Add(txtNsx);
             gbThongTinSapPham.Controls.Add(txtHsd);
@@ -89,7 +89,6 @@ namespace GUI
             gbThongTinSapPham.Controls.Add(txtGiaTien);
             gbThongTinSapPham.Controls.Add(txtTenSP);
             gbThongTinSapPham.Controls.Add(txtMaSanPham);
-            gbThongTinSapPham.Controls.Add(btnSearch);
             gbThongTinSapPham.Controls.Add(btnThem);
             gbThongTinSapPham.Controls.Add(btnXoa);
             gbThongTinSapPham.Controls.Add(btnSua);
@@ -105,14 +104,6 @@ namespace GUI
             gbThongTinSapPham.TabIndex = 69;
             gbThongTinSapPham.TabStop = false;
             gbThongTinSapPham.Text = "Thông tin sản phầm";
-            // 
-            // txtSeach
-            // 
-            txtSeach.Location = new Point(427, 200);
-            txtSeach.Margin = new Padding(4, 3, 4, 3);
-            txtSeach.Name = "txtSeach";
-            txtSeach.Size = new Size(207, 23);
-            txtSeach.TabIndex = 83;
             // 
             // txtPhanLoai
             // 
@@ -199,10 +190,10 @@ namespace GUI
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(700, 185);
+            btnSearch.Location = new Point(740, 337);
             btnSearch.Margin = new Padding(4, 3, 4, 3);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(121, 38);
+            btnSearch.Size = new Size(121, 23);
             btnSearch.TabIndex = 15;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = true;
@@ -279,18 +270,18 @@ namespace GUI
             // 
             // label1
             // 
-            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(321, 282);
+            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(296, 282);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(197, 27);
+            label1.Size = new Size(217, 39);
             label1.TabIndex = 24;
             label1.Text = "Danh sách sản phẩm";
             // 
             // dgvSanPham
             // 
             dgvSanPham.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSanPham.Location = new Point(0, 312);
+            dgvSanPham.Location = new Point(4, 366);
             dgvSanPham.Name = "dgvSanPham";
             dgvSanPham.Size = new Size(861, 236);
             dgvSanPham.TabIndex = 70;
@@ -298,7 +289,7 @@ namespace GUI
             // 
             // btnReload
             // 
-            btnReload.Location = new Point(700, 268);
+            btnReload.Location = new Point(700, 191);
             btnReload.Margin = new Padding(4, 3, 4, 3);
             btnReload.Name = "btnReload";
             btnReload.Size = new Size(121, 38);
@@ -376,7 +367,7 @@ namespace GUI
             // hóaĐơnToolStripMenuItem
             // 
             hóaĐơnToolStripMenuItem.Name = "hóaĐơnToolStripMenuItem";
-            hóaĐơnToolStripMenuItem.Size = new Size(180, 22);
+            hóaĐơnToolStripMenuItem.Size = new Size(120, 22);
             hóaĐơnToolStripMenuItem.Text = "Hóa đơn";
             hóaĐơnToolStripMenuItem.Click += hóaĐơnToolStripMenuItem_Click;
             // 
@@ -397,14 +388,14 @@ namespace GUI
             // phiếuNhậpHàngToolStripMenuItem
             // 
             phiếuNhậpHàngToolStripMenuItem.Name = "phiếuNhậpHàngToolStripMenuItem";
-            phiếuNhậpHàngToolStripMenuItem.Size = new Size(180, 22);
+            phiếuNhậpHàngToolStripMenuItem.Size = new Size(164, 22);
             phiếuNhậpHàngToolStripMenuItem.Text = "Phiếu nhập hàng";
             phiếuNhậpHàngToolStripMenuItem.Click += phiếuNhậpHàngToolStripMenuItem_Click;
             // 
             // phiếuXuấtHàngToolStripMenuItem
             // 
             phiếuXuấtHàngToolStripMenuItem.Name = "phiếuXuấtHàngToolStripMenuItem";
-            phiếuXuấtHàngToolStripMenuItem.Size = new Size(180, 22);
+            phiếuXuấtHàngToolStripMenuItem.Size = new Size(164, 22);
             phiếuXuấtHàngToolStripMenuItem.Text = "Phiếu xuất hàng";
             phiếuXuấtHàngToolStripMenuItem.Click += phiếuXuấtHàngToolStripMenuItem_Click;
             // 
@@ -421,16 +412,25 @@ namespace GUI
             đăngXuấtToolStripMenuItem.Size = new Size(73, 20);
             đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             // 
+            // txtSeach
+            // 
+            txtSeach.Location = new Point(525, 337);
+            txtSeach.Margin = new Padding(4, 3, 4, 3);
+            txtSeach.Name = "txtSeach";
+            txtSeach.Size = new Size(207, 23);
+            txtSeach.TabIndex = 83;
+            // 
             // SanPhamForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(861, 551);
+            ClientSize = new Size(861, 603);
+            Controls.Add(txtSeach);
             Controls.Add(menuStrip1);
-            Controls.Add(btnReload);
             Controls.Add(dgvSanPham);
             Controls.Add(label1);
             Controls.Add(gbThongTinSapPham);
+            Controls.Add(btnSearch);
             Name = "SanPhamForm";
             Text = "SanPhamForm";
             gbThongTinSapPham.ResumeLayout(false);
@@ -465,7 +465,6 @@ namespace GUI
         private Label label4;
         private Label label3;
         private Label label2;
-        private TextBox txtSeach;
         private Button btnReload;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem trangChủToolStripMenuItem;
@@ -483,5 +482,6 @@ namespace GUI
         private ToolStripMenuItem phiếuXuấtHàngToolStripMenuItem;
         private ToolStripMenuItem báoCáoToolStripMenuItem;
         private ToolStripMenuItem đăngXuấtToolStripMenuItem;
+        private TextBox txtSeach;
     }
 }

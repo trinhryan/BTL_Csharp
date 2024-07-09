@@ -14,7 +14,7 @@ namespace GUI
 {
     public partial class PhieuNhapForm : Form
     {
-         PhieuNhapBus bus = new();
+        PhieuNhapBus bus = new();
         public PhieuNhapForm()
         {
             InitializeComponent();
@@ -22,7 +22,7 @@ namespace GUI
 
         private void NumberSoLuong_ValueChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -34,23 +34,23 @@ namespace GUI
         {
             PhieuNhap phieuNhap = new();
             phieuNhap.MaPn = int.Parse(txtMaPhieuNhap.Text);
-            phieuNhap.NgayNhap= DateOnly.Parse(dateNgayNhap.Text);
-            
+            phieuNhap.NgayNhap = DateOnly.Parse(dateNgayNhap.Text);
+
             phieuNhap.MaNccNavigation.MaNcc = int.Parse(txtMaNCC.Text);
             phieuNhap.MaNccNavigation.TenNcc = txtTenNCC.Text;
             phieuNhap.MaNccNavigation.Sdt = txtSdt.Text;
-            
+
             phieuNhap.MaQlNavigation.MaQl = int.Parse(txtMaNV.Text);
             phieuNhap.MaQlNavigation.TenQl = txtTenNV.Text;
-           
-            
+
+
             phieuNhap.MaSpNavigation.TenSp = txtTenSP.Text;
             phieuNhap.MaSpNavigation.MaSp = int.Parse(txtMaSanPham.Text);
             phieuNhap.MaSpNavigation.SoLuong = (int)NumberSoLuong.Value;
             phieuNhap.MaSpNavigation.GiaSp = int.Parse(txtGiaTien.Text);
-            
+
             bus.InsertData(phieuNhap);
-            
+
             MessageBox.Show("Thêm thành công");
         }
 
@@ -68,7 +68,7 @@ namespace GUI
             }
 
             bus.DeleteData(txtMaPhieuNhap.Text);
-            
+
             MessageBox.Show("Xóa thành công");
         }
 
@@ -79,28 +79,28 @@ namespace GUI
                 MessageBox.Show("Chưa chọn mã phiếu nhập cần sửa");
                 return;
             }
-            
+
             PhieuNhap phieuNhap = new();
             phieuNhap.MaPn = int.Parse(txtMaPhieuNhap.Text);
-            phieuNhap.NgayNhap= DateOnly.Parse(dateNgayNhap.Text);
-            
+            phieuNhap.NgayNhap = DateOnly.Parse(dateNgayNhap.Text);
+
             phieuNhap.MaNccNavigation.MaNcc = int.Parse(txtMaNCC.Text);
             phieuNhap.MaNccNavigation.TenNcc = txtTenNCC.Text;
             phieuNhap.MaNccNavigation.Sdt = txtSdt.Text;
-            
+
             phieuNhap.MaQlNavigation.MaQl = int.Parse(txtMaNV.Text);
             phieuNhap.MaQlNavigation.TenQl = txtTenNV.Text;
-           
-            
+
+
             phieuNhap.MaSpNavigation.TenSp = txtTenSP.Text;
             phieuNhap.MaSpNavigation.MaSp = int.Parse(txtMaSanPham.Text);
             phieuNhap.MaSpNavigation.SoLuong = (int)NumberSoLuong.Value;
             phieuNhap.MaSpNavigation.GiaSp = int.Parse(txtGiaTien.Text);
-            
+
             bus.UpdateData(phieuNhap);
-            
+
             MessageBox.Show("Sửa thành công");
-            
+
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -126,8 +126,13 @@ namespace GUI
                 txtTenSP.Text = data["TenSp"].ToString();
                 NumberSoLuong.Value = int.Parse(data["SoLuong"].ToString());
                 txtGiaTien.Text = data["GiaSp"].ToString();
-                
+
             }
+        }
+
+        private void btnInPhieu_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("In phiếu thành công");
         }
     }
 }

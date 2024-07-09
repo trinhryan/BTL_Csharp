@@ -49,7 +49,13 @@ namespace GUI
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            // dgvSanPham.DataSource = bus.SearchData(txtSearch.Text);
+           
+            if(txtSeach.Text == "")
+            {
+                MessageBox.Show("Chưa nhập tên sản phẩm cần tìm");
+                return;
+            }
+            dgvSanPham.DataSource = bus.SearchData( txtSeach.Text);
         }
 
         private void dgvSanPham_CellClick(object sender, DataGridViewCellEventArgs e)

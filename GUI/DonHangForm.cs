@@ -67,7 +67,7 @@ namespace GUI
             this.Hide();
         }
 
-  
+
 
         private void phiếuNhậpHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -88,6 +88,11 @@ namespace GUI
             var form = new BaoCaoForm();
             form.Show();
             this.Hide();
+        }
+
+        private void dgvChiTietDonHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

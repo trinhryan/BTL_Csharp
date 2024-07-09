@@ -12,6 +12,8 @@ public partial class Sale
     public DateOnly? NgaySinh { get; set; }
     
     public string GioiTinh { get; set; }
+    
+    public string DiaChi { get; set; }
 
     public string? Sdt { get; set; }
 

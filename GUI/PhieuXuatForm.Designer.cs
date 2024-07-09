@@ -64,6 +64,7 @@ namespace GUI
             label3 = new Label();
             label1 = new Label();
             btnInPhieu = new Button();
+            label13 = new Label();
             ((System.ComponentModel.ISupportInitialize)NumberSoLuong).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvPhieuXuatHang).BeginInit();
             gbThongTinSapPham.SuspendLayout();
@@ -72,7 +73,7 @@ namespace GUI
             // 
             // NumberSoLuong
             // 
-            NumberSoLuong.Location = new Point(427, 27);
+            NumberSoLuong.Location = new Point(479, 23);
             NumberSoLuong.Margin = new Padding(4, 3, 4, 3);
             NumberSoLuong.Name = "NumberSoLuong";
             NumberSoLuong.Size = new Size(205, 23);
@@ -82,24 +83,19 @@ namespace GUI
             // 
             dgvPhieuXuatHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPhieuXuatHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPhieuXuatHang.Location = new Point(56, 432);
+            dgvPhieuXuatHang.Location = new Point(67, 401);
             dgvPhieuXuatHang.Margin = new Padding(4, 3, 4, 3);
             dgvPhieuXuatHang.Name = "dgvPhieuXuatHang";
-            dgvPhieuXuatHang.Size = new Size(912, 207);
+            dgvPhieuXuatHang.Size = new Size(887, 207);
             dgvPhieuXuatHang.TabIndex = 11;
             dgvPhieuXuatHang.CellClick += dgvPhieuXuatHang_CellClick;
             // 
             // gbThongTinSapPham
             // 
-            gbThongTinSapPham.Controls.Add(btnReload);
             gbThongTinSapPham.Controls.Add(NumberSoLuong);
             gbThongTinSapPham.Controls.Add(txtGiaTien);
             gbThongTinSapPham.Controls.Add(txtTenSP);
             gbThongTinSapPham.Controls.Add(txtMaSanPham);
-            gbThongTinSapPham.Controls.Add(btnThoat);
-            gbThongTinSapPham.Controls.Add(btnThem);
-            gbThongTinSapPham.Controls.Add(btnXoa);
-            gbThongTinSapPham.Controls.Add(btnSua);
             gbThongTinSapPham.Controls.Add(label12);
             gbThongTinSapPham.Controls.Add(label11);
             gbThongTinSapPham.Controls.Add(label10);
@@ -108,14 +104,14 @@ namespace GUI
             gbThongTinSapPham.Margin = new Padding(4, 3, 4, 3);
             gbThongTinSapPham.Name = "gbThongTinSapPham";
             gbThongTinSapPham.Padding = new Padding(4, 3, 4, 3);
-            gbThongTinSapPham.Size = new Size(905, 211);
+            gbThongTinSapPham.Size = new Size(720, 120);
             gbThongTinSapPham.TabIndex = 10;
             gbThongTinSapPham.TabStop = false;
             gbThongTinSapPham.Text = "Thông tin sản phầm xuất";
             // 
             // btnReload
             // 
-            btnReload.Location = new Point(348, 147);
+            btnReload.Location = new Point(833, 226);
             btnReload.Margin = new Padding(4, 3, 4, 3);
             btnReload.Name = "btnReload";
             btnReload.Size = new Size(121, 38);
@@ -126,7 +122,7 @@ namespace GUI
             // 
             // txtGiaTien
             // 
-            txtGiaTien.Location = new Point(426, 80);
+            txtGiaTien.Location = new Point(479, 73);
             txtGiaTien.Margin = new Padding(4, 3, 4, 3);
             txtGiaTien.Name = "txtGiaTien";
             txtGiaTien.Size = new Size(207, 23);
@@ -150,7 +146,7 @@ namespace GUI
             // 
             // btnThoat
             // 
-            btnThoat.Location = new Point(733, 147);
+            btnThoat.Location = new Point(833, 296);
             btnThoat.Margin = new Padding(4, 3, 4, 3);
             btnThoat.Name = "btnThoat";
             btnThoat.Size = new Size(121, 38);
@@ -161,7 +157,7 @@ namespace GUI
             // 
             // btnThem
             // 
-            btnThem.Location = new Point(219, 147);
+            btnThem.Location = new Point(833, 15);
             btnThem.Margin = new Padding(4, 3, 4, 3);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(121, 38);
@@ -172,7 +168,7 @@ namespace GUI
             // 
             // btnXoa
             // 
-            btnXoa.Location = new Point(477, 147);
+            btnXoa.Location = new Point(833, 152);
             btnXoa.Margin = new Padding(4, 3, 4, 3);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(121, 38);
@@ -183,7 +179,7 @@ namespace GUI
             // 
             // btnSua
             // 
-            btnSua.Location = new Point(606, 147);
+            btnSua.Location = new Point(833, 75);
             btnSua.Margin = new Padding(4, 3, 4, 3);
             btnSua.Name = "btnSua";
             btnSua.Size = new Size(121, 38);
@@ -194,7 +190,7 @@ namespace GUI
             // 
             // label12
             // 
-            label12.Location = new Point(349, 80);
+            label12.Location = new Point(383, 73);
             label12.Margin = new Padding(4, 0, 4, 0);
             label12.Name = "label12";
             label12.Size = new Size(88, 27);
@@ -203,7 +199,7 @@ namespace GUI
             // 
             // label11
             // 
-            label11.Location = new Point(349, 25);
+            label11.Location = new Point(381, 23);
             label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
             label11.Size = new Size(88, 27);
@@ -250,7 +246,7 @@ namespace GUI
             gbThongTInDonHang.Margin = new Padding(4, 3, 4, 3);
             gbThongTInDonHang.Name = "gbThongTInDonHang";
             gbThongTInDonHang.Padding = new Padding(4, 3, 4, 3);
-            gbThongTInDonHang.Size = new Size(905, 209);
+            gbThongTInDonHang.Size = new Size(720, 209);
             gbThongTInDonHang.TabIndex = 9;
             gbThongTInDonHang.TabStop = false;
             gbThongTInDonHang.Text = "Thông tin phiếu xuất";
@@ -395,7 +391,7 @@ namespace GUI
             // 
             // btnInPhieu
             // 
-            btnInPhieu.Location = new Point(796, 645);
+            btnInPhieu.Location = new Point(833, 614);
             btnInPhieu.Margin = new Padding(4, 3, 4, 3);
             btnInPhieu.Name = "btnInPhieu";
             btnInPhieu.Size = new Size(121, 38);
@@ -404,15 +400,32 @@ namespace GUI
             btnInPhieu.UseVisualStyleBackColor = true;
             btnInPhieu.Click += btnInPhieu_Click;
             // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label13.Location = new Point(412, 358);
+            label13.Margin = new Padding(4, 0, 4, 0);
+            label13.Name = "label13";
+            label13.Size = new Size(268, 30);
+            label13.TabIndex = 96;
+            label13.Text = "DANH SÁCH PHIẾU XUẤT";
+            // 
             // PhieuXuatForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(988, 698);
+            ClientSize = new Size(988, 661);
+            Controls.Add(label13);
+            Controls.Add(btnReload);
             Controls.Add(btnInPhieu);
             Controls.Add(dgvPhieuXuatHang);
             Controls.Add(gbThongTinSapPham);
+            Controls.Add(btnThoat);
             Controls.Add(gbThongTInDonHang);
+            Controls.Add(btnSua);
+            Controls.Add(btnXoa);
+            Controls.Add(btnThem);
             Name = "PhieuXuatForm";
             Text = "PhieuXuatForm";
             ((System.ComponentModel.ISupportInitialize)NumberSoLuong).EndInit();
@@ -422,6 +435,7 @@ namespace GUI
             gbThongTInDonHang.ResumeLayout(false);
             gbThongTInDonHang.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -459,5 +473,6 @@ namespace GUI
         private Label label4;
         private TextBox txtMaPhieuXuat;
         private Label label5;
+        private Label label13;
     }
 }

@@ -22,14 +22,14 @@ public class NguoiDungBus : IBus<NguoiDung>
         var dt = new DataTable();
         dt.Columns.Add("HoTen");
         dt.Columns.Add("TenDangNhap");
-        dt.Columns.Add("GioiTinh");
+      //  dt.Columns.Add("GioiTinh");
         dt.Columns.Add("Sdt");
         dt.Columns.Add("DiaChi");
         
         var data = GetAllData();
         foreach (var item in data)
         {
-            dt.Rows.Add(item.HoTen, item.TenDangNhap, item.GioiTinh, item.Sdt, item.DiaChi);
+            dt.Rows.Add(item.HoTen, item.TenDangNhap, item.Sdt, item.DiaChi);
         }
         return dt;
     }
@@ -64,7 +64,7 @@ public class NguoiDungBus : IBus<NguoiDung>
         NguoiDung nguoiDungUpdate = db.NguoiDungs.FirstOrDefault(e => e.TenDangNhap == nguoiDung.TenDangNhap);
         nguoiDungUpdate.HoTen = nguoiDung.HoTen;
         nguoiDungUpdate.MatKhau = nguoiDung.MatKhau;
-        nguoiDungUpdate.GioiTinh = nguoiDung.GioiTinh;
+      //  nguoiDungUpdate.GioiTinh = nguoiDung.GioiTinh;
         nguoiDungUpdate.Sdt = nguoiDung.Sdt;
         nguoiDungUpdate.DiaChi = nguoiDung.DiaChi;
         db.SaveChanges();

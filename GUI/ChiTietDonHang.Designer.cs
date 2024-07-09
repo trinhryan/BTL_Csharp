@@ -35,7 +35,6 @@ namespace GUI
             gbThongTInDonHang = new GroupBox();
             dateNgayNhap = new DateTimePicker();
             txtSdt = new TextBox();
-            btnTaoKH = new Button();
             txtTenKhachHang = new TextBox();
             txtMaKH = new TextBox();
             txtMaDonHang = new TextBox();
@@ -81,6 +80,7 @@ namespace GUI
             báoCáoToolStripMenuItem = new ToolStripMenuItem();
             đăngXuấtToolStripMenuItem = new ToolStripMenuItem();
             orderitemsBindingSource = new BindingSource(components);
+            label4 = new Label();
             gbThongTInDonHang.SuspendLayout();
             gbThongTinSapPham.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NumberSoLuong).BeginInit();
@@ -94,7 +94,6 @@ namespace GUI
             // 
             gbThongTInDonHang.Controls.Add(dateNgayNhap);
             gbThongTInDonHang.Controls.Add(txtSdt);
-            gbThongTInDonHang.Controls.Add(btnTaoKH);
             gbThongTInDonHang.Controls.Add(txtTenKhachHang);
             gbThongTInDonHang.Controls.Add(txtMaKH);
             gbThongTInDonHang.Controls.Add(txtMaDonHang);
@@ -105,11 +104,11 @@ namespace GUI
             gbThongTInDonHang.Controls.Add(label3);
             gbThongTInDonHang.Controls.Add(label2);
             gbThongTInDonHang.Controls.Add(label1);
-            gbThongTInDonHang.Location = new Point(14, 47);
+            gbThongTInDonHang.Location = new Point(15, 84);
             gbThongTInDonHang.Margin = new Padding(4, 3, 4, 3);
             gbThongTInDonHang.Name = "gbThongTInDonHang";
             gbThongTInDonHang.Padding = new Padding(4, 3, 4, 3);
-            gbThongTInDonHang.Size = new Size(905, 209);
+            gbThongTInDonHang.Size = new Size(905, 181);
             gbThongTInDonHang.TabIndex = 3;
             gbThongTInDonHang.TabStop = false;
             gbThongTInDonHang.Text = "Thông tin đơn hàng";
@@ -129,16 +128,6 @@ namespace GUI
             txtSdt.Name = "txtSdt";
             txtSdt.Size = new Size(207, 23);
             txtSdt.TabIndex = 17;
-            // 
-            // btnTaoKH
-            // 
-            btnTaoKH.Location = new Point(663, 84);
-            btnTaoKH.Margin = new Padding(4, 3, 4, 3);
-            btnTaoKH.Name = "btnTaoKH";
-            btnTaoKH.Size = new Size(121, 38);
-            btnTaoKH.TabIndex = 16;
-            btnTaoKH.Text = "Tạo Khách hàng";
-            btnTaoKH.UseVisualStyleBackColor = true;
             // 
             // txtTenKhachHang
             // 
@@ -242,11 +231,11 @@ namespace GUI
             gbThongTinSapPham.Controls.Add(label11);
             gbThongTinSapPham.Controls.Add(label10);
             gbThongTinSapPham.Controls.Add(label9);
-            gbThongTinSapPham.Location = new Point(14, 271);
+            gbThongTinSapPham.Location = new Point(14, 284);
             gbThongTinSapPham.Margin = new Padding(4, 3, 4, 3);
             gbThongTinSapPham.Name = "gbThongTinSapPham";
             gbThongTinSapPham.Padding = new Padding(4, 3, 4, 3);
-            gbThongTinSapPham.Size = new Size(905, 211);
+            gbThongTinSapPham.Size = new Size(905, 198);
             gbThongTinSapPham.TabIndex = 4;
             gbThongTinSapPham.TabStop = false;
             gbThongTinSapPham.Text = "Thông tin sản phầm";
@@ -380,7 +369,7 @@ namespace GUI
             dgvChiTietDonHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvChiTietDonHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvChiTietDonHang.DataSource = chiTietDonHangBindingSource;
-            dgvChiTietDonHang.Location = new Point(7, 489);
+            dgvChiTietDonHang.Location = new Point(7, 496);
             dgvChiTietDonHang.Margin = new Padding(4, 3, 4, 3);
             dgvChiTietDonHang.Name = "dgvChiTietDonHang";
             dgvChiTietDonHang.Size = new Size(912, 207);
@@ -527,11 +516,23 @@ namespace GUI
             // 
             orderitemsBindingSource.DataMember = "order_items";
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(13, 35);
+            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(220, 30);
+            label4.TabIndex = 93;
+            label4.Text = "CHI TIẾT ĐƠN HÀNG";
+            // 
             // ChiTietDonHang
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(933, 800);
+            Controls.Add(label4);
             Controls.Add(menuStrip1);
             Controls.Add(txtTongTien);
             Controls.Add(label13);
@@ -571,8 +572,6 @@ namespace GUI
         private System.Windows.Forms.TextBox txtTongTien;
 
         private System.Windows.Forms.DataGridView dgvChiTietDonHang;
-
-        private System.Windows.Forms.Button btnTaoKH;
         private System.Windows.Forms.TextBox txtSdt;
         private System.Windows.Forms.TextBox txtMaSanPham;
         private System.Windows.Forms.TextBox txtTenSP;
@@ -632,5 +631,6 @@ namespace GUI
         private System.Windows.Forms.DataGridViewTextBoxColumn soLuongSPDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tongGiaTienDataGridViewTextBoxColumn;
         private Button btnReload;
+        private Label label4;
     }
 }

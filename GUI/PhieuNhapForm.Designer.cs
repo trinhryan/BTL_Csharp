@@ -64,6 +64,7 @@ namespace GUI
             label3 = new Label();
             label1 = new Label();
             btnInPhieu = new Button();
+            label13 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvPhieuNhapHang).BeginInit();
             gbThongTinSapPham.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NumberSoLuong).BeginInit();
@@ -74,7 +75,7 @@ namespace GUI
             // 
             dgvPhieuNhapHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPhieuNhapHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPhieuNhapHang.Location = new Point(49, 430);
+            dgvPhieuNhapHang.Location = new Point(56, 409);
             dgvPhieuNhapHang.Margin = new Padding(4, 3, 4, 3);
             dgvPhieuNhapHang.Name = "dgvPhieuNhapHang";
             dgvPhieuNhapHang.Size = new Size(912, 207);
@@ -83,15 +84,10 @@ namespace GUI
             // 
             // gbThongTinSapPham
             // 
-            gbThongTinSapPham.Controls.Add(btnReload);
             gbThongTinSapPham.Controls.Add(NumberSoLuong);
             gbThongTinSapPham.Controls.Add(txtGiaTien);
             gbThongTinSapPham.Controls.Add(txtTenSP);
             gbThongTinSapPham.Controls.Add(txtMaSanPham);
-            gbThongTinSapPham.Controls.Add(btnThoat);
-            gbThongTinSapPham.Controls.Add(btnThem);
-            gbThongTinSapPham.Controls.Add(btnXoa);
-            gbThongTinSapPham.Controls.Add(btnHuy);
             gbThongTinSapPham.Controls.Add(label12);
             gbThongTinSapPham.Controls.Add(label11);
             gbThongTinSapPham.Controls.Add(label10);
@@ -100,14 +96,14 @@ namespace GUI
             gbThongTinSapPham.Margin = new Padding(4, 3, 4, 3);
             gbThongTinSapPham.Name = "gbThongTinSapPham";
             gbThongTinSapPham.Padding = new Padding(4, 3, 4, 3);
-            gbThongTinSapPham.Size = new Size(905, 211);
+            gbThongTinSapPham.Size = new Size(761, 124);
             gbThongTinSapPham.TabIndex = 7;
             gbThongTinSapPham.TabStop = false;
             gbThongTinSapPham.Text = "Thông tin sản phầm nhập";
             // 
             // btnReload
             // 
-            btnReload.Location = new Point(348, 147);
+            btnReload.Location = new Point(851, 231);
             btnReload.Margin = new Padding(4, 3, 4, 3);
             btnReload.Name = "btnReload";
             btnReload.Size = new Size(121, 38);
@@ -118,7 +114,7 @@ namespace GUI
             // 
             // NumberSoLuong
             // 
-            NumberSoLuong.Location = new Point(427, 27);
+            NumberSoLuong.Location = new Point(538, 22);
             NumberSoLuong.Margin = new Padding(4, 3, 4, 3);
             NumberSoLuong.Name = "NumberSoLuong";
             NumberSoLuong.Size = new Size(205, 23);
@@ -127,7 +123,7 @@ namespace GUI
             // 
             // txtGiaTien
             // 
-            txtGiaTien.Location = new Point(426, 80);
+            txtGiaTien.Location = new Point(539, 73);
             txtGiaTien.Margin = new Padding(4, 3, 4, 3);
             txtGiaTien.Name = "txtGiaTien";
             txtGiaTien.Size = new Size(207, 23);
@@ -135,7 +131,7 @@ namespace GUI
             // 
             // txtTenSP
             // 
-            txtTenSP.Location = new Point(90, 29);
+            txtTenSP.Location = new Point(136, 23);
             txtTenSP.Margin = new Padding(4, 3, 4, 3);
             txtTenSP.Name = "txtTenSP";
             txtTenSP.Size = new Size(207, 23);
@@ -143,7 +139,7 @@ namespace GUI
             // 
             // txtMaSanPham
             // 
-            txtMaSanPham.Location = new Point(90, 80);
+            txtMaSanPham.Location = new Point(133, 74);
             txtMaSanPham.Margin = new Padding(4, 3, 4, 3);
             txtMaSanPham.Name = "txtMaSanPham";
             txtMaSanPham.Size = new Size(207, 23);
@@ -151,7 +147,7 @@ namespace GUI
             // 
             // btnThoat
             // 
-            btnThoat.Location = new Point(733, 147);
+            btnThoat.Location = new Point(851, 289);
             btnThoat.Margin = new Padding(4, 3, 4, 3);
             btnThoat.Name = "btnThoat";
             btnThoat.Size = new Size(121, 38);
@@ -162,7 +158,7 @@ namespace GUI
             // 
             // btnThem
             // 
-            btnThem.Location = new Point(219, 147);
+            btnThem.Location = new Point(851, 49);
             btnThem.Margin = new Padding(4, 3, 4, 3);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(121, 38);
@@ -173,7 +169,7 @@ namespace GUI
             // 
             // btnXoa
             // 
-            btnXoa.Location = new Point(477, 147);
+            btnXoa.Location = new Point(851, 174);
             btnXoa.Margin = new Padding(4, 3, 4, 3);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(121, 38);
@@ -184,7 +180,7 @@ namespace GUI
             // 
             // btnHuy
             // 
-            btnHuy.Location = new Point(606, 147);
+            btnHuy.Location = new Point(851, 111);
             btnHuy.Margin = new Padding(4, 3, 4, 3);
             btnHuy.Name = "btnHuy";
             btnHuy.Size = new Size(121, 38);
@@ -195,7 +191,7 @@ namespace GUI
             // 
             // label12
             // 
-            label12.Location = new Point(349, 80);
+            label12.Location = new Point(424, 76);
             label12.Margin = new Padding(4, 0, 4, 0);
             label12.Name = "label12";
             label12.Size = new Size(88, 27);
@@ -204,7 +200,7 @@ namespace GUI
             // 
             // label11
             // 
-            label11.Location = new Point(349, 25);
+            label11.Location = new Point(426, 19);
             label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
             label11.Size = new Size(88, 27);
@@ -251,7 +247,7 @@ namespace GUI
             gbThongTInDonHang.Margin = new Padding(4, 3, 4, 3);
             gbThongTInDonHang.Name = "gbThongTInDonHang";
             gbThongTInDonHang.Padding = new Padding(4, 3, 4, 3);
-            gbThongTInDonHang.Size = new Size(905, 209);
+            gbThongTInDonHang.Size = new Size(761, 209);
             gbThongTInDonHang.TabIndex = 6;
             gbThongTInDonHang.TabStop = false;
             gbThongTInDonHang.Text = "Thông tin phiếu nhập";
@@ -396,23 +392,41 @@ namespace GUI
             // 
             // btnInPhieu
             // 
-            btnInPhieu.Location = new Point(840, 643);
+            btnInPhieu.Location = new Point(847, 622);
             btnInPhieu.Margin = new Padding(4, 3, 4, 3);
             btnInPhieu.Name = "btnInPhieu";
             btnInPhieu.Size = new Size(121, 38);
             btnInPhieu.TabIndex = 27;
             btnInPhieu.Text = "In phiếu";
             btnInPhieu.UseVisualStyleBackColor = true;
+            btnInPhieu.Click += btnInPhieu_Click;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label13.Location = new Point(323, 366);
+            label13.Margin = new Padding(4, 0, 4, 0);
+            label13.Name = "label13";
+            label13.Size = new Size(273, 30);
+            label13.TabIndex = 95;
+            label13.Text = "DANH SÁCH PHIẾU NHẬP";
             // 
             // PhieuNhapForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1011, 702);
+            ClientSize = new Size(994, 668);
+            Controls.Add(label13);
+            Controls.Add(btnReload);
             Controls.Add(btnInPhieu);
             Controls.Add(dgvPhieuNhapHang);
             Controls.Add(gbThongTinSapPham);
+            Controls.Add(btnThoat);
             Controls.Add(gbThongTInDonHang);
+            Controls.Add(btnHuy);
+            Controls.Add(btnXoa);
+            Controls.Add(btnThem);
             Name = "PhieuNhapForm";
             Text = "PhieuNhapForm";
             ((System.ComponentModel.ISupportInitialize)dgvPhieuNhapHang).EndInit();
@@ -422,6 +436,7 @@ namespace GUI
             gbThongTInDonHang.ResumeLayout(false);
             gbThongTInDonHang.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -459,5 +474,6 @@ namespace GUI
         private Button btnInPhieu;
         private TextBox txtMaPhieuNhap;
         private Label label2;
+        private Label label13;
     }
 }

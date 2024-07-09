@@ -39,7 +39,7 @@ namespace GUI
             rdbNam = new RadioButton();
             label7 = new Label();
             dateNgaySinh = new DateTimePicker();
-            cobCHucVu = new ComboBox();
+            cobChucVu = new ComboBox();
             label6 = new Label();
             label1 = new Label();
             label2 = new Label();
@@ -48,15 +48,15 @@ namespace GUI
             btnSearch = new Button();
             label4 = new Label();
             btnReload = new Button();
-            txtMaKH = new TextBox();
+            txtMaNV = new TextBox();
             btnSua = new Button();
-            txtTenKH = new TextBox();
+            txtTenNV = new TextBox();
             btnXoa = new Button();
             txtSdt = new TextBox();
             btnThem = new Button();
             txtDiaChi = new TextBox();
             label5 = new Label();
-            dataGridView1 = new DataGridView();
+            dgvNhanVien = new DataGridView();
             menuStrip1 = new MenuStrip();
             trangChủToolStripMenuItem = new ToolStripMenuItem();
             quảnLýNgườiDùngToolStripMenuItem = new ToolStripMenuItem();
@@ -74,7 +74,7 @@ namespace GUI
             báoCáoToolStripMenuItem = new ToolStripMenuItem();
             đăngXuấtToolStripMenuItem = new ToolStripMenuItem();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvNhanVien).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -87,7 +87,7 @@ namespace GUI
             groupBox1.Controls.Add(rdbNam);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(dateNgaySinh);
-            groupBox1.Controls.Add(cobCHucVu);
+            groupBox1.Controls.Add(cobChucVu);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(label2);
@@ -96,9 +96,9 @@ namespace GUI
             groupBox1.Controls.Add(btnSearch);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(btnReload);
-            groupBox1.Controls.Add(txtMaKH);
+            groupBox1.Controls.Add(txtMaNV);
             groupBox1.Controls.Add(btnSua);
-            groupBox1.Controls.Add(txtTenKH);
+            groupBox1.Controls.Add(txtTenNV);
             groupBox1.Controls.Add(btnXoa);
             groupBox1.Controls.Add(txtSdt);
             groupBox1.Controls.Add(btnThem);
@@ -109,6 +109,7 @@ namespace GUI
             groupBox1.TabIndex = 88;
             groupBox1.TabStop = false;
             groupBox1.Text = "thông tin nhân viên";
+            groupBox1.Enter += groupBox1_Enter;
             // 
             // txtTenDangNhap
             // 
@@ -138,7 +139,7 @@ namespace GUI
             // rdbNu
             // 
             rdbNu.AutoSize = true;
-            rdbNu.Location = new Point(630, 93);
+            rdbNu.Location = new Point(630, 89);
             rdbNu.Name = "rdbNu";
             rdbNu.Size = new Size(41, 19);
             rdbNu.TabIndex = 88;
@@ -173,13 +174,13 @@ namespace GUI
             dateNgaySinh.Size = new Size(225, 23);
             dateNgaySinh.TabIndex = 85;
             // 
-            // cobCHucVu
+            // cobChucVu
             // 
-            cobCHucVu.FormattingEnabled = true;
-            cobCHucVu.Location = new Point(540, 145);
-            cobCHucVu.Name = "cobCHucVu";
-            cobCHucVu.Size = new Size(223, 23);
-            cobCHucVu.TabIndex = 84;
+            cobChucVu.FormattingEnabled = true;
+            cobChucVu.Location = new Point(540, 145);
+            cobChucVu.Name = "cobChucVu";
+            cobChucVu.Size = new Size(223, 23);
+            cobChucVu.TabIndex = 84;
             // 
             // label6
             // 
@@ -235,6 +236,7 @@ namespace GUI
             btnSearch.TabIndex = 81;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
             // 
             // label4
             // 
@@ -255,13 +257,14 @@ namespace GUI
             btnReload.TabIndex = 80;
             btnReload.Text = "Reload";
             btnReload.UseVisualStyleBackColor = false;
+            btnReload.Click += btnReload_Click;
             // 
-            // txtMaKH
+            // txtMaNV
             // 
-            txtMaKH.Location = new Point(123, 29);
-            txtMaKH.Name = "txtMaKH";
-            txtMaKH.Size = new Size(223, 23);
-            txtMaKH.TabIndex = 73;
+            txtMaNV.Location = new Point(123, 29);
+            txtMaNV.Name = "txtMaNV";
+            txtMaNV.Size = new Size(223, 23);
+            txtMaNV.TabIndex = 73;
             // 
             // btnSua
             // 
@@ -273,13 +276,14 @@ namespace GUI
             btnSua.TabIndex = 79;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = false;
+            btnSua.Click += btnSua_Click;
             // 
-            // txtTenKH
+            // txtTenNV
             // 
-            txtTenKH.Location = new Point(123, 85);
-            txtTenKH.Name = "txtTenKH";
-            txtTenKH.Size = new Size(223, 23);
-            txtTenKH.TabIndex = 74;
+            txtTenNV.Location = new Point(123, 85);
+            txtTenNV.Name = "txtTenNV";
+            txtTenNV.Size = new Size(223, 23);
+            txtTenNV.TabIndex = 74;
             // 
             // btnXoa
             // 
@@ -291,6 +295,7 @@ namespace GUI
             btnXoa.TabIndex = 78;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
             // 
             // txtSdt
             // 
@@ -309,6 +314,7 @@ namespace GUI
             btnThem.TabIndex = 77;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = false;
+            btnThem.Click += btnThem_Click;
             // 
             // txtDiaChi
             // 
@@ -326,13 +332,13 @@ namespace GUI
             label5.TabIndex = 87;
             label5.Text = "Danh sách thông tin nhân viên";
             // 
-            // dataGridView1
+            // dgvNhanVien
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(21, 372);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(826, 248);
-            dataGridView1.TabIndex = 86;
+            dgvNhanVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvNhanVien.Location = new Point(21, 372);
+            dgvNhanVien.Name = "dgvNhanVien";
+            dgvNhanVien.Size = new Size(826, 248);
+            dgvNhanVien.TabIndex = 86;
             // 
             // menuStrip1
             // 
@@ -403,7 +409,7 @@ namespace GUI
             // hóaĐơnToolStripMenuItem
             // 
             hóaĐơnToolStripMenuItem.Name = "hóaĐơnToolStripMenuItem";
-            hóaĐơnToolStripMenuItem.Size = new Size(180, 22);
+            hóaĐơnToolStripMenuItem.Size = new Size(120, 22);
             hóaĐơnToolStripMenuItem.Text = "Hóa đơn";
             hóaĐơnToolStripMenuItem.Click += hóaĐơnToolStripMenuItem_Click;
             // 
@@ -424,14 +430,14 @@ namespace GUI
             // phiếuNhậpHàngToolStripMenuItem
             // 
             phiếuNhậpHàngToolStripMenuItem.Name = "phiếuNhậpHàngToolStripMenuItem";
-            phiếuNhậpHàngToolStripMenuItem.Size = new Size(180, 22);
+            phiếuNhậpHàngToolStripMenuItem.Size = new Size(164, 22);
             phiếuNhậpHàngToolStripMenuItem.Text = "Phiếu nhập hàng";
             phiếuNhậpHàngToolStripMenuItem.Click += phiếuNhậpHàngToolStripMenuItem_Click;
             // 
             // phiếuXuấtHàngToolStripMenuItem
             // 
             phiếuXuấtHàngToolStripMenuItem.Name = "phiếuXuấtHàngToolStripMenuItem";
-            phiếuXuấtHàngToolStripMenuItem.Size = new Size(180, 22);
+            phiếuXuấtHàngToolStripMenuItem.Size = new Size(164, 22);
             phiếuXuấtHàngToolStripMenuItem.Text = "Phiếu xuất hàng";
             phiếuXuấtHàngToolStripMenuItem.Click += phiếuXuấtHàngToolStripMenuItem_Click;
             // 
@@ -456,12 +462,12 @@ namespace GUI
             Controls.Add(menuStrip1);
             Controls.Add(groupBox1);
             Controls.Add(label5);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvNhanVien);
             Name = "NhanVienForm";
             Text = "NhanVienForm";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvNhanVien).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -478,16 +484,16 @@ namespace GUI
         private Button btnSearch;
         private Label label4;
         private Button btnReload;
-        private TextBox txtMaKH;
+        private TextBox txtMaNV;
         private Button btnSua;
-        private TextBox txtTenKH;
+        private TextBox txtTenNV;
         private Button btnXoa;
         private TextBox txtSdt;
         private Button btnThem;
         private TextBox txtDiaChi;
         private Label label5;
-        private DataGridView dataGridView1;
-        private ComboBox cobCHucVu;
+        private DataGridView dgvNhanVien;
+        private ComboBox cobChucVu;
         private Label label6;
         private TextBox txtTenDangNhap;
         private Label label9;

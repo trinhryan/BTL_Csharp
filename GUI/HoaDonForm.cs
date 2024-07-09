@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Windows.Forms;
+using Business;
 
 namespace GUI;
 
 public partial class HoaDonForm : Form
 {
+    private HoaDonBus bus = new();
     public HoaDonForm()
     {
         InitializeComponent();

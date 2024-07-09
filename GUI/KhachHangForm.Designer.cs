@@ -72,9 +72,9 @@ namespace GUI
             // dgvKhacHang
             // 
             dgvKhacHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvKhacHang.Location = new Point(12, 359);
+            dgvKhacHang.Location = new Point(12, 403);
             dgvKhacHang.Name = "dgvKhacHang";
-            dgvKhacHang.Size = new Size(826, 248);
+            dgvKhacHang.Size = new Size(776, 248);
             dgvKhacHang.TabIndex = 68;
             dgvKhacHang.CellClick += dgvKhacHang_CellClick;
             // 
@@ -144,7 +144,7 @@ namespace GUI
             // 
             // txtSeach
             // 
-            txtSeach.Location = new Point(384, 29);
+            txtSeach.Location = new Point(408, 367);
             txtSeach.Margin = new Padding(4, 3, 4, 3);
             txtSeach.Name = "txtSeach";
             txtSeach.Size = new Size(223, 23);
@@ -153,10 +153,10 @@ namespace GUI
             // btnSearch
             // 
             btnSearch.BackColor = Color.Khaki;
-            btnSearch.Location = new Point(615, 14);
+            btnSearch.Location = new Point(657, 362);
             btnSearch.Margin = new Padding(4, 3, 4, 3);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(125, 38);
+            btnSearch.Size = new Size(125, 30);
             btnSearch.TabIndex = 81;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = false;
@@ -165,7 +165,7 @@ namespace GUI
             // btnReload
             // 
             btnReload.BackColor = Color.Khaki;
-            btnReload.Location = new Point(615, 218);
+            btnReload.Location = new Point(663, 157);
             btnReload.Margin = new Padding(4, 3, 4, 3);
             btnReload.Name = "btnReload";
             btnReload.Size = new Size(125, 38);
@@ -177,7 +177,7 @@ namespace GUI
             // btnSua
             // 
             btnSua.BackColor = Color.Khaki;
-            btnSua.Location = new Point(409, 170);
+            btnSua.Location = new Point(663, 56);
             btnSua.Margin = new Padding(4, 3, 4, 3);
             btnSua.Name = "btnSua";
             btnSua.Size = new Size(125, 38);
@@ -189,7 +189,7 @@ namespace GUI
             // btnXoa
             // 
             btnXoa.BackColor = Color.Khaki;
-            btnXoa.Location = new Point(615, 114);
+            btnXoa.Location = new Point(476, 157);
             btnXoa.Margin = new Padding(4, 3, 4, 3);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(125, 38);
@@ -201,7 +201,7 @@ namespace GUI
             // btnThem
             // 
             btnThem.BackColor = Color.Khaki;
-            btnThem.Location = new Point(409, 76);
+            btnThem.Location = new Point(476, 56);
             btnThem.Margin = new Padding(4, 3, 4, 3);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(125, 38);
@@ -213,7 +213,7 @@ namespace GUI
             // label5
             // 
             label5.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(256, 327);
+            label5.Location = new Point(192, 320);
             label5.Name = "label5";
             label5.Size = new Size(310, 29);
             label5.TabIndex = 83;
@@ -223,21 +223,15 @@ namespace GUI
             // 
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(txtSeach);
             groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(btnSearch);
             groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(btnReload);
             groupBox1.Controls.Add(txtMaKH);
-            groupBox1.Controls.Add(btnSua);
             groupBox1.Controls.Add(txtTenKH);
-            groupBox1.Controls.Add(btnXoa);
             groupBox1.Controls.Add(txtSdt);
-            groupBox1.Controls.Add(btnThem);
             groupBox1.Controls.Add(txtDiaChi);
             groupBox1.Location = new Point(12, 27);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(826, 280);
+            groupBox1.Size = new Size(402, 280);
             groupBox1.TabIndex = 84;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin khách hàng";
@@ -248,7 +242,7 @@ namespace GUI
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(7, 2, 0, 2);
-            menuStrip1.Size = new Size(861, 24);
+            menuStrip1.Size = new Size(795, 24);
             menuStrip1.TabIndex = 85;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -331,14 +325,14 @@ namespace GUI
             // phiếuNhậpHàngToolStripMenuItem
             // 
             phiếuNhậpHàngToolStripMenuItem.Name = "phiếuNhậpHàngToolStripMenuItem";
-            phiếuNhậpHàngToolStripMenuItem.Size = new Size(180, 22);
+            phiếuNhậpHàngToolStripMenuItem.Size = new Size(164, 22);
             phiếuNhậpHàngToolStripMenuItem.Text = "Phiếu nhập hàng";
             phiếuNhậpHàngToolStripMenuItem.Click += phiếuNhậpHàngToolStripMenuItem_Click;
             // 
             // phiếuXuấtHàngToolStripMenuItem
             // 
             phiếuXuấtHàngToolStripMenuItem.Name = "phiếuXuấtHàngToolStripMenuItem";
-            phiếuXuấtHàngToolStripMenuItem.Size = new Size(180, 22);
+            phiếuXuấtHàngToolStripMenuItem.Size = new Size(164, 22);
             phiếuXuấtHàngToolStripMenuItem.Text = "Phiếu xuất hàng";
             phiếuXuấtHàngToolStripMenuItem.Click += phiếuXuấtHàngToolStripMenuItem_Click;
             // 
@@ -359,11 +353,17 @@ namespace GUI
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(861, 607);
+            ClientSize = new Size(795, 657);
             Controls.Add(menuStrip1);
             Controls.Add(groupBox1);
+            Controls.Add(txtSeach);
             Controls.Add(label5);
+            Controls.Add(btnReload);
             Controls.Add(dgvKhacHang);
+            Controls.Add(btnXoa);
+            Controls.Add(btnSearch);
+            Controls.Add(btnSua);
+            Controls.Add(btnThem);
             Name = "KhachHangForm";
             Text = "KhachHangForm";
             ((System.ComponentModel.ISupportInitialize)dgvKhacHang).EndInit();

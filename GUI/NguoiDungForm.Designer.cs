@@ -66,13 +66,14 @@ partial class NguoiDungForm
         phiếuXuấtHàngToolStripMenuItem = new ToolStripMenuItem();
         báoCáoToolStripMenuItem = new ToolStripMenuItem();
         đăngXuấtToolStripMenuItem = new ToolStripMenuItem();
+        label6 = new Label();
         ((System.ComponentModel.ISupportInitialize)dgvNguoiDung).BeginInit();
         menuStrip1.SuspendLayout();
         SuspendLayout();
         // 
         // txtSearch
         // 
-        txtSearch.Location = new Point(584, 235);
+        txtSearch.Location = new Point(496, 301);
         txtSearch.Margin = new Padding(4, 3, 4, 3);
         txtSearch.Name = "txtSearch";
         txtSearch.Size = new Size(190, 23);
@@ -81,10 +82,10 @@ partial class NguoiDungForm
         // btnSearch
         // 
         btnSearch.BackColor = Color.Khaki;
-        btnSearch.Location = new Point(782, 227);
+        btnSearch.Location = new Point(717, 295);
         btnSearch.Margin = new Padding(4, 3, 4, 3);
         btnSearch.Name = "btnSearch";
-        btnSearch.Size = new Size(125, 38);
+        btnSearch.Size = new Size(125, 33);
         btnSearch.TabIndex = 28;
         btnSearch.Text = "Search";
         btnSearch.UseVisualStyleBackColor = false;
@@ -93,7 +94,7 @@ partial class NguoiDungForm
         // btnReload
         // 
         btnReload.BackColor = Color.Khaki;
-        btnReload.Location = new Point(420, 227);
+        btnReload.Location = new Point(717, 194);
         btnReload.Margin = new Padding(4, 3, 4, 3);
         btnReload.Name = "btnReload";
         btnReload.Size = new Size(125, 38);
@@ -105,7 +106,7 @@ partial class NguoiDungForm
         // btnSua
         // 
         btnSua.BackColor = Color.Khaki;
-        btnSua.Location = new Point(288, 227);
+        btnSua.Location = new Point(717, 150);
         btnSua.Margin = new Padding(4, 3, 4, 3);
         btnSua.Name = "btnSua";
         btnSua.Size = new Size(125, 38);
@@ -117,7 +118,7 @@ partial class NguoiDungForm
         // btnXoa
         // 
         btnXoa.BackColor = Color.Khaki;
-        btnXoa.Location = new Point(156, 227);
+        btnXoa.Location = new Point(584, 194);
         btnXoa.Margin = new Padding(4, 3, 4, 3);
         btnXoa.Name = "btnXoa";
         btnXoa.Size = new Size(125, 38);
@@ -129,7 +130,7 @@ partial class NguoiDungForm
         // btnThem
         // 
         btnThem.BackColor = Color.Khaki;
-        btnThem.Location = new Point(24, 227);
+        btnThem.Location = new Point(584, 153);
         btnThem.Margin = new Padding(4, 3, 4, 3);
         btnThem.Name = "btnThem";
         btnThem.Size = new Size(125, 38);
@@ -141,10 +142,10 @@ partial class NguoiDungForm
         // dgvNguoiDung
         // 
         dgvNguoiDung.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dgvNguoiDung.Location = new Point(14, 275);
+        dgvNguoiDung.Location = new Point(13, 330);
         dgvNguoiDung.Margin = new Padding(4, 3, 4, 3);
         dgvNguoiDung.Name = "dgvNguoiDung";
-        dgvNguoiDung.Size = new Size(919, 243);
+        dgvNguoiDung.Size = new Size(829, 243);
         dgvNguoiDung.TabIndex = 23;
         dgvNguoiDung.CellClick += dgvNguoiDung_CellClick;
         // 
@@ -174,7 +175,7 @@ partial class NguoiDungForm
         // 
         // txtHoTen
         // 
-        txtHoTen.Location = new Point(158, 63);
+        txtHoTen.Location = new Point(167, 60);
         txtHoTen.Margin = new Padding(4, 3, 4, 3);
         txtHoTen.Name = "txtHoTen";
         txtHoTen.Size = new Size(258, 23);
@@ -239,7 +240,7 @@ partial class NguoiDungForm
         menuStrip1.Location = new Point(0, 0);
         menuStrip1.Name = "menuStrip1";
         menuStrip1.Padding = new Padding(7, 2, 0, 2);
-        menuStrip1.Size = new Size(933, 24);
+        menuStrip1.Size = new Size(848, 24);
         menuStrip1.TabIndex = 88;
         menuStrip1.Text = "menuStrip1";
         // 
@@ -302,7 +303,7 @@ partial class NguoiDungForm
         // hóaĐơnToolStripMenuItem
         // 
         hóaĐơnToolStripMenuItem.Name = "hóaĐơnToolStripMenuItem";
-        hóaĐơnToolStripMenuItem.Size = new Size(180, 22);
+        hóaĐơnToolStripMenuItem.Size = new Size(120, 22);
         hóaĐơnToolStripMenuItem.Text = "Hóa đơn";
         hóaĐơnToolStripMenuItem.Click += hóaĐơnToolStripMenuItem_Click;
         // 
@@ -323,14 +324,14 @@ partial class NguoiDungForm
         // phiếuNhậpHàngToolStripMenuItem
         // 
         phiếuNhậpHàngToolStripMenuItem.Name = "phiếuNhậpHàngToolStripMenuItem";
-        phiếuNhậpHàngToolStripMenuItem.Size = new Size(180, 22);
+        phiếuNhậpHàngToolStripMenuItem.Size = new Size(164, 22);
         phiếuNhậpHàngToolStripMenuItem.Text = "Phiếu nhập hàng";
         phiếuNhậpHàngToolStripMenuItem.Click += phiếuNhậpHàngToolStripMenuItem_Click;
         // 
         // phiếuXuấtHàngToolStripMenuItem
         // 
         phiếuXuấtHàngToolStripMenuItem.Name = "phiếuXuấtHàngToolStripMenuItem";
-        phiếuXuấtHàngToolStripMenuItem.Size = new Size(180, 22);
+        phiếuXuấtHàngToolStripMenuItem.Size = new Size(164, 22);
         phiếuXuấtHàngToolStripMenuItem.Text = "Phiếu xuất hàng";
         phiếuXuấtHàngToolStripMenuItem.Click += phiếuXuấtHàngToolStripMenuItem_Click;
         // 
@@ -347,11 +348,23 @@ partial class NguoiDungForm
         đăngXuấtToolStripMenuItem.Size = new Size(73, 20);
         đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
         // 
+        // label6
+        // 
+        label6.AutoSize = true;
+        label6.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        label6.Location = new Point(238, 234);
+        label6.Margin = new Padding(4, 0, 4, 0);
+        label6.Name = "label6";
+        label6.Size = new Size(283, 30);
+        label6.TabIndex = 94;
+        label6.Text = "DANH SÁCH NGƯỜI DÙNG";
+        // 
         // NguoiDungForm
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(933, 519);
+        ClientSize = new Size(848, 573);
+        Controls.Add(label6);
         Controls.Add(menuStrip1);
         Controls.Add(txtDiaChi);
         Controls.Add(label4);
@@ -424,4 +437,5 @@ partial class NguoiDungForm
     private ToolStripMenuItem phiếuXuấtHàngToolStripMenuItem;
     private ToolStripMenuItem báoCáoToolStripMenuItem;
     private ToolStripMenuItem đăngXuấtToolStripMenuItem;
+    private Label label6;
 }

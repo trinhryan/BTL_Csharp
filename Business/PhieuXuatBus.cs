@@ -1,13 +1,16 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using DataAccess.Context;
 using DataAccess.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Business;
 
-public class PhieuXuatBus: IBus<PhieuXuat>
+public class PhieuXuatBus : IBus<PhieuXuat>
 {
     private MyDbContext db = new MyDbContext();
+
     public List<PhieuXuat> GetAllData()
     {
         return db.PhieuXuats.ToList();
@@ -28,11 +31,12 @@ public class PhieuXuatBus: IBus<PhieuXuat>
         dt.Columns.Add("MaSP");
         dt.Columns.Add("SoLuong");
         dt.Columns.Add("DonGia");
-        
+
         var data = GetAllData();
         foreach (var item in data)
         {
-            dt.Rows.Add(item.MaPx, item.NgayXuat, item.CuaHangNhap, item.CuaHangNhan, item.NhanVienXuat, item.MaNV, item.DiaChi, item.SoDienThoai, item.TenSanPham, item.MaSP, item.SoLuong, item.DonGia);
+            dt.Rows.Add(item.MaPx, item.NgayXuat, item.MaPx, item.CuaHangNhan, item.NhanVienXuat, item.MaNV,
+                item.DiaChi, item.SoDienThoai, item.TenSanPham, item.MaSP, item.SoLuong, item.DonGia);
         }
 
         return dt;
@@ -46,13 +50,17 @@ public class PhieuXuatBus: IBus<PhieuXuat>
     public void AddData(PhieuXuat obj)
     {
         PhieuXuat phieuXuat = (PhieuXuat)obj;
-        db.Database.ExecuteSqlRaw("insert into PhieuXuat(NgayXuat, CuaHangXuat, CuaHangNhan, NhanVienXuat, MaNV, DiaChi, SoDienThoai, TenSanPham, MaSP, SoLuong, DonGia) values({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", phieuXuat.NgayXuat, phieuXuat.CuaHangXuat, phieuXuat.CuaHangNhan, phieuXuat.NhanVienXuat, phieuXuat.MaNV, phieuXuat.DiaChi, phieuXuat.SoDienThoai, phieuXuat.TenSanPham, phieuXuat.MaSP, phieuXuat.SoLuong, phieuXuat.DonGia);
+        db.Database.ExecuteSqlRaw(
+            "insert into PhieuXuat(NgayXuat, CuaHangXuat, CuaHangNhan, NhanVienXuat, MaNV, DiaChi, SoDienThoai, TenSanPham, MaSP, SoLuong, DonGia) values({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})",
+            phieuXuat.NgayXuat, phieuXuat.CuaHangXuat, phieuXuat.CuaHangNhan, phieuXuat.NhanVienXuat, phieuXuat.MaNV,
+            phieuXuat.DiaChi, phieuXuat.SoDienThoai, phieuXuat.TenSanPham, phieuXuat.MaSP, phieuXuat.SoLuong,
+            phieuXuat.DonGia);
     }
 
     public void UpdateData(PhieuXuat obj)
     {
         PhieuXuat phieuXuat = (PhieuXuat)obj;
-        PhieuXuat phieuXuatUpdate = db.PhieuXuats.FirstOrDefault(e=>e.MaPhieuXuat == phieuXuat.MaPhieuXuat);
+        PhieuXuat phieuXuatUpdate = db.PhieuXuats.FirstOrDefault(e => e.MaPhieuXuat == phieuXuat.MaPhieuXuat);
         phieuXuatUpdate.NgayXuat = phieuXuat.NgayXuat;
         phieuXuatUpdate.CuaHangXuat = phieuXuat.CuaHangXuat;
         phieuXuatUpdate.CuaHangNhan = phieuXuat.CuaHangNhan;

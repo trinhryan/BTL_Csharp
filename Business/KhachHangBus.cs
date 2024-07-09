@@ -1,4 +1,7 @@
-﻿using System.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using DataAccess.Context;
 using DataAccess.Entities;
 using Microsoft.EntityFrameworkCore;

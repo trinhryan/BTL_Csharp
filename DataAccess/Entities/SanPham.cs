@@ -7,6 +7,7 @@ public partial class SanPham
 {
     public int MaSp { get; set; }
 
+    public int SoLuong { get; set; }
     public string? TenSp { get; set; }
 
     public decimal? GiaSp { get; set; }

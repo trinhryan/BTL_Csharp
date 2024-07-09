@@ -24,19 +24,25 @@ namespace GUI
         private void btnThem_Click(object sender, EventArgs e)
         {
             PhieuXuat phieuXuat = new();
-            phieuXuat.MaPx = Convert.ToInt32(txtMaPhieuXuat.Text);
+            phieuXuat.MaPx = int .Parse(txtMaPhieuXuat.Text);
             phieuXuat.NgayXuat = DateOnly.Parse(dateNgayNhap.Text);
-            phieuXuat.CuaHangXuat = cobCHNhap.Text;
-            phieuXuat.CuaHangNhan = cobCHXuat.Text;
-            phieuXuat.NhanVienXuat = txtTenNV.Text;
-            phieuXuat.MaNV = Convert.ToInt32(txtMaNV.Text);
-            phieuXuat.Sdt = txtSdt.Text;
-            phieuXuat.DiaChi = txtDiaChi.Text;
-            phieuXuat.TenSanPham = txtTenSP.Text;
-            phieuXuat.MaSanPham = txtMaSanPham.Text;
-            phieuXuat.SoLuong = NumberSoLuong.Value;
-            phieuXuat.GiaTien = txtGiaTien.Text;
+            phieuXuat.MaCuaHangNavigation.TenCuaHang = cobCHNhap.Text;
+            phieuXuat.MaCuaHangNavigation.TenCuaHang = cobCHXuat.Text;
+            phieuXuat.MaCuaHangNavigation.DiaChi = txtDiaChi.Text;
+            
+            phieuXuat.MaQlNavigation.MaQl = int .Parse(txtMaNV.Text);
+            phieuXuat.MaQlNavigation.TenQl = txtTenNV.Text;
+            phieuXuat.MaQlNavigation.Sdt = txtSdt.Text;
+           
+            phieuXuat.MaSPNavigation.TenSp = txtTenSP.Text;
+            phieuXuat.MaSPNavigation.MaSp = int.Parse(txtMaSanPham.Text);
+            phieuXuat.MaSPNavigation.SoLuong = (int)NumberSoLuong.Value;
+            phieuXuat.MaSPNavigation.GiaSp = int.Parse(txtGiaTien.Text);
+            
+            bus.InsertData(phieuXuat);
+          
 
+            MessageBox.Show("Thêm thành công");
 
         }
 
@@ -66,18 +72,20 @@ namespace GUI
             }
 
             PhieuXuat phieuXuat = new();
-            phieuXuat.MaPhieuXuat = txtMaPhieuXuat.Text;
-            phieuXuat.NgayXuat = DateTime.Parse(dateNgayNhap.Text);
-            phieuXuat.CuaHangXuat = cobCHNhap.Text;
-            phieuXuat.CuaHangNhan = cobCHXuat.Text;
-            phieuXuat.NhanVienXuat = txtTenNV.Text;
-            phieuXuat.MaNV = txtMaNV.Text;
-            phieuXuat.Sdt = txtSdt.Text;
-            phieuXuat.DiaChi = txtDiaChi.Text;
-            phieuXuat.TenSanPham = txtTenSP.Text;
-            phieuXuat.MaSanPham = txtMaSanPham.Text;
-            phieuXuat.SoLuong = NumberSoLuong.Value;
-            phieuXuat.GiaTien = txtGiaTien.Text;
+            phieuXuat.MaPx = int .Parse(txtMaPhieuXuat.Text);
+            phieuXuat.NgayXuat = DateOnly.Parse(dateNgayNhap.Text);
+            phieuXuat.MaCuaHangNavigation.TenCuaHang = cobCHNhap.Text;
+            phieuXuat.MaCuaHangNavigation.TenCuaHang = cobCHXuat.Text;
+            phieuXuat.MaCuaHangNavigation.DiaChi = txtDiaChi.Text;
+            
+            phieuXuat.MaQlNavigation.TenQl  = txtTenNV.Text;
+            phieuXuat.MaQlNavigation.MaQl  = int .Parse(txtMaNV.Text);
+            phieuXuat.MaQlNavigation.Sdt = txtSdt.Text;
+          
+            phieuXuat.MaSPNavigation.TenSp = txtTenSP.Text;
+            phieuXuat.MaSPNavigation.MaSp  =  int.Parse(txtMaSanPham.Text);
+            phieuXuat.MaSPNavigation.SoLuong = (int)NumberSoLuong.Value;
+            phieuXuat.MaSPNavigation.GiaSp = int.Parse(txtGiaTien.Text);
             bus.UpdateData(phieuXuat);
 
             MessageBox.Show("Sửa thành công");

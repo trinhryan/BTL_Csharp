@@ -19,13 +19,13 @@ public class SanPhamBus: IBus<SanPham>
     public DataTable GetAllDataTable()
     {
         var dt = new DataTable();
-        dt.Columns.Add("MaSp");
-        dt.Columns.Add("TenSp");
-        dt.Columns.Add("Gia");
+        dt.Columns.Add("Mã sản phẩm");
+        dt.Columns.Add("Tên sản phẩm");
+        dt.Columns.Add("Giá");
         //dt.Columns.Add("SoLuong");
-        dt.Columns.Add("Hsd");
-        dt.Columns.Add("Nsx");
-        dt.Columns.Add("PhanLoaiSp");
+        dt.Columns.Add("Hạn sử dung");
+        dt.Columns.Add("Ngày sản xuất");
+        dt.Columns.Add("Phân loại sản phẩm");
         
         var data = GetAllData();
         foreach (var item in data)

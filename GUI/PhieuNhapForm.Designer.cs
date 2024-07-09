@@ -305,7 +305,7 @@ namespace GUI
             label4.Name = "label4";
             label4.Size = new Size(290, 68);
             label4.TabIndex = 25;
-            label4.Text = "Nhân viến xuất phiếu";
+            label4.Text = "Nhân viên xuất phiếu";
             // 
             // dateNgayNhap
             // 

@@ -19,6 +19,7 @@ namespace GUI
         public KhachHangForm()
         {
             InitializeComponent();
+            dgvKhacHang.DataSource = bus.GetAllDataTable();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -29,7 +30,15 @@ namespace GUI
             khachHang.DiaChi = txtDiaChi.Text;
             khachHang.Sdt = txtSdt.Text;
 
-            bus.AddData(khachHang);
+            var ketqua = bus.AddData(khachHang);
+            if (ketqua)
+            {
+                MessageBox.Show("Thêm thành công");
+            }
+            else
+            {
+                MessageBox.Show("Mã khách hàng đã tồn tại");
+            }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -82,9 +91,7 @@ namespace GUI
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
-
-
+            dgvKhacHang.DataSource = bus.SearchData(txtSeach.Text);
         }
 
         private void dgvKhacHang_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -15,7 +15,6 @@ namespace GUI
     public partial class NhanVienForm : Form
     {
         SaleBus bus = new();
-
         public NhanVienForm()
         {
             InitializeComponent();
@@ -96,12 +95,11 @@ namespace GUI
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (txtSeach.Text == "")
+            if(txtSeach.Text == "")
             {
                 MessageBox.Show("Chưa nhập thông tin tìm kiếm");
                 return;
             }
-
             dgvNhanVien.DataSource = bus.SearchData(txtSeach.Text);
         }
 
@@ -109,28 +107,17 @@ namespace GUI
         {
             Sale sale = new();
             sale.MaSale = int.Parse(txtMaNV.Text);
-            sale.TenSale = txtTenNV.Text;
-            sale.Sdt = txtSdt.Text;
-            sale.DiaChi = txtDiaChi.Text;
-            sale.NgaySinh = DateOnly.Parse(dateNgaySinh.Text);
-            sale.GioiTinh = rdbNam.Checked ? "Nam" : "Nữ";
-            Sale.ChucVu = int.Parse(cobChucVu.Text);
-            sale.TenDangNhap = txtTenDangNhap.Text;
-
-            bus.AddData(sale);
-
-            MessageBox.Show("Thêm thành công");
+            sale.TenSale= txtTenNV.Text;
+            sale.Sdt= txtSdt.Text;
+            sale.DiaChi= txtDiaChi.Text;
+            sale.NgaySinh= DateOnly.Parse(dateNgaySinh.Text);
+            sale.GioiTinh= rdbNam.Checked ? "Nam" : "Nữ";
+            Sale.ChucVu = cobChucVu.Text;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (txtMaNV.Text == "")
-            {
-                MessageBox.Show("Chưa chọn nhân viên cần xóa");
-                return;
-            }
 
-            bus.DeleteData(txtMaNV.Text);
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -140,47 +127,12 @@ namespace GUI
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (txtMaNV.Text == "")
-            {
-                MessageBox.Show("Chưa chọn nhân viên cần sửa");
-                return;
-            }
 
-            Sale sale = new();
-            sale.MaSale = int.Parse(txtMaNV.Text);
-            sale.TenSale = txtTenNV.Text;
-            sale.Sdt = txtSdt.Text;
-            sale.DiaChi = txtDiaChi.Text;
-            sale.NgaySinh = DateOnly.Parse(dateNgaySinh.Text);
-            sale.GioiTinh = rdbNam.Checked ? "Nam" : "Nữ";
-            Sale.ChucVu = int.Parse(cobChucVu.Text);
-            sale.TenDangNhap = txtTenDangNhap.Text;
-
-            bus.UpdateData(sale);
-
-            MessageBox.Show("Sửa thành công");
         }
 
         private void btnReload_Click(object sender, EventArgs e)
         {
-            dgvNhanVien.DataSource = bus.GetAllDataTable();
-        }
 
-        private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            var data = dgvNhanVien.Rows[e.RowIndex].DataBoundItem as DataRowView;
-            if (data != null)
-            {
-                txtMaNV.Text = data["MaSale"].ToString();
-                txtTenNV.Text = data["TenSale"].ToString();
-                txtSdt.Text = data["Sdt"].ToString();
-                txtDiaChi.Text = data["DiaChi"].ToString();
-                dateNgaySinh.Text = data["NgaySinh"].ToString();
-                rdbNam.Checked = data["GioiTinh"].ToString() == "Nam";
-                rdbNu.Checked = data["GioiTinh"].ToString() == "Nữ";
-                cobChucVu.Text = data["ChucVu"].ToString();
-                txtTenDangNhap.Text = data["TenDangNhap"].ToString();
-            }
         }
     }
 }

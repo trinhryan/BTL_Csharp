@@ -25,7 +25,7 @@ public class ChucVuBus : IBus<ChucVu>
         throw new NotImplementedException();
     }
 
-    public void AddData(ChucVu obj)
+    public bool AddData(ChucVu obj)
     {
         throw new NotImplementedException();
     }
@@ -35,7 +35,7 @@ public class ChucVuBus : IBus<ChucVu>
         throw new NotImplementedException();
     }
 
-    public void AddData(object T)
+    public bool AddData(object T)
     {
         throw new NotImplementedException();
     }

@@ -47,7 +47,7 @@ namespace GUI
             btnXoa = new Button();
             btnThem = new Button();
             label5 = new Label();
-            dataGridView1 = new DataGridView();
+            dgvNcc = new DataGridView();
             menuStrip1 = new MenuStrip();
             trangChủToolStripMenuItem = new ToolStripMenuItem();
             quảnLýNgườiDùngToolStripMenuItem = new ToolStripMenuItem();
@@ -65,7 +65,7 @@ namespace GUI
             báoCáoToolStripMenuItem = new ToolStripMenuItem();
             đăngXuấtToolStripMenuItem = new ToolStripMenuItem();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvNcc).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -227,13 +227,13 @@ namespace GUI
             label5.TabIndex = 87;
             label5.Text = "Danh sách thông tin nhà cung cấp";
             // 
-            // dataGridView1
+            // dgvNcc
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(20, 400);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(561, 248);
-            dataGridView1.TabIndex = 86;
+            dgvNcc.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvNcc.Location = new Point(20, 400);
+            dgvNcc.Name = "dgvNcc";
+            dgvNcc.Size = new Size(561, 248);
+            dgvNcc.TabIndex = 86;
             // 
             // menuStrip1
             // 
@@ -359,7 +359,7 @@ namespace GUI
             Controls.Add(txtSeach);
             Controls.Add(label5);
             Controls.Add(btnReload);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvNcc);
             Controls.Add(btnSearch);
             Controls.Add(btnSua);
             Controls.Add(btnXoa);
@@ -368,7 +368,7 @@ namespace GUI
             Text = "NhaCungCapForm";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvNcc).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -393,7 +393,7 @@ namespace GUI
         private Button btnThem;
         private TextBox txtDiaChi;
         private Label label5;
-        private DataGridView dataGridView1;
+        private DataGridView dgvNcc;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem trangChủToolStripMenuItem;
         private ToolStripMenuItem quảnLýNgườiDùngToolStripMenuItem;

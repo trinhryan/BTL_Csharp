@@ -43,32 +43,26 @@ public class KhachHangBus: IBus<KhachHang>
         return db.KhachHangs.FromSqlRaw("select * from KhachHang where MaKh = {0}", id).FirstOrDefault();
     }
 
-    public void AddData(KhachHang obj)
+    public bool AddData(KhachHang obj)
     {
         // KhachHang khachHang = (KhachHang)T;
         // db.KhachHangs.Add(khachHang);
         // db.SaveChanges();
-        
+        var exist = db.KhachHangs.FirstOrDefault(e => e.MaKh == obj.MaKh);
+        if (exist != null)
+        {
+            return false;
+        }
         //su dung cau lenh sql
         KhachHang khachHang = (KhachHang)obj;
         db.Database.ExecuteSqlRaw("insert into KhachHang(TenKh, Sdt, DiaChi) values({0}, {1}, {2})", khachHang.TenKh, khachHang.Sdt, khachHang.DiaChi);
+        return true;
     }
 
     public void UpdateData(KhachHang obj)
     {
         throw new NotImplementedException();
         
-    }
-
-    public void AddData(object T)
-    {
-        // KhachHang khachHang = (KhachHang)T;
-        // db.KhachHangs.Add(khachHang);
-        // db.SaveChanges();
-        
-        //su dung cau lenh sql
-        KhachHang khachHang = (KhachHang)T;
-        db.Database.ExecuteSqlRaw("insert into KhachHang(TenKh, Sdt, DiaChi) values({0}, {1}, {2})", khachHang.TenKh, khachHang.Sdt, khachHang.DiaChi);
     }
 
     public void UpdateData(object T)
@@ -94,7 +88,9 @@ public class KhachHangBus: IBus<KhachHang>
 
     public List<KhachHang> SearchData(string ten)
     {
-        throw new NotImplementedException();
+        return db.KhachHangs.Where(e => e.TenKh.Contains(ten)||
+                                        e.Sdt.Contains(ten)||
+                                        e.DiaChi.Contains(ten)).ToList();
     }
 
     public List<KhachHang> GetKhachHangByTen(string ten)

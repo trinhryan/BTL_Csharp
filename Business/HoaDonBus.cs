@@ -44,10 +44,16 @@ public class HoaDonBus : IBus<HoaDon>
         
     }
 
-    public void AddData(HoaDon obj)
+    public bool AddData(HoaDon obj)
     {
+        var hoaDon = db.HoaDons.FirstOrDefault(e => e.MaHd == obj.MaHd);
+        if (hoaDon != null)
+        {
+            return false;
+        }
         db.HoaDons.Add(obj);
         db.SaveChanges();
+        return true;
     }
 
     public void UpdateData(HoaDon obj)
@@ -62,12 +68,6 @@ public class HoaDonBus : IBus<HoaDon>
         db.SaveChanges();
     }
 
-    public void AddData(object T)
-    {
-        HoaDon hoaDon = (HoaDon)T;
-        db.HoaDons.Add(hoaDon);
-        db.SaveChanges();
-    }
 
     public void UpdateData(object T)
     {

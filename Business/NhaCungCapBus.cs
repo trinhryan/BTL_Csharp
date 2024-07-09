@@ -38,11 +38,17 @@ public class NhaCungCapBus: IBus<NhaCungCap>
         return db.NhaCungCaps.Where(e=>e.MaNcc == (int)id).FirstOrDefault();
     }
 
-    public void AddData(NhaCungCap obj)
+    public bool AddData(NhaCungCap obj)
     {
+        var exist = db.NhaCungCaps.FirstOrDefault(e => e.MaNcc == obj.MaNcc);
+        if (exist != null)
+        {
+            return false;
+        }
         NhaCungCap nhaCungCap = (NhaCungCap)obj;
         db.Database.ExecuteSqlRaw("insert into NhaCungCap(TenNcc, Sdt, DiaChi) values({0}, {1}, {2})", nhaCungCap.TenNcc, nhaCungCap.Sdt, nhaCungCap.DiaChi);
-        
+
+        return true;
     }
 
     public void UpdateData(NhaCungCap obj)

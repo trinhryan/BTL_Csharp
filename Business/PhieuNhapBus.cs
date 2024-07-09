@@ -49,10 +49,17 @@ public class PhieuNhapBus: IBus<PhieuNhap>
         
     }
 
-    public void AddData(PhieuNhap obj)
+    public bool AddData(PhieuNhap obj)
     {
+        var phieuNhap = db.PhieuNhaps.FirstOrDefault(e => e.MaPn == obj.MaPn);
+        if (phieuNhap != null)
+        {
+            return false;
+        }
         db.PhieuNhaps.Add(obj);
         db.SaveChanges();
+        
+        return true;
     }
 
     public void UpdateData(PhieuNhap obj)

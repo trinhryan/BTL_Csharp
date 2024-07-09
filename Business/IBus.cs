@@ -10,7 +10,7 @@ public interface IBus<T>
     public List<T> GetAllData();
     public DataTable GetAllDataTable();
     public T GetDataById(object id);
-    public void AddData(T obj);
+    public bool AddData(T obj);
     public void UpdateData(T obj);
     public void DeleteData(object id);
     public List<T> SearchData( string tuKhoa);

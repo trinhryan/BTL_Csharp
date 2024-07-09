@@ -40,10 +40,17 @@ public class ChiTietDonHangBus:IBus<ChiTietDonHang>
         return db.ChiTietDonHangs.FirstOrDefault(e=>e.MaDh == (int)id);
     }
 
-    public void AddData(ChiTietDonHang obj)
+    public bool AddData(ChiTietDonHang obj)
     {
+        var chiTietDonHang = db.ChiTietDonHangs.FirstOrDefault(e => e.MaDh == obj.MaDh);
+        if (chiTietDonHang != null)
+        {
+            return false;
+        }
         db.ChiTietDonHangs.Add(obj);
         db.SaveChanges();
+        
+        return true;
     }
 
     public void UpdateData(ChiTietDonHang obj)

@@ -42,11 +42,16 @@ public class SaleBus:IBus<Sale>
         return db.Sales.FirstOrDefault(e=>e.MaSale == (int)id);
     }
 
-    public void AddData(Sale obj)
+    public bool AddData(Sale obj)
     {
+        var sale = db.Sales.FirstOrDefault(e=>e.MaSale == obj.MaSale);
+        if (sale != null)
+        {
+            return false;
+        }
         db.Sales.Add(obj);
         db.SaveChanges();
-        
+        return true;
     }
 
     public void UpdateData(Sale obj)

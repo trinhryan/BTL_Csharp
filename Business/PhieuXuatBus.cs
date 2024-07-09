@@ -48,11 +48,17 @@ public class PhieuXuatBus: IBus<PhieuXuat>
         return db.PhieuXuats.FromSqlRaw("select * from PhieuXuat where MaPhieuXuat = {0}", id).FirstOrDefault();
     }
 
-    public void AddData(PhieuXuat obj)
+    public bool AddData(PhieuXuat obj)
     {
+        var phieuXuat = db.PhieuXuats.FirstOrDefault(e => e.MaPx == obj.MaPx);
+        if (phieuXuat != null)
+        {
+            return false;
+        }
         db.PhieuXuats.Add(obj);
         db.SaveChanges();
-      }
+        return true;
+    }
 
     public void UpdateData(PhieuXuat obj)
     {

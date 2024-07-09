@@ -31,7 +31,7 @@ public class SaleBus:IBus<Sale>
         var data = GetAllData();
         foreach (var item in data)
         {
-            dt.Rows.Add(item.MaSale, item.TenSale, item.NgaySinh, item.GioiTinh, item.Sdt, item.ChucVu, item.CuaHangNavigation.TenCuaHang, item.TenDangNhap);
+            dt.Rows.Add(item.MaSale, item.TenSale, item.NgaySinh, item.GioiTinh, item.Sdt, item.ChucVuNavigation.TenCv, item.CuaHangNavigation.TenCuaHang, item.TenDangNhap);
         }
 
         return dt;
@@ -62,7 +62,7 @@ public class SaleBus:IBus<Sale>
         saleUpdate.NgaySinh = sale.NgaySinh;
         saleUpdate.GioiTinh = sale.GioiTinh;
         saleUpdate.Sdt = sale.Sdt;
-        saleUpdate.ChucVu = sale.ChucVu;
+        saleUpdate.ChucVuNavigation.TenCv = sale.ChucVuNavigation.TenCv;
         saleUpdate.MaCuaHang = sale.MaCuaHang;
         saleUpdate.TenDangNhap = sale.TenDangNhap;
         db.SaveChanges();
@@ -78,5 +78,10 @@ public class SaleBus:IBus<Sale>
     public List<Sale> SearchData(string tuKhoa)
     {
         return db.Sales.Where(e=>e.TenSale.Contains(tuKhoa)).ToList();
+    }
+
+    public void InsertData(Sale sale)
+    {
+        throw new NotImplementedException();
     }
 }

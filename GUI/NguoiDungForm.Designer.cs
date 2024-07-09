@@ -175,7 +175,7 @@ partial class NguoiDungForm
         // 
         // txtHoTen
         // 
-        txtHoTen.Location = new Point(167, 60);
+        txtHoTen.Location = new Point(158, 60);
         txtHoTen.Margin = new Padding(4, 3, 4, 3);
         txtHoTen.Name = "txtHoTen";
         txtHoTen.Size = new Size(258, 23);

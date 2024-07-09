@@ -38,7 +38,7 @@ namespace GUI
 
             phieuNhap.MaNccNavigation.MaNcc = int.Parse(txtMaNCC.Text);
             phieuNhap.MaNccNavigation.TenNcc = txtTenNCC.Text;
-            phieuNhap.MaNccNavigation.Sdt = txtSdt.Text;
+            phieuNhap.MaNccNavigation.Sdt = int.Parse(txtSdt.Text);
 
             phieuNhap.MaQlNavigation.MaQl = int.Parse(txtMaNV.Text);
             phieuNhap.MaQlNavigation.TenQl = txtTenNV.Text;
@@ -86,7 +86,7 @@ namespace GUI
 
             phieuNhap.MaNccNavigation.MaNcc = int.Parse(txtMaNCC.Text);
             phieuNhap.MaNccNavigation.TenNcc = txtTenNCC.Text;
-            phieuNhap.MaNccNavigation.Sdt = txtSdt.Text;
+            phieuNhap.MaNccNavigation.Sdt = int.Parse(txtSdt.Text);
 
             phieuNhap.MaQlNavigation.MaQl = int.Parse(txtMaNV.Text);
             phieuNhap.MaQlNavigation.TenQl = txtTenNV.Text;

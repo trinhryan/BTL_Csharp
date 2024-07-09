@@ -318,7 +318,7 @@ public partial class MyDbContext : DbContext
                 .IsUnicode(false);
 
             entity.HasOne(d => d.ChucVuNavigation).WithMany(p => p.Sales)
-                .HasForeignKey(d => d.ChucVu)
+                .HasForeignKey(d => d.MaCV)
                 .HasConstraintName("FK__Sale__ChucVu__52593CB8");
 
             entity.HasOne(d => d.CuaHangNavigation).WithMany(p => p.Sales)

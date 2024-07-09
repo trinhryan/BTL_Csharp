@@ -339,7 +339,7 @@ namespace GUI
             dgvNhanVien.Name = "dgvNhanVien";
             dgvNhanVien.Size = new Size(826, 248);
             dgvNhanVien.TabIndex = 86;
-            dgvNhanVien.CellClick += dgvNhanVien_CellClick;
+       //     dgvNhanVien.CellClick += dgvNhanVien_CellClick;
             // 
             // menuStrip1
             // 

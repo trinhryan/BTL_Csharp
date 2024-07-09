@@ -112,12 +112,21 @@ namespace GUI
             sale.DiaChi= txtDiaChi.Text;
             sale.NgaySinh= DateOnly.Parse(dateNgaySinh.Text);
             sale.GioiTinh= rdbNam.Checked ? "Nam" : "Nữ";
-            Sale.ChucVu = cobChucVu.Text;
+            Sale.ChucVu =int.Parse( cobChucVu.Text);
+            bus.InsertData(sale);
+            
+            MessageBox.Show("Thêm thành công");
+            
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-
+            if(txtMaNV.Text == "")
+            {
+                MessageBox.Show("Chưa chọn mã nhân viên cần xóa");
+                return;
+            }
+            bus.DeleteData(txtMaNV.Text);
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -127,12 +136,29 @@ namespace GUI
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            if(txtMaNV.Text == "")
+            {
+                MessageBox.Show("Chưa chọn mã nhân viên cần sửa");
+                return;
+            }
 
+            Sale sale = new();
+            sale.MaSale = int.Parse(txtMaNV.Text);
+            sale.TenSale = txtTenNV.Text;
+            sale.Sdt = txtSdt.Text;
+            sale.DiaChi = txtDiaChi.Text;
+            sale.NgaySinh = DateOnly.Parse(dateNgaySinh.Text);
+            sale.GioiTinh = rdbNam.Checked ? "Nam" : "Nữ";
+            Sale.ChucVu = int.Parse(cobChucVu.Text);
+            sale.TenDangNhap = txtTenDangNhap.Text;
+
+            bus.UpdateData(sale);
+            MessageBox.Show("Sửa thành công");
         }
 
         private void btnReload_Click(object sender, EventArgs e)
         {
-
+            dgvNhanVien.DataSource = bus.GetAllDataTable();
         }
     }
 }

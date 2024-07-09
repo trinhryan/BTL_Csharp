@@ -10,12 +10,14 @@ public partial class Sale
     public string? TenSale { get; set; }
 
     public DateOnly? NgaySinh { get; set; }
+    
+    public string GioiTinh { get; set; }
 
     public string? Sdt { get; set; }
 
     public int? ChucVu { get; set; }
 
-    public int? CuaHang { get; set; }
+    public int? MaCuaHang { get; set; }
 
     public int? Sl { get; set; }
 

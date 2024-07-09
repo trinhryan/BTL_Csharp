@@ -55,9 +55,9 @@ namespace GUI
 
         private void btnQuenMatKhau_Click(object? sender, EventArgs e)
         {
-            var form = new QuenMatKhauForm();
-            form.Show();
-            this.Hide();
+            // var form = new QuenMatKhauForm();
+            // form.Show();
+            // this.Hide();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

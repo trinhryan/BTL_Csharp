@@ -18,22 +18,25 @@ public class PhieuNhapBus: IBus<PhieuNhap>
     public DataTable GetAllDataTable()
     {
         var dt = new DataTable();
-        dt.Columns.Add("MaPhieuNhap");
-        dt.Columns.Add("NgayNhap");
-        dt.Columns.Add("CuaHangNhap");
-        dt.Columns.Add("NhanVienNhap");
-        dt.Columns.Add("NhaCungcap");
-        dt.Columns.Add("MaNCC");
-        dt.Columns.Add("SoDienThoai");
-        dt.Columns.Add("TenSanPham");
-        dt.Columns.Add("MaSP");
-        dt.Columns.Add("SoLuong");
-        dt.Columns.Add("DonGia");
+        dt.Columns.Add("Mã phiếu nhập");
+        dt.Columns.Add("Ngày nhập");
+        dt.Columns.Add("Cửa hàng nhập");
+        dt.Columns.Add("Nhân viên nhập");
+        
+        dt.Columns.Add("Mã NCC");
+        dt.Columns.Add("Nhà cung cấp");
+       
+        dt.Columns.Add("Số điện thoại");
+        dt.Columns.Add("Mã sản phẩm");
+        dt.Columns.Add("Tên sản phẩm");
+       
+        dt.Columns.Add("Số lượng");
+        dt.Columns.Add("Đơn giá ");
 
         var data = GetAllData();
         foreach (var item in data)
         {
-               dt.Rows.Add(item.MaPn, item.NgayNhap, item.MaCHNNavigation?.TenCuaHang, item.MaQlNavigation?.TenQl, item.MaNccNavigation.TenNcc, item.SoDienThoai, item.TenSanPham, item.MaSP, item.SoLuong, item.DonGia);
+               dt.Rows.Add(item.MaPn, item.NgayNhap, item.MaCuaHangNavigation?.TenCuaHang,item.MaQlNavigation.MaQl,item.MaNccNavigation.MaNcc, item.MaNccNavigation.TenNcc, item.SdtNcc, item.MaSpNavigation.TenSp, item.MaSpNavigation, item.MaSpNavigation.SoLuong, item.MaSpNavigation.GiaSp);
             
         }
 
@@ -57,14 +60,14 @@ public class PhieuNhapBus: IBus<PhieuNhap>
         PhieuNhap phieuNhap = (PhieuNhap)obj;
         PhieuNhap phieuNhapUpdate = db.PhieuNhaps.FirstOrDefault(e=>e.MaPn == phieuNhap.MaPn);
         phieuNhapUpdate.NgayNhap = phieuNhap.NgayNhap;
-        phieuNhapUpdate.MaCuaHang = phieuNhap.MaCHNNavigation.MaCuaHang;
+        phieuNhapUpdate.MaCuaHang = phieuNhap.MaCuaHangNavigation.MaCuaHang;
         phieuNhapUpdate.MaQl = phieuNhap.MaQlNavigation.MaQl;
         phieuNhapUpdate.MaNcc = phieuNhap.MaNccNavigation.MaNcc;
-        phieuNhapUpdate.SoDienThoai = phieuNhap.SoDienThoai;
-        phieuNhapUpdate.TenSanPham = phieuNhap.TenSanPham;
-        phieuNhapUpdate.MaSP = phieuNhap.MaSP;
-        phieuNhapUpdate.SoLuong = phieuNhap.SoLuong;
-        phieuNhapUpdate.DonGia = phieuNhap.DonGia;
+        phieuNhapUpdate.SdtNcc = phieuNhap.SdtNcc;
+        phieuNhapUpdate.MaSpNavigation.TenSp = phieuNhap.MaSpNavigation.TenSp;
+        phieuNhapUpdate.MaSpNavigation.MaSp = phieuNhap.MaSpNavigation.MaSp;
+        phieuNhapUpdate.MaSpNavigation.SoLuong = phieuNhap.MaSpNavigation.SoLuong;
+        phieuNhapUpdate.MaSpNavigation.GiaSp = phieuNhap.MaSpNavigation.GiaSp;
         db.SaveChanges();
     }
 
@@ -77,7 +80,11 @@ public class PhieuNhapBus: IBus<PhieuNhap>
 
     public List<PhieuNhap> SearchData(string tuKhoa)
     {
-        return db.PhieuNhaps.Where(e=>e.TenSanPham.Contains(tuKhoa)).ToList();
+        return db.PhieuNhaps.Where(e=>e.MaSpNavigation.TenSp.Contains(tuKhoa)).ToList();
     }
 
+    public void InsertData(PhieuNhap phieuNhap)
+    {
+        throw new NotImplementedException();
+    }
 }

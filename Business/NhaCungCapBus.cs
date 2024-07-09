@@ -19,10 +19,10 @@ public class NhaCungCapBus: IBus<NhaCungCap>
     public DataTable GetAllDataTable()
     {
         var dt = new DataTable();
-        dt.Columns.Add("MaNcc");
-        dt.Columns.Add("TenNcc");
+        dt.Columns.Add("Mã nhà cung cấp");
+        dt.Columns.Add("Tên nhà cung cấp");
         dt.Columns.Add("Sdt");
-        dt.Columns.Add("DiaChi");
+        dt.Columns.Add("Địa chỉ");
         
         var data = GetAllData();
         foreach (var item in data)

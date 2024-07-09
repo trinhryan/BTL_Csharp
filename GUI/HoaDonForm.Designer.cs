@@ -51,6 +51,10 @@ partial class HoaDonForm
         đăngXuấtToolStripMenuItem = new ToolStripMenuItem();
         dgvChiTietDonHang = new DataGridView();
         gbThongTinSapPham = new GroupBox();
+        txtThanhTien = new TextBox();
+        label2 = new Label();
+        txtMaHD = new TextBox();
+        label1 = new Label();
         btnReload = new Button();
         NumberSoLuong = new NumericUpDown();
         txtGiaTien = new TextBox();
@@ -64,13 +68,11 @@ partial class HoaDonForm
         label11 = new Label();
         label10 = new Label();
         label9 = new Label();
-        label1 = new Label();
-        txtMaHD = new TextBox();
-        label2 = new Label();
-        txtThanhTien = new TextBox();
         label3 = new Label();
         txtTongTien = new TextBox();
         btnInHoaDon = new Button();
+        label4 = new Label();
+        txtNgayBan = new TextBox();
         menuStrip1.SuspendLayout();
         ((ISupportInitialize)dgvChiTietDonHang).BeginInit();
         gbThongTinSapPham.SuspendLayout();
@@ -204,6 +206,8 @@ partial class HoaDonForm
         // 
         // gbThongTinSapPham
         // 
+        gbThongTinSapPham.Controls.Add(txtNgayBan);
+        gbThongTinSapPham.Controls.Add(label4);
         gbThongTinSapPham.Controls.Add(txtThanhTien);
         gbThongTinSapPham.Controls.Add(label2);
         gbThongTinSapPham.Controls.Add(txtMaHD);
@@ -230,6 +234,40 @@ partial class HoaDonForm
         gbThongTinSapPham.TabIndex = 88;
         gbThongTinSapPham.TabStop = false;
         gbThongTinSapPham.Text = "Thông tin các sản phẩm";
+        // 
+        // txtThanhTien
+        // 
+        txtThanhTien.Location = new Point(427, 111);
+        txtThanhTien.Margin = new Padding(4, 3, 4, 3);
+        txtThanhTien.Name = "txtThanhTien";
+        txtThanhTien.Size = new Size(207, 23);
+        txtThanhTien.TabIndex = 93;
+        // 
+        // label2
+        // 
+        label2.Location = new Point(348, 114);
+        label2.Margin = new Padding(4, 0, 4, 0);
+        label2.Name = "label2";
+        label2.Size = new Size(88, 27);
+        label2.TabIndex = 92;
+        label2.Text = "Thành tiền";
+        // 
+        // txtMaHD
+        // 
+        txtMaHD.Location = new Point(90, 33);
+        txtMaHD.Margin = new Padding(4, 3, 4, 3);
+        txtMaHD.Name = "txtMaHD";
+        txtMaHD.Size = new Size(207, 23);
+        txtMaHD.TabIndex = 91;
+        // 
+        // label1
+        // 
+        label1.Location = new Point(0, 29);
+        label1.Margin = new Padding(4, 0, 4, 0);
+        label1.Name = "label1";
+        label1.Size = new Size(88, 27);
+        label1.TabIndex = 90;
+        label1.Text = "Mã hóa đơn ";
         // 
         // btnReload
         // 
@@ -349,40 +387,6 @@ partial class HoaDonForm
         label9.TabIndex = 8;
         label9.Text = "Mã sản phẩm";
         // 
-        // label1
-        // 
-        label1.Location = new Point(0, 29);
-        label1.Margin = new Padding(4, 0, 4, 0);
-        label1.Name = "label1";
-        label1.Size = new Size(88, 27);
-        label1.TabIndex = 90;
-        label1.Text = "Mã hóa đơn ";
-        // 
-        // txtMaHD
-        // 
-        txtMaHD.Location = new Point(90, 33);
-        txtMaHD.Margin = new Padding(4, 3, 4, 3);
-        txtMaHD.Name = "txtMaHD";
-        txtMaHD.Size = new Size(207, 23);
-        txtMaHD.TabIndex = 91;
-        // 
-        // label2
-        // 
-        label2.Location = new Point(348, 114);
-        label2.Margin = new Padding(4, 0, 4, 0);
-        label2.Name = "label2";
-        label2.Size = new Size(88, 27);
-        label2.TabIndex = 92;
-        label2.Text = "Thành tiền";
-        // 
-        // txtThanhTien
-        // 
-        txtThanhTien.Location = new Point(427, 111);
-        txtThanhTien.Margin = new Padding(4, 3, 4, 3);
-        txtThanhTien.Name = "txtThanhTien";
-        txtThanhTien.Size = new Size(207, 23);
-        txtThanhTien.TabIndex = 93;
-        // 
         // label3
         // 
         label3.Location = new Point(576, 449);
@@ -409,6 +413,23 @@ partial class HoaDonForm
         btnInHoaDon.TabIndex = 94;
         btnInHoaDon.Text = "In hóa đơn";
         btnInHoaDon.UseVisualStyleBackColor = true;
+        // 
+        // label4
+        // 
+        label4.Location = new Point(733, 44);
+        label4.Margin = new Padding(4, 0, 4, 0);
+        label4.Name = "label4";
+        label4.Size = new Size(88, 27);
+        label4.TabIndex = 94;
+        label4.Text = "Ngày bán";
+        // 
+        // txtNgayBan
+        // 
+        txtNgayBan.Location = new Point(658, 74);
+        txtNgayBan.Margin = new Padding(4, 3, 4, 3);
+        txtNgayBan.Name = "txtNgayBan";
+        txtNgayBan.Size = new Size(207, 23);
+        txtNgayBan.TabIndex = 95;
         // 
         // HoaDonForm
         // 
@@ -472,4 +493,6 @@ partial class HoaDonForm
     private Label label3;
     private TextBox txtTongTien;
     private Button btnInHoaDon;
+    private TextBox txtNgayBan;
+    private Label label4;
 }

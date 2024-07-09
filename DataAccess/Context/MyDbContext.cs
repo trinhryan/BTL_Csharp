@@ -322,7 +322,7 @@ public partial class MyDbContext : DbContext
                 .HasConstraintName("FK__Sale__ChucVu__52593CB8");
 
             entity.HasOne(d => d.CuaHangNavigation).WithMany(p => p.Sales)
-                .HasForeignKey(d => d.CuaHang)
+                .HasForeignKey(d => d.MaCuaHang)
                 .HasConstraintName("FK__Sale__CuaHang__534D60F1");
 
             entity.HasOne(d => d.MaQlNavigation).WithMany(p => p.Sales)

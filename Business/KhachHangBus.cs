@@ -20,10 +20,10 @@ public class KhachHangBus: IBus<KhachHang>
     public DataTable GetAllDataTable()
     {
         var dt = new DataTable();
-        dt.Columns.Add("MaKh");
-        dt.Columns.Add("TenKh");
+        dt.Columns.Add("Mã khách hàng");
+        dt.Columns.Add("Tên khách hàng");
         dt.Columns.Add("Sdt");
-        dt.Columns.Add("DiaChi");
+        dt.Columns.Add("Địa chỉ");
         
         var data = GetAllData();
         foreach (var item in data)

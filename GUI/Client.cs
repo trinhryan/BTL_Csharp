@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System.Data;
+using System.Net;
 using System.Net.Sockets;
 
 namespace GUI;
@@ -9,7 +10,14 @@ public class Client
 
     public Client()
     {
-        _client.Connect(ip, port);
+        try
+        {
+            _client.Connect(ip, port);
+        }
+        catch (Exception e)
+        {
+            MessageBox.Show("Không thể kết nối đến server");
+        }
     }
 
     public string ip { get; set; } = GetIpAddress();
@@ -38,7 +46,7 @@ public class Client
         {
             var stream = _client.GetStream();
             var reader = new StreamReader(stream);
-            
+
             return reader.ReadLine();
         }
         catch (Exception e)
@@ -80,7 +88,7 @@ public class Client
             throw;
         }
     }
-    
+
     public bool Login(string tenDangNhap, string matKhau)
     {
         try
@@ -91,6 +99,114 @@ public class Client
             var response = Receive();
 
             return response == "success";
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    public string Search(string search)
+    {
+        try
+        {
+            var data = $"search {search}";
+            Send(data);
+
+            var response = Receive();
+
+            return response;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    public bool AddQuestion(string noiDung, string dapAnA, string dapAnB, string dapAnC, string dapAnD, string dapAnDung)
+    {
+        try
+        {
+            var data = $"addQuestion {noiDung} {dapAnA} {dapAnB} {dapAnC} {dapAnD} {dapAnDung}";
+            Send(data);
+
+            var response = Receive();
+
+            return response == "success";
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    public bool SendAnswer(string maCauHoi, string dapAn)
+    {
+        try
+        {
+            var data = $"sendAnswer {maCauHoi} {dapAn}";
+            Send(data);
+
+            var response = Receive();
+
+            return response == "success";
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    public string GetQuestion()
+    {
+        try
+        {
+            var data = "getQuestion 1";
+            Send(data);
+
+            var response = Receive();
+
+            return response;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    public string SendMessage(string text)
+    {
+        try
+        {
+            var data = $"sendMessage {text}";
+            Send(data);
+
+            var response = Receive();
+
+            return response;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    public string SendFile(string fileName,string base64)
+    {
+        try
+        {
+            var data = $"sendFile {fileName} {base64}";
+            Send(data);
+
+            var response = Receive();
+
+            return response;
         }
         catch (Exception e)
         {

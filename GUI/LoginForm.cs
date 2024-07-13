@@ -12,7 +12,7 @@ namespace GUI
 {
     public partial class LoginForm : Form
     {
-        Client _client = new Client();
+        Client _client = new();
 
         public LoginForm()
         {

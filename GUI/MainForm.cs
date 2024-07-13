@@ -15,31 +15,39 @@ public partial class MainForm : Form
 
     private void button2_Click(object sender, EventArgs e)
     {
-        var noiDung = richTextBox1.Text;
-        var dapAnA = richTextBox2.Text;
-        var dapAnB = richTextBox2.Text;
-        var dapAnC = richTextBox2.Text;
-        var dapAnD = richTextBox2.Text;
-        var dapAnDung = comboBox1.Text;
-
-
-        if (string.IsNullOrEmpty(noiDung) || string.IsNullOrEmpty(dapAnA) || string.IsNullOrEmpty(dapAnB) || string.IsNullOrEmpty(dapAnC) || string.IsNullOrEmpty(dapAnD) || string.IsNullOrEmpty(dapAnDung))
+        try
         {
-            MessageBox.Show("Không được để trống");
-            return;
+            var noiDung = richTextBox1.Text;
+            var dapAnA = richTextBox2.Text;
+            var dapAnB = richTextBox2.Text;
+            var dapAnC = richTextBox2.Text;
+            var dapAnD = richTextBox2.Text;
+            var dapAnDung = comboBox1.Text;
+
+
+            if (string.IsNullOrEmpty(noiDung) || string.IsNullOrEmpty(dapAnA) || string.IsNullOrEmpty(dapAnB) ||
+                string.IsNullOrEmpty(dapAnC) || string.IsNullOrEmpty(dapAnD) || string.IsNullOrEmpty(dapAnDung))
+            {
+                MessageBox.Show("Không được để trống");
+                return;
+            }
+
+            var result = _client.AddQuestion(noiDung, dapAnA, dapAnB, dapAnC, dapAnD, dapAnDung);
+
+            if (result)
+            {
+                MessageBox.Show("Thêm câu hỏi thành công");
+            }
+            else
+            {
+                MessageBox.Show("Thêm câu hỏi thất bại");
+            }
         }
-
-        var result = _client.AddQuestion(noiDung, dapAnA, dapAnB, dapAnC, dapAnD, dapAnDung);
-
-        if (result)
+        catch (Exception exception)
         {
-            MessageBox.Show("Thêm câu hỏi thành công");
+            Console.WriteLine(exception);
+            MessageBox.Show("Lỗi kết nối đến server");
         }
-        else
-        {
-            MessageBox.Show("Thêm câu hỏi thất bại");
-        }
-
     }
 
     private void button1_Click(object sender, EventArgs e)
@@ -71,7 +79,6 @@ public partial class MainForm : Form
         catch (Exception exception)
         {
             Console.WriteLine(exception);
-            throw;
         }
     }
 
@@ -146,9 +153,7 @@ public partial class MainForm : Form
         {
             Console.WriteLine(exception);
             MessageBox.Show("Lỗi kết nối đến server");
-            throw;
         }
-
     }
 
     private void button6_Click(object sender, EventArgs e)

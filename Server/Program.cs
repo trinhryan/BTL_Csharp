@@ -12,5 +12,7 @@ Console.WriteLine("Server is running...");
 
 while (true)
 {
+    Console.WriteLine("Waiting for connection...");
     server.Receive();
+    Console.WriteLine("Connection received");
 }

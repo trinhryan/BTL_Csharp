@@ -33,6 +33,8 @@ public class Server
             writer.WriteLine(response);
 
             Console.WriteLine("Sent: " + response);
+            
+            client.Close();
         }
         catch (Exception e)
         {

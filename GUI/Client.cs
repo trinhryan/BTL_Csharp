@@ -12,7 +12,10 @@ public class Client
     {
         try
         {
-            _client.Connect(ip, port);
+            if (!_client.Connected)
+            {
+                _client = new TcpClient(ip, port);
+            }
         }
         catch (Exception e)
         {
@@ -28,6 +31,8 @@ public class Client
     {
         try
         {
+            EnsureConnected(); // Ensure the client is connected
+
             var stream = _client.GetStream();
             var writer = new StreamWriter(stream) { AutoFlush = true };
 
@@ -36,7 +41,6 @@ public class Client
         catch (Exception e)
         {
             Console.WriteLine(e);
-            throw;
         }
     }
 
@@ -44,16 +48,18 @@ public class Client
     {
         try
         {
-            var stream = _client.GetStream();
-            var reader = new StreamReader(stream);
+            EnsureConnected(); // Ensure the client is connected
 
+            var stream = _client.GetStream();
+            using var reader = new StreamReader(stream);
             return reader.ReadLine();
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
-            throw;
         }
+        
+        return null;
     }
 
 
@@ -125,7 +131,8 @@ public class Client
         }
     }
 
-    public bool AddQuestion(string noiDung, string dapAnA, string dapAnB, string dapAnC, string dapAnD, string dapAnDung)
+    public bool AddQuestion(string noiDung, string dapAnA, string dapAnB, string dapAnC, string dapAnD,
+        string dapAnDung)
     {
         try
         {
@@ -197,7 +204,7 @@ public class Client
         }
     }
 
-    public string SendFile(string fileName,string base64)
+    public string SendFile(string fileName, string base64)
     {
         try
         {
@@ -212,6 +219,15 @@ public class Client
         {
             Console.WriteLine(e);
             throw;
+        }
+    }
+
+
+    public void EnsureConnected()
+    {
+        if (_client == null || !_client.Connected)
+        {
+            _client = new TcpClient(ip, port);
         }
     }
 }

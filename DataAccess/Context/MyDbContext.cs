@@ -34,13 +34,11 @@ namespace DataAccess.Context
             modelBuilder.Entity<CauHoi>(entity =>
             {
                 entity.HasKey(e => e.MaCauHoi)
-                    .HasName("PK__cau_hoi__2EB8A2AD5AF1A758");
+                    .HasName("PK__cau_hoi__2EB8A2ADAFA085C1");
 
                 entity.ToTable("cau_hoi");
 
-                entity.Property(e => e.MaCauHoi)
-                    .ValueGeneratedNever()
-                    .HasColumnName("ma_cau_hoi");
+                entity.Property(e => e.MaCauHoi).HasColumnName("ma_cau_hoi");
 
                 entity.Property(e => e.DapAnA)
                     .HasMaxLength(100)
@@ -70,7 +68,7 @@ namespace DataAccess.Context
             modelBuilder.Entity<TaiKhoan>(entity =>
             {
                 entity.HasKey(e => e.TenDangNhap)
-                    .HasName("PK__tai_khoa__363698B27AE7DA03");
+                    .HasName("PK__tai_khoa__363698B26A940221");
 
                 entity.ToTable("tai_khoan");
 

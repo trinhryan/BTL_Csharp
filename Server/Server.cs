@@ -49,12 +49,7 @@ public class Server
             return "error";
         }
 
-        var parts = data.Split(' ');
-
-        if (parts.Length < 2)
-        {
-            return "error";
-        }
+        var parts = data.Split('|');
 
         var command = parts[0];
         var rest = parts[1..];
@@ -136,7 +131,7 @@ public class Server
             return "error";
         }
 
-        if (cauHoi.DapAnDung == dapAn)
+        if (cauHoi.DapAnDung.ToLower().Trim() == dapAn.ToLower().Trim())
         {
             return "success";
         }

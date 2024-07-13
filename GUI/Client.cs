@@ -81,7 +81,7 @@ public class Client
     {
         try
         {
-            var data = $"register {tenDangNhap} {matKhau}";
+            var data = $"register|{tenDangNhap}|{matKhau}";
             Send(data);
 
             var response = Receive();
@@ -99,7 +99,7 @@ public class Client
     {
         try
         {
-            var data = $"login {tenDangNhap} {matKhau}";
+            var data = $"login|{tenDangNhap}|{matKhau}";
             Send(data);
 
             var response = Receive();
@@ -117,7 +117,7 @@ public class Client
     {
         try
         {
-            var data = $"search {search}";
+            var data = $"search|{search}";
             Send(data);
 
             var response = Receive();
@@ -136,7 +136,7 @@ public class Client
     {
         try
         {
-            var data = $"addQuestion {noiDung} {dapAnA} {dapAnB} {dapAnC} {dapAnD} {dapAnDung}";
+            var data = $"addQuestion|{noiDung}|{dapAnA}|{dapAnB}|{dapAnC}|{dapAnD}|{dapAnDung}";
             Send(data);
 
             var response = Receive();
@@ -154,7 +154,7 @@ public class Client
     {
         try
         {
-            var data = $"sendAnswer {maCauHoi} {dapAn}";
+            var data = $"sendAnswer|{maCauHoi}|{dapAn}";
             Send(data);
 
             var response = Receive();
@@ -172,7 +172,7 @@ public class Client
     {
         try
         {
-            var data = "getQuestion 1";
+            var data = "getQuestion|themcainayvaocungksaoca";
             Send(data);
 
             var response = Receive();
@@ -190,7 +190,7 @@ public class Client
     {
         try
         {
-            var data = $"sendMessage {text}";
+            var data = $"sendMessage|{text}";
             Send(data);
 
             var response = Receive();
@@ -208,7 +208,7 @@ public class Client
     {
         try
         {
-            var data = $"sendFile {fileName} {base64}";
+            var data = $"sendFile|{fileName}|{base64}";
             Send(data);
 
             var response = Receive();

@@ -11,6 +11,7 @@ public partial class MainForm : Form
     public MainForm()
     {
         InitializeComponent();
+        dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
     }
 
     private void button2_Click(object sender, EventArgs e)
@@ -91,7 +92,7 @@ public partial class MainForm : Form
     {
         // gui dap an
         var maCauHoi = label7.Text;
-        var dapAn = richTextBox3.Text;
+        var dapAn = comboBox1.Text;
 
         if (string.IsNullOrEmpty(dapAn))
         {

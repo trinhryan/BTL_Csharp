@@ -60,7 +60,7 @@ public class DonHangBus:IBus<DonHang>
     public bool UpdateData(DonHang obj)
     {
         DonHang donHang = (DonHang)obj;
-        DonHang donHangUpdate = db.DonHangs.FirstOrDefault(e=>e.MaDh == donHang.MaDh);
+        DonHang donHangUpdate = db.DonHangs.FirstOrDefault(e=>e.MaDh == int.Parse(donHang.MaDh.ToString()));
         if (donHangUpdate == null)
         {
             return false;

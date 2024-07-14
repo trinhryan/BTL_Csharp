@@ -204,7 +204,7 @@ namespace GUI
 
         private void btnChiTietDonHang_Click(object sender, EventArgs e)
         {
-            var form = new ChiTietDonHang();
+            var form = new ChiTietDonHangForm();
             form.Show();
             this.Hide();
         }

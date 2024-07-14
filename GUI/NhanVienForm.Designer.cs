@@ -112,7 +112,7 @@ namespace GUI
             // 
             // txtTenDangNhap
             // 
-            txtTenDangNhap.Location = new Point(617, 203);
+            txtTenDangNhap.Location = new Point(633, 203);
             txtTenDangNhap.Name = "txtTenDangNhap";
             txtTenDangNhap.Size = new Size(254, 23);
             txtTenDangNhap.TabIndex = 91;
@@ -168,7 +168,7 @@ namespace GUI
             // 
             // dateNgaySinh
             // 
-            dateNgaySinh.Location = new Point(615, 34);
+            dateNgaySinh.Location = new Point(630, 34);
             dateNgaySinh.Name = "dateNgaySinh";
             dateNgaySinh.Size = new Size(257, 23);
             dateNgaySinh.TabIndex = 85;
@@ -176,8 +176,7 @@ namespace GUI
             // cobChucVu
             // 
             cobChucVu.FormattingEnabled = true;
-            cobChucVu.Items.AddRange(new object[] { "Quản lý", "Nhân viên" });
-            cobChucVu.Location = new Point(617, 155);
+            cobChucVu.Location = new Point(633, 154);
             cobChucVu.Name = "cobChucVu";
             cobChucVu.Size = new Size(254, 24);
             cobChucVu.TabIndex = 84;

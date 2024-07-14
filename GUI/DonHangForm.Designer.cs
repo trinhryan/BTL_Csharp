@@ -446,7 +446,7 @@ namespace GUI
             btnHuy.TabIndex = 12;
             btnHuy.Text = "Sửa ";
             btnHuy.UseVisualStyleBackColor = true;
-            btnHuy.Click += btnHuy_Click;
+            btnHuy.Click += btnSua_Click;
             // 
             // label5
             // 

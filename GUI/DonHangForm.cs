@@ -9,15 +9,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business;
 using DataAccess.Entities;
+using Microsoft.IdentityModel.Tokens;
 
 namespace GUI
 {
     public partial class DonHangForm : Form
     {
         DonHangBus bus = new();
+
         public DonHangForm()
         {
             InitializeComponent();
+            dgvDonHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDonHang.DataSource = bus.GetAllDataTable();
+            cobCuaHang.DataSource = bus.GetCuaHang();
         }
 
         private void quảnLýNgườiDùngToolStripMenuItem_Click(object sender, EventArgs e)
@@ -32,7 +37,6 @@ namespace GUI
             var form = new SanPhamForm();
             form.Show();
             this.Hide();
-
         }
 
         private void DanhMucNhanVienToolStripMenuItem_Click(object sender, EventArgs e)
@@ -71,7 +75,6 @@ namespace GUI
         }
 
 
-
         private void phiếuNhậpHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = new PhieuNhapForm();
@@ -95,7 +98,24 @@ namespace GUI
 
         private void dgvChiTietDonHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            try
+            {
+                int index = e.RowIndex;
+                DataGridViewRow selectedRow = dgvDonHang.Rows[index];
+                txtMaDonHang.Text = selectedRow.Cells["MaDonHang"].Value.ToString();
+                dateNgayNhap.Text = selectedRow.Cells["NgayTaoDon"].Value.ToString();
+                cobCuaHang.Text = selectedRow.Cells["CuaHangTaoDon"].Value.ToString();
+                txtMaSanPham.Text = selectedRow.Cells["MaSanPham"].Value.ToString();
+                txtTenSP.Text = selectedRow.Cells["TenSanPham"].Value.ToString();
+                NumberSoLuong.Value = int.Parse(selectedRow.Cells["SoLuong"].Value.ToString());
+                txtGiaTien.Text = selectedRow.Cells["DonGiaSanPham"].Value.ToString();
+                rdbChuaThanhToan.Checked = selectedRow.Cells["TrangThai"].Value.ToString() == "Chưa thanh toán";
+                rdbDaThanhToan.Checked = selectedRow.Cells["TrangThai"].Value.ToString() == "Đã thanh toán";
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -108,22 +128,28 @@ namespace GUI
             }
 
             DonHang donHang = new();
-            donHang.MaDh = int.Parse(txtMaDonHang.Text);
-            donHang.NgayTao = DateOnly.Parse(dateNgayNhap.Text);
-            donHang.MaCuaHangNavigation.TenCuaHang = cobCuaHang.Text;
+            if (donHang.NgayTao.HasValue && DateOnly.TryParse(dateNgayNhap.Text, out var date))
+            {
+                donHang.NgayTao = date;
+            }
+
+            if (donHang.MaCuaHangNavigation != null) donHang.MaCuaHangNavigation.TenCuaHang = cobCuaHang.Text;
             donHang.MaSp = int.Parse(txtMaSanPham.Text);
-            donHang.MaSpNavigation.TenSp = txtTenSP.Text;
-            donHang.MaSpNavigation.SoLuong = (int)NumberSoLuong.Value;
-            donHang.MaSpNavigation.GiaSp = int.Parse(txtGiaTien.Text);
-            donHang.TrangThai = rdbChuaThanhToan.Checked ? "Chưa thanh toán" : "Đã thanh toán";
-            donHang.TongTien = (decimal?)(donHang.MaSpNavigation.GiaSp * donHang.MaSpNavigation.SoLuong);
+            if (donHang.MaSpNavigation != null)
+            {
+                donHang.MaSpNavigation.TenSp = txtTenSP.Text;
+                donHang.MaSpNavigation.SoLuong = (int)NumberSoLuong.Value;
+                donHang.MaSpNavigation.GiaSp = int.Parse(txtGiaTien.Text);
+                donHang.TrangThai = rdbChuaThanhToan.Checked ? "Chưa thanh toán" : "Đã thanh toán";
+                donHang.TongTien = (donHang.MaSpNavigation.GiaSp * donHang.MaSpNavigation.SoLuong);
+            }
 
-            bus.AddData(donHang);
+            var ketQua = bus.AddData(donHang);
 
-            MessageBox.Show("Thêm thành công");
+            MessageBox.Show(ketQua ? "Thêm thành công" : "Thêm thất bại");
         }
 
-        private void btnHuy_Click(object sender, EventArgs e) //Sửa
+        private void btnSua_Click(object sender, EventArgs e)
         {
             // validate all fields
             if (txtMaDonHang.Text == "")
@@ -134,19 +160,22 @@ namespace GUI
 
             DonHang donHang = new();
             donHang.MaDh = int.Parse(txtMaDonHang.Text);
-            donHang.NgayTao = DateOnly.Parse(dateNgayNhap.Text);
-            donHang.MaCuaHangNavigation.TenCuaHang = cobCuaHang.Text;
+            if (!dateNgayNhap.Text.IsNullOrEmpty() && DateOnly.TryParse(dateNgayNhap.Text, out var date))
+            {
+                donHang.NgayTao = date;
+            }
+
+            var cuaHang = bus.GetCuaHang(cobCuaHang.Text);
+            donHang.MaCuaHang = cuaHang.MaCuaHang;
             donHang.MaSp = int.Parse(txtMaSanPham.Text);
-            donHang.MaSpNavigation.TenSp = txtTenSP.Text;
-            donHang.MaSpNavigation.SoLuong = (int)NumberSoLuong.Value;
-            donHang.MaSpNavigation.GiaSp = int.Parse(txtGiaTien.Text);
             donHang.TrangThai = rdbChuaThanhToan.Checked ? "Chưa thanh toán" : "Đã thanh toán";
-            donHang.TongTien = (decimal?)(donHang.MaSpNavigation.GiaSp * donHang.MaSpNavigation.SoLuong);
+            var giaSp = decimal.Parse(txtGiaTien.Text);
+            var soLuong = (decimal)NumberSoLuong.Value;
+            donHang.TongTien = giaSp * soLuong;
 
-            bus.UpdateData(donHang);
+            var ketQua = bus.UpdateData(donHang);
 
-            MessageBox.Show("Sửa thành công");
-
+            MessageBox.Show(ketQua ? "Sửa thành công" : "Sửa thất bại");
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -157,7 +186,8 @@ namespace GUI
                 return;
             }
 
-            bus.DeleteData(int.Parse(txtMaDonHang.Text));
+            var ketQua = bus.DeleteData(int.Parse(txtMaDonHang.Text));
+            MessageBox.Show(ketQua ? "Xóa thành công" : "Xóa thất bại");
         }
 
         private void btnReload_Click(object sender, EventArgs e)
@@ -167,7 +197,6 @@ namespace GUI
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-
             var form = new SanPhamForm();
             form.Show();
             this.Hide();
@@ -175,7 +204,6 @@ namespace GUI
 
         private void btnChiTietDonHang_Click(object sender, EventArgs e)
         {
-
             var form = new ChiTietDonHang();
             form.Show();
             this.Hide();

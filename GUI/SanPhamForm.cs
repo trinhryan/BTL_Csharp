@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business;
 using DataAccess.Entities;
+using Microsoft.IdentityModel.Tokens;
 
 namespace GUI
 {
@@ -19,32 +20,33 @@ namespace GUI
         public SanPhamForm()
         {
             InitializeComponent();
+            dgvSanPham.DataSource = bus.GetAllDataTable();
             dgvSanPham.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
             SanPham sanPham = new();
-
-            sanPham.MaSp = int.Parse(txtMaSanPham.Text);
             sanPham.TenSp = txtTenSP.Text;
             sanPham.GiaSp = decimal.Parse(txtGiaTien.Text);
             sanPham.SoLuong = int.Parse(NumberSoLuong.Value.ToString());
             sanPham.Hsd = DateOnly.Parse(txtHsd.Text);
             sanPham.Nsx = DateOnly.Parse(txtNsx.Text);
-            bus.AddData(sanPham);
+            var ketQua = bus.AddData(sanPham);
+            MessageBox.Show(ketQua ? "Thêm thành công" : "Thêm thất bại");
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
             // validate all fields
-            if (txtMaSanPham.Text == " ")
+            if (txtMaSanPham.Text == "")
             {
                 MessageBox.Show(" Chưa chọn mã sản phẩm cần xóa");
                 return;
             }
 
-            bus.DeleteData(txtMaSanPham.Text);
+            var ketQua = bus.DeleteData(txtMaSanPham.Text);
+            MessageBox.Show(ketQua ? "Xóa thành công" : "Xóa thất bại");
         }
 
 
@@ -80,12 +82,12 @@ namespace GUI
                 var data = dgvSanPham.Rows[e.RowIndex].DataBoundItem as DataRowView;
                 if (data != null)
                 {
-                    txtMaSanPham.Text = data["MaSp"].ToString();
-                    txtTenSP.Text = data["TenSp"].ToString();
-                    txtGiaTien.Text = data["GiaSp"].ToString();
+                    txtMaSanPham.Text = data["MaSanPham"].ToString();
+                    txtTenSP.Text = data["TenSanPham"].ToString();
+                    txtGiaTien.Text = data["Gia"].ToString();
                     NumberSoLuong.Value = Convert.ToInt32(data["SoLuong"]);
-                    txtHsd.Text = data["Hsd"].ToString();
-                    txtNsx.Text = data["Nsx"].ToString();
+                    txtHsd.Text = data["HanSuDung"].ToString();
+                    txtNsx.Text = data["NgaySanXuat"].ToString();
                 }
             }
             catch (Exception exception)
@@ -96,8 +98,7 @@ namespace GUI
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            // validate all fields
-            if (txtMaSanPham.Text == " ")
+            if (txtMaSanPham.Text == "")
             {
                 MessageBox.Show(" Chưa chọn mã sản phẩm cần sửa");
                 return;
@@ -108,11 +109,12 @@ namespace GUI
             sanPham.TenSp = txtTenSP.Text;
             sanPham.GiaSp = decimal.Parse(txtGiaTien.Text);
             sanPham.SoLuong = int.Parse(NumberSoLuong.Value.ToString());
-            sanPham.Hsd = DateOnly.Parse(txtHsd.Text);
-            sanPham.Nsx = DateOnly.Parse(txtNsx.Text);
-            bus.UpdateData(sanPham);
+            if(!txtHsd.Text.IsNullOrEmpty() && DateOnly.TryParse(txtHsd.Text, out _)) sanPham.Hsd = DateOnly.Parse(txtHsd.Text);
+            if(!txtNsx.Text.IsNullOrEmpty() && DateOnly.TryParse(txtNsx.Text, out _)) sanPham.Nsx = DateOnly.Parse(txtNsx.Text);
+            if(!txtPhanLoai.Text.IsNullOrEmpty()) sanPham.PhanLoaiSp = txtPhanLoai.Text;
+            var ketQua = bus.UpdateData(sanPham);
 
-            MessageBox.Show("Sửa thành công");
+            MessageBox.Show(ketQua ? "Sửa thành công" : "Sửa thất bại");
         }
 
         private void btnReload_Click(object sender, EventArgs e)

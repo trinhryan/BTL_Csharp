@@ -19,6 +19,8 @@ namespace GUI
         public PhieuXuatForm()
         {
             InitializeComponent();
+            dgvPhieuXuatHang.DataSource = bus.GetAllDataTable();
+            dgvPhieuXuatHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void btnThem_Click(object sender, EventArgs e)

@@ -19,10 +19,10 @@ public class NhaCungCapBus: IBus<NhaCungCap>
     public DataTable GetAllDataTable()
     {
         var dt = new DataTable();
-        dt.Columns.Add("Mã nhà cung cấp");
-        dt.Columns.Add("Tên nhà cung cấp");
+        dt.Columns.Add("MaNhaCungCap");
+        dt.Columns.Add("TenNhaCungCap");
         dt.Columns.Add("Sdt");
-        dt.Columns.Add("Địa chỉ");
+        dt.Columns.Add("DiaChi");
         
         var data = GetAllData();
         foreach (var item in data)
@@ -46,7 +46,9 @@ public class NhaCungCapBus: IBus<NhaCungCap>
             return false;
         }
         NhaCungCap nhaCungCap = (NhaCungCap)obj;
-        db.Database.ExecuteSqlRaw("insert into NhaCungCap(TenNcc, Sdt, DiaChi) values({0}, {1}, {2})", nhaCungCap.TenNcc, nhaCungCap.Sdt, nhaCungCap.DiaChi);
+        
+        db.NhaCungCaps.Add(nhaCungCap);
+        db.SaveChanges();
 
         return true;
     }
@@ -55,16 +57,29 @@ public class NhaCungCapBus: IBus<NhaCungCap>
     {
         NhaCungCap nhaCungCap = (NhaCungCap)obj;
         NhaCungCap nhaCungCapUpdate = db.NhaCungCaps.FirstOrDefault(e => e.MaNcc == nhaCungCap.MaNcc);
+        if (nhaCungCapUpdate == null)
+        {
+            return false;
+        }
         nhaCungCapUpdate.TenNcc = nhaCungCap.TenNcc;
         nhaCungCapUpdate.Sdt = nhaCungCap.Sdt;
         nhaCungCapUpdate.DiaChi = nhaCungCap.DiaChi;
+        
+        db.NhaCungCaps.Update(nhaCungCapUpdate);
         db.SaveChanges();
         return true;
     }
 
     public bool DeleteData(object id)
     {
-       db.Database.ExecuteSqlRaw("delete from NhaCungCap where MaNcc = {0}", id);
+        NhaCungCap nhaCungCap = db.NhaCungCaps.FirstOrDefault(e => e.MaNcc == int.Parse(id.ToString()));
+        
+        if (nhaCungCap == null)
+        {
+            return false;
+        }
+        db.NhaCungCaps.Remove(nhaCungCap);
+        db.SaveChanges();
        return true;
     }
 

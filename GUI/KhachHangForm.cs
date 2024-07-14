@@ -19,6 +19,7 @@ namespace GUI
         public KhachHangForm()
         {
             InitializeComponent();
+            dgvKhacHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvKhacHang.DataSource = bus.GetAllDataTable();
         }
 
@@ -26,21 +27,12 @@ namespace GUI
         {
 
             KhachHang khachHang = new();
-            khachHang.MaKh = int.Parse(txtMaKH.Text);
             khachHang.TenKh = txtTenKH.Text;
             khachHang.DiaChi = txtDiaChi.Text;
             khachHang.Sdt = txtSdt.Text;
 
             var ketqua = bus.AddData(khachHang);
-            if (ketqua)
-            {
-                MessageBox.Show("Thêm thành công");
-            }
-            else
-            {
-                MessageBox.Show("Mã khách hàng đã tồn tại");
-            }
-
+            MessageBox.Show(ketqua ? "Thêm thành công" : "Thêm thất bại");
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -69,21 +61,22 @@ namespace GUI
             khachHang.TenKh = txtTenKH.Text;
             khachHang.DiaChi = txtDiaChi.Text;
             khachHang.Sdt = txtSdt.Text;
-            bus.UpdateData(khachHang);
+            var ketQua = bus.UpdateData(khachHang);
 
-            MessageBox.Show("Sửa thành công");
+            MessageBox.Show(ketQua ? "Sửa thành công" : "Sửa thất bại");
 
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (txtMaKH.Text == " ")
+            if (txtMaKH.Text == "")
             {
                 MessageBox.Show(" Chưa chọn mã khách hàng cần xóa");
                 return;
             }
 
-            bus.DeleteData(txtMaKH.Text);
+            var ketQua = bus.DeleteData(txtMaKH.Text);
+            MessageBox.Show(ketQua ? "Xóa thành công" : "Xóa thất bại");
         }
 
         private void btnReload_Click(object sender, EventArgs e)
@@ -93,18 +86,37 @@ namespace GUI
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            dgvKhacHang.DataSource = bus.SearchData(txtSeach.Text);
+            var data = bus.SearchData(txtSeach.Text);
+            var dt = new DataTable();
+            dt.Columns.Add("MaKhachHang");
+            dt.Columns.Add("TenKhachHang");
+            dt.Columns.Add("Sdt");
+            dt.Columns.Add("DiaChi");
+            
+            foreach (var item in data)
+            {
+                dt.Rows.Add(item.MaKh, item.TenKh, item.Sdt, item.DiaChi);
+            }
+            
+            dgvKhacHang.DataSource = dt;
         }
 
         private void dgvKhacHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var data = dgvKhacHang.Rows[e.RowIndex].DataBoundItem as DataRowView;
-            if (data != null)
+            try
             {
-                txtMaKH.Text = data["MaKh"].ToString();
-                txtTenKH.Text = data["TenKh"].ToString();
-                txtDiaChi.Text = data["DiaChi"].ToString();
-                txtSdt.Text = data["Sdt"].ToString();
+                var data = dgvKhacHang.Rows[e.RowIndex].DataBoundItem as DataRowView;
+                if (data != null)
+                {
+                    txtMaKH.Text = data["MaKhachHang"].ToString();
+                    txtTenKH.Text = data["TenKhachHang"].ToString();
+                    txtDiaChi.Text = data["DiaChi"].ToString();
+                    txtSdt.Text = data["Sdt"].ToString();
+                }
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
             }
         }
 

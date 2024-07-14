@@ -18,6 +18,8 @@ namespace GUI
         public PhieuNhapForm()
         {
             InitializeComponent();
+            dgvPhieuNhapHang.DataSource = bus.GetAllDataTable();
+            dgvPhieuNhapHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void NumberSoLuong_ValueChanged(object sender, EventArgs e)

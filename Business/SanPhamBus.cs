@@ -5,6 +5,7 @@ using System.Linq;
 using DataAccess.Context;
 using DataAccess.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Business;
 
@@ -57,11 +58,16 @@ public class SanPhamBus : IBus<SanPham>
     {
         SanPham sanPham = (SanPham)obj;
         SanPham sanPhamUpdate = db.SanPhams.FirstOrDefault(e => e.MaSp == sanPham.MaSp);
+        if (sanPhamUpdate == null)
+        {
+            return false;
+        }
+
         sanPhamUpdate.TenSp = sanPham.TenSp;
         sanPhamUpdate.GiaSp = sanPham.GiaSp;
         sanPhamUpdate.Hsd = sanPham.Hsd;
         sanPhamUpdate.Nsx = sanPham.Nsx;
-        sanPhamUpdate.PhanLoaiSp = sanPham.PhanLoaiSp;
+        if(!sanPham.PhanLoaiSp.IsNullOrEmpty()) sanPhamUpdate.PhanLoaiSp = sanPham.PhanLoaiSp;
         db.SaveChanges();
 
         return true;
@@ -69,12 +75,16 @@ public class SanPhamBus : IBus<SanPham>
 
     public bool DeleteData(object id)
     {
-        SanPham sanPham = db.SanPhams.FirstOrDefault(e => e.MaSp == (int)id);
+        SanPham sanPham = db.SanPhams.FirstOrDefault(e => e.MaSp == int.Parse(id.ToString()));
+        if (sanPham == null)
+        {
+            return false;
+        }
         db.SanPhams.Remove(sanPham);
         db.SaveChanges();
         return true;
     }
-
+ 
     public List<SanPham> SearchData(string tuKhoa)
     {
         return db.SanPhams.Where(e => e.TenSp.Contains(tuKhoa)).ToList();

@@ -19,6 +19,8 @@ namespace GUI
         public NhaCungCapForm()
         {
             InitializeComponent();
+            dgvNcc.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvNcc.DataSource = bus.GetAllDataTable();
         }
 
         private void quảnLýNgườiDùngToolStripMenuItem_Click(object sender, EventArgs e)
@@ -94,14 +96,13 @@ namespace GUI
         private void btnThem_Click(object sender, EventArgs e)
         {
             NhaCungCap nhaCungCap = new();
-            nhaCungCap.MaNcc = int.Parse(txtMaNCC.Text);
             nhaCungCap.TenNcc = txtTenNCC.Text;
             nhaCungCap.Sdt = txtSdt.Text;
             nhaCungCap.DiaChi = txtDiaChi.Text;
 
-            bus.AddData(nhaCungCap);
+            var ketQua = bus.AddData(nhaCungCap);
 
-            MessageBox.Show("Thêm thành công");
+            MessageBox.Show(ketQua ? "Thêm thành công" : "Thêm thất bại");
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -115,12 +116,12 @@ namespace GUI
             NhaCungCap nhaCungCap = new();
             nhaCungCap.MaNcc = int.Parse(txtMaNCC.Text);
             nhaCungCap.TenNcc = txtTenNCC.Text;
-            // nhaCungCap.Sdt = int.Parse(txtSdt.Text);
+            nhaCungCap.Sdt = txtSdt.Text;
             nhaCungCap.DiaChi = txtDiaChi.Text;
 
-            bus.UpdateData(nhaCungCap);
+            var ketQua = bus.UpdateData(nhaCungCap);
 
-            MessageBox.Show("Sửa thành công");
+            MessageBox.Show(ketQua ? "Sửa thành công" : "Sửa thất bại");
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -149,7 +150,36 @@ namespace GUI
                 return;
             }
 
-            dgvNcc.DataSource = bus.SearchData(txtSeach.Text);
+            var data = bus.SearchData(txtSeach.Text);
+            var dt = new DataTable();
+            dt.Columns.Add("MaNhaCungCap");
+            dt.Columns.Add("TenNhaCungCap");
+            dt.Columns.Add("Sdt");
+            dt.Columns.Add("DiaChi");
+
+            foreach (var item in data)
+            {
+                dt.Rows.Add(item.MaNcc, item.TenNcc, item.Sdt, item.DiaChi);
+            }
+
+            dgvNcc.DataSource = dt;
+        }
+
+        private void dgvNcc_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex == -1) return;
+
+                txtMaNCC.Text = dgvNcc.Rows[e.RowIndex].Cells[0].Value.ToString();
+                txtTenNCC.Text = dgvNcc.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtSdt.Text = dgvNcc.Rows[e.RowIndex].Cells[2].Value.ToString();
+                txtDiaChi.Text = dgvNcc.Rows[e.RowIndex].Cells[3].Value.ToString();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
         }
     }
 }

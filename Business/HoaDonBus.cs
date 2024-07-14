@@ -26,12 +26,13 @@ public class HoaDonBus : IBus<HoaDon>
         dt.Columns.Add("Mã sản phẩm");
         dt.Columns.Add("Số lượng");
         dt.Columns.Add("Đơn giá");
+        dt.Columns.Add("Ngày bán");
         dt.Columns.Add("Tổng tiền");
 
         var data = GetAllData();
         foreach (var item in data)
         {
-            dt.Rows.Add(item.MaHd, item.TenSp, item.MaSp, item.SoLuong, item.DonGia, item.TongTien);
+            dt.Rows.Add(item.MaHd, item.TenSp, item.MaSp, item.SoLuong, item.DonGia,item.NgayBan, item.TongTien);
         }
 
         return dt;
@@ -64,6 +65,7 @@ public class HoaDonBus : IBus<HoaDon>
         hoaDonUpdate.MaSp = hoaDon.MaSp;
         hoaDonUpdate.SoLuong = hoaDon.SoLuong;
         hoaDonUpdate.DonGia = hoaDon.DonGia;
+        hoaDonUpdate.NgayBan = hoaDon.NgayBan;
         hoaDonUpdate.TongTien = hoaDon.TongTien;
         db.SaveChanges();
     }
@@ -77,6 +79,7 @@ public class HoaDonBus : IBus<HoaDon>
         hoaDonUpdate.MaSp = hoaDon.MaSp;
         hoaDonUpdate.SoLuong = hoaDon.SoLuong;
         hoaDonUpdate.DonGia = hoaDon.DonGia;
+        hoaDonUpdate.NgayBan = hoaDon.NgayBan;
         hoaDonUpdate.TongTien = hoaDon.TongTien;
         db.SaveChanges();
     }

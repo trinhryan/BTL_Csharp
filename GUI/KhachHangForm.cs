@@ -24,6 +24,7 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+
             KhachHang khachHang = new();
             khachHang.MaKh = int.Parse(txtMaKH.Text);
             khachHang.TenKh = txtTenKH.Text;
@@ -39,6 +40,7 @@ namespace GUI
             {
                 MessageBox.Show("Mã khách hàng đã tồn tại");
             }
+
         }
 
         private void btnSua_Click(object sender, EventArgs e)

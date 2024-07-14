@@ -25,12 +25,14 @@ namespace GUI
         {
             SanPham sanPham = new();
 
-            // sanPham.MaSp = txtMaSanPham.Text;
-            // sanPham.TenSp = txtTenSP.Text;
-            // sanPham.GiaSp = txtGiaTien.Text;
-            // sanPham.SoLuong = NumberSoLuong.Value;
-            // sanPham.Hsd = txtHsd.Text;
-            // sanPham.Nsx = txtNsx.Text;
+            sanPham.MaSp = int.Parse(txtMaSanPham.Text);
+            sanPham.TenSp = txtTenSP.Text;
+            sanPham.GiaSp = decimal.Parse(txtGiaTien.Text);
+            sanPham.SoLuong = int.Parse(NumberSoLuong.Value.ToString());
+            sanPham.Hsd = DateOnly.Parse(txtHsd.Text);
+            sanPham.Nsx =DateOnly.Parse(txtNsx.Text);
+            bus.AddData(sanPham);
+
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -81,14 +83,14 @@ namespace GUI
                 return;
             }
 
-            // SanPham sanPham = new();
-            // sanPham.MaSp = txtMaSanPham.Text;
-            // sanPham.TenSp = txtTenSP.Text;
-            // sanPham.GiaSp = txtGiaTien.Text;
-            // sanPham.SoLuong = NumberSoLuong.Value;
-            // sanPham.Hsd = txtHsd.Text;
-            // sanPham.Nsx = txtNsx.Text;
-            // bus.UpdateData(sanPham);
+            SanPham sanPham = new();
+            sanPham.MaSp = int.Parse(txtMaSanPham.Text);
+            sanPham.TenSp = txtTenSP.Text;
+            sanPham.GiaSp = decimal.Parse(txtGiaTien.Text);
+            sanPham.SoLuong = int.Parse(NumberSoLuong.Value.ToString());
+            sanPham.Hsd = DateOnly.Parse(txtHsd.Text);
+            sanPham.Nsx =DateOnly.Parse(txtNsx.Text);
+            bus.UpdateData(sanPham);
 
             MessageBox.Show("Sửa thành công");
         }

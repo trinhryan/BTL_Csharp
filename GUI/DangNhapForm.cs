@@ -38,7 +38,7 @@ namespace GUI
                 this.Hide();
                 var mainForm = new NguoiDungForm();
                 mainForm.ShowDialog();
-                this.Close();
+                
             }
             else
             {

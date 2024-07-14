@@ -77,7 +77,7 @@ public class NguoiDungBus : IBus<NguoiDung>
         // db.SaveChanges();
         
         // sử dụng sql để xóa dữ liệu
-        db.Database.ExecuteSql($"DELETE FROM NguoiDungs WHERE TenDangNhap = {id}");
+        db.Database.ExecuteSql($"DELETE FROM NguoiDung WHERE TenDangNhap = {id}");
     }
 
     public List<NguoiDung> SearchData(string tuKhoa)

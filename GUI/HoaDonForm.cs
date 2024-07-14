@@ -96,10 +96,12 @@ namespace GUI
         {
             HoaDon hoaDon = new();
             hoaDon.MaHd = int.Parse(txtMaHD.Text);
-            hoaDon.NgayBan = DateOnly.Parse(dateNgayBan.Text);
+         
             hoaDon.MaSpNavigation.TenSp = txtTenSP.Text;
             hoaDon.MaSpNavigation.SoLuong = (int)NumberSoLuong.Value;
-            hoaDon.MaSpNavigation.GiaSp = int.Parse(txtGiaTien.Text);
+            hoaDon.MaSpNavigation.GiaSp = decimal.Parse(txtGiaTien.Text);
+            hoaDon.NgayBan = DateOnly.Parse(dateNgayBan.Text);
+            hoaDon.TongTien = hoaDon.MaSpNavigation.GiaSp * hoaDon.MaSpNavigation.SoLuong;
             bus.AddData(hoaDon);
             MessageBox.Show("Thêm thành công");
         }
@@ -128,12 +130,14 @@ namespace GUI
 
             HoaDon hoaDon = new();
             hoaDon.MaHd = int.Parse(txtMaHD.Text);
-            hoaDon.NgayBan = DateOnly.Parse(dateNgayBan.Text);
             hoaDon.MaSpNavigation.TenSp = txtTenSP.Text;
             hoaDon.MaSpNavigation.SoLuong = (int)NumberSoLuong.Value;
-            hoaDon.MaSpNavigation.GiaSp = int.Parse(txtGiaTien.Text);
-            bus.AddData(hoaDon);
-            MessageBox.Show("Thêm thành công");
+            hoaDon.MaSpNavigation.GiaSp = decimal.Parse(txtGiaTien.Text);
+            hoaDon.NgayBan = DateOnly.Parse(dateNgayBan.Text);
+            hoaDon.TongTien = hoaDon.MaSpNavigation.GiaSp * hoaDon.MaSpNavigation.SoLuong;
+
+            bus.UpdateData(hoaDon);
+            MessageBox.Show("Sửa thành công");
 
         }
 
@@ -159,6 +163,7 @@ namespace GUI
                 txtTenSP.Text = data["TenSp"].ToString();
                 NumberSoLuong.Text = data["SoLuong"].ToString();
                 txtGiaTien.Text = data["GiaSp"].ToString();
+                
             }
         }
     }

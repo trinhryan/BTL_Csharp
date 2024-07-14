@@ -6,7 +6,7 @@ namespace GUI;
 
 public class Client
 {
-    private TcpClient _client = new();
+    public TcpClient _client = new();
 
     public Client()
     {
@@ -91,7 +91,7 @@ public class Client
         catch (Exception e)
         {
             Console.WriteLine(e);
-            throw;
+            return false;
         }
     }
 
@@ -109,7 +109,7 @@ public class Client
         catch (Exception e)
         {
             Console.WriteLine(e);
-            throw;
+            return false;
         }
     }
 

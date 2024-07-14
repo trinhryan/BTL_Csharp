@@ -52,5 +52,13 @@ namespace GUI
                 throw;
             }
         }
+
+        private void btnDangKy_Click(object sender, EventArgs e)
+        {
+            _client._client.Close();
+            var registerForm = new RegisterForm();
+            registerForm.Show();
+            this.Hide();
+        }
     }
 }

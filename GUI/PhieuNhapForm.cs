@@ -38,16 +38,16 @@ namespace GUI
 
             phieuNhap.MaNccNavigation.MaNcc = int.Parse(txtMaNCC.Text);
             phieuNhap.MaNccNavigation.TenNcc = txtTenNCC.Text;
-            phieuNhap.MaNccNavigation.Sdt = int.Parse(txtSdt.Text);
+            phieuNhap.MaNccNavigation.Sdt = (txtSdt.Text);
 
             phieuNhap.MaQlNavigation.MaQl = int.Parse(txtMaNV.Text);
             phieuNhap.MaQlNavigation.TenQl = txtTenNV.Text;
 
 
-            phieuNhap.MaSpNavigation.TenSp = txtTenSP.Text;
-            phieuNhap.MaSpNavigation.MaSp = int.Parse(txtMaSanPham.Text);
-            phieuNhap.MaSpNavigation.SoLuong = (int)NumberSoLuong.Value;
-            phieuNhap.MaSpNavigation.GiaSp = int.Parse(txtGiaTien.Text);
+            // phieuNhap.MaSpNavigation.TenSp = txtTenSP.Text;
+            // phieuNhap.MaSpNavigation.MaSp = int.Parse(txtMaSanPham.Text);
+            // phieuNhap.MaSpNavigation.SoLuong = (int)NumberSoLuong.Value;
+            // phieuNhap.MaSpNavigation.GiaSp = int.Parse(txtGiaTien.Text);
 
             bus.InsertData(phieuNhap);
 
@@ -86,16 +86,16 @@ namespace GUI
 
             phieuNhap.MaNccNavigation.MaNcc = int.Parse(txtMaNCC.Text);
             phieuNhap.MaNccNavigation.TenNcc = txtTenNCC.Text;
-            phieuNhap.MaNccNavigation.Sdt = int.Parse(txtSdt.Text);
+            phieuNhap.MaNccNavigation.Sdt = (txtSdt.Text);
 
             phieuNhap.MaQlNavigation.MaQl = int.Parse(txtMaNV.Text);
             phieuNhap.MaQlNavigation.TenQl = txtTenNV.Text;
 
 
-            phieuNhap.MaSpNavigation.TenSp = txtTenSP.Text;
-            phieuNhap.MaSpNavigation.MaSp = int.Parse(txtMaSanPham.Text);
-            phieuNhap.MaSpNavigation.SoLuong = (int)NumberSoLuong.Value;
-            phieuNhap.MaSpNavigation.GiaSp = int.Parse(txtGiaTien.Text);
+            // phieuNhap.MaSpNavigation.TenSp = txtTenSP.Text;
+            // phieuNhap.MaSpNavigation.MaSp = int.Parse(txtMaSanPham.Text);
+            // phieuNhap.MaSpNavigation.SoLuong = (int)NumberSoLuong.Value;
+            // phieuNhap.MaSpNavigation.GiaSp = int.Parse(txtGiaTien.Text);
 
             bus.UpdateData(phieuNhap);
 

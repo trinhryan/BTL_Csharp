@@ -34,10 +34,10 @@ namespace GUI
             phieuXuat.MaQlNavigation.TenQl = txtTenNV.Text;
             phieuXuat.MaQlNavigation.Sdt = txtSdt.Text;
            
-            phieuXuat.MaSPNavigation.TenSp = txtTenSP.Text;
-            phieuXuat.MaSPNavigation.MaSp = int.Parse(txtMaSanPham.Text);
-            phieuXuat.MaSPNavigation.SoLuong = (int)NumberSoLuong.Value;
-            phieuXuat.MaSPNavigation.GiaSp = int.Parse(txtGiaTien.Text);
+            // phieuXuat.MaSPNavigation.TenSp = txtTenSP.Text;
+            // phieuXuat.MaSPNavigation.MaSp = int.Parse(txtMaSanPham.Text);
+            // phieuXuat.MaSPNavigation.SoLuong = (int)NumberSoLuong.Value;
+            // phieuXuat.MaSPNavigation.GiaSp = int.Parse(txtGiaTien.Text);
             
             bus.InsertData(phieuXuat);
           
@@ -82,10 +82,10 @@ namespace GUI
             phieuXuat.MaQlNavigation.MaQl  = int .Parse(txtMaNV.Text);
             phieuXuat.MaQlNavigation.Sdt = txtSdt.Text;
           
-            phieuXuat.MaSPNavigation.TenSp = txtTenSP.Text;
-            phieuXuat.MaSPNavigation.MaSp  =  int.Parse(txtMaSanPham.Text);
-            phieuXuat.MaSPNavigation.SoLuong = (int)NumberSoLuong.Value;
-            phieuXuat.MaSPNavigation.GiaSp = int.Parse(txtGiaTien.Text);
+            // phieuXuat.MaSPNavigation.TenSp = txtTenSP.Text;
+            // phieuXuat.MaSPNavigation.MaSp  =  int.Parse(txtMaSanPham.Text);
+            // phieuXuat.MaSPNavigation.SoLuong = (int)NumberSoLuong.Value;
+            // phieuXuat.MaSPNavigation.GiaSp = int.Parse(txtGiaTien.Text);
             bus.UpdateData(phieuXuat);
 
             MessageBox.Show("Sửa thành công");

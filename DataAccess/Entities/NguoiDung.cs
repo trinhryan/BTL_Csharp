@@ -5,9 +5,9 @@ namespace DataAccess.Entities;
 
 public partial class NguoiDung
 {
-    public string? HoTen { get; set; }
-
     public string TenDangNhap { get; set; } = null!;
+
+    public string? HoTen { get; set; }
 
     public string? MatKhau { get; set; }
 

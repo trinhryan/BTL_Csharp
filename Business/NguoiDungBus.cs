@@ -5,6 +5,7 @@ using System.Linq;
 using DataAccess.Context;
 using DataAccess.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Business;
 
@@ -22,21 +23,27 @@ public class NguoiDungBus : IBus<NguoiDung>
         var dt = new DataTable();
         dt.Columns.Add("HoTen");
         dt.Columns.Add("TenDangNhap");
-      //  dt.Columns.Add("GioiTinh");
+        dt.Columns.Add("GioiTinh");
         dt.Columns.Add("Sdt");
         dt.Columns.Add("DiaChi");
-        
+
         var data = GetAllData();
         foreach (var item in data)
         {
-            dt.Rows.Add(item.HoTen, item.TenDangNhap, item.Sdt, item.DiaChi);
+            string gioiTinh;
+            if (item.GioiTinh != null && item.GioiTinh.Contains('M'))
+                gioiTinh = "Nam";
+            else
+                gioiTinh = "Nữ";
+            dt.Rows.Add(item.HoTen, item.TenDangNhap, gioiTinh, item.Sdt, item.DiaChi);
         }
+
         return dt;
     }
 
     public NguoiDung GetDataById(object id)
     {
-        return db.NguoiDungs.FirstOrDefault(e=>e.TenDangNhap == id);
+        return db.NguoiDungs.FirstOrDefault(e => e.TenDangNhap == id);
     }
 
     public bool AddData(NguoiDung obj)
@@ -46,49 +53,59 @@ public class NguoiDungBus : IBus<NguoiDung>
         {
             return false;
         }
+
         db.NguoiDungs.Add(obj);
         db.SaveChanges();
-        
+
         return true;
     }
 
-    public void UpdateData(NguoiDung obj)
+    public bool UpdateData(NguoiDung obj)
     {
-        throw new NotImplementedException();
-    }
+        var nguoiDung = db.NguoiDungs.FirstOrDefault(e => e.TenDangNhap == obj.TenDangNhap);
+        if (nguoiDung == null)
+        {
+            return false;
+        }
 
-    public void UpdateData(object T)
-    {
-        NguoiDung nguoiDung = (NguoiDung)T;
-        NguoiDung nguoiDungUpdate = db.NguoiDungs.FirstOrDefault(e => e.TenDangNhap == nguoiDung.TenDangNhap);
-        nguoiDungUpdate.HoTen = nguoiDung.HoTen;
-        nguoiDungUpdate.MatKhau = nguoiDung.MatKhau;
-      //  nguoiDungUpdate.GioiTinh = nguoiDung.GioiTinh;
-        nguoiDungUpdate.Sdt = nguoiDung.Sdt;
-        nguoiDungUpdate.DiaChi = nguoiDung.DiaChi;
+        nguoiDung.HoTen = obj.HoTen;
+        if (!obj.MatKhau.IsNullOrEmpty()) nguoiDung.MatKhau = obj.MatKhau;
+        nguoiDung.GioiTinh = obj.GioiTinh;
+        nguoiDung.Sdt = obj.Sdt;
+        nguoiDung.DiaChi = obj.DiaChi;
         db.SaveChanges();
+        return true;
     }
 
-    public void DeleteData(object id)
+    public bool DeleteData(object tenDangNhap)
     {
-        // sử dụng hàm Remove để xóa dữ liệu
-        // NguoiDung nguoiDung = db.NguoiDungs.FirstOrDefault(e => e.TenDangNhap == id);
-        // db.NguoiDungs.Remove(nguoiDung);
-        // db.SaveChanges();
-        
-        // sử dụng sql để xóa dữ liệu
-        db.Database.ExecuteSql($"DELETE FROM NguoiDung WHERE TenDangNhap = {id}");
+        var nguoiDung = db.NguoiDungs.FirstOrDefault(e => e.TenDangNhap == tenDangNhap);
+        if (nguoiDung == null)
+        {
+            return false;
+        }
+
+        db.NguoiDungs.Remove(nguoiDung);
+        db.SaveChanges();
+        return true;
     }
 
     public List<NguoiDung> SearchData(string tuKhoa)
     {
-        return db.NguoiDungs.Where(e => 
-            e.HoTen.Contains(tuKhoa) ||
-            e.TenDangNhap.Contains(tuKhoa) ||
-            e.GioiTinh.Contains(tuKhoa) ||
-            e.Sdt.Contains(tuKhoa) ||
-            e.DiaChi.Contains(tuKhoa)
-        ).ToList();
+        return db.NguoiDungs.Where(e =>
+            (e.HoTen != null && e.HoTen.Contains(tuKhoa)) ||
+            (e.TenDangNhap != null && e.TenDangNhap.Contains(tuKhoa)) ||
+            (e.GioiTinh != null && e.GioiTinh.Contains(tuKhoa)) ||
+            (e.Sdt != null && e.Sdt.Contains(tuKhoa)) ||
+            (e.DiaChi != null && e.DiaChi.Contains(tuKhoa))
+        ).Select(e => new NguoiDung
+        {
+            HoTen = e.HoTen,
+            TenDangNhap = e.TenDangNhap,
+            GioiTinh = (e.GioiTinh != null && e.GioiTinh.Contains('M')) == true ? "Nam" : "Nữ",
+            Sdt = e.Sdt,
+            DiaChi = e.DiaChi
+        }).ToList();
     }
 
     public bool DangNhap(string text, string s)
@@ -99,6 +116,7 @@ public class NguoiDungBus : IBus<NguoiDung>
         {
             return true;
         }
+
         return false;
     }
 
@@ -109,6 +127,7 @@ public class NguoiDungBus : IBus<NguoiDung>
         {
             return true;
         }
+
         return false;
     }
 }

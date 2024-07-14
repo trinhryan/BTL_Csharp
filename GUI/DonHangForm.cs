@@ -116,7 +116,7 @@ namespace GUI
             donHang.MaSpNavigation.SoLuong = (int)NumberSoLuong.Value;
             donHang.MaSpNavigation.GiaSp = int.Parse(txtGiaTien.Text);
             donHang.TrangThai = rdbChuaThanhToan.Checked ? "Chưa thanh toán" : "Đã thanh toán";
-            donHang.TongTien = (float?)(donHang.MaSpNavigation.GiaSp * donHang.MaSpNavigation.SoLuong);
+            donHang.TongTien = (decimal?)(donHang.MaSpNavigation.GiaSp * donHang.MaSpNavigation.SoLuong);
 
             bus.AddData(donHang);
 
@@ -141,7 +141,7 @@ namespace GUI
             donHang.MaSpNavigation.SoLuong = (int)NumberSoLuong.Value;
             donHang.MaSpNavigation.GiaSp = int.Parse(txtGiaTien.Text);
             donHang.TrangThai = rdbChuaThanhToan.Checked ? "Chưa thanh toán" : "Đã thanh toán";
-            donHang.TongTien = (float?)(donHang.MaSpNavigation.GiaSp * donHang.MaSpNavigation.SoLuong);
+            donHang.TongTien = (decimal?)(donHang.MaSpNavigation.GiaSp * donHang.MaSpNavigation.SoLuong);
 
             bus.UpdateData(donHang);
 

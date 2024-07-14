@@ -5,20 +5,15 @@ namespace DataAccess.Entities;
 
 public partial class Sale
 {
-    public int? MaCV;
     public int MaSale { get; set; }
 
-    public string? TenSale { get; set; }
+    public string TenSale { get; set; } = null!;
 
     public DateOnly? NgaySinh { get; set; }
-    
-    public string GioiTinh { get; set; }
-    
-    public string DiaChi { get; set; }
+
+    public string GioiTinh { get; set; } = null!;
 
     public string? Sdt { get; set; }
-
-    public  int? ChucVu { get; set; }
 
     public int? MaCuaHang { get; set; }
 
@@ -28,11 +23,17 @@ public partial class Sale
 
     public string? TenDangNhap { get; set; }
 
-    public virtual ChucVu? ChucVuNavigation { get; set; }
+    public string DiaChi { get; set; } = null!;
 
-    public virtual CuaHang? CuaHangNavigation { get; set; }
+    public int? MaCv { get; set; }
+
+    public virtual CuaHang? MaCuaHangNavigation { get; set; }
+
+    public virtual ChucVu? MaCvNavigation { get; set; }
 
     public virtual QuanLy? MaQlNavigation { get; set; }
+
+    public virtual ICollection<PhieuXuat> PhieuXuats { get; set; } = new List<PhieuXuat>();
 
     public virtual NguoiDung? TenDangNhapNavigation { get; set; }
 }

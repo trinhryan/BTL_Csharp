@@ -55,7 +55,7 @@ public class DonHangBus:IBus<DonHang>
         return true;
     }
 
-    public void UpdateData(DonHang obj)
+    public bool UpdateData(DonHang obj)
     {
         DonHang donHang = (DonHang)obj;
         DonHang donHangUpdate = db.DonHangs.FirstOrDefault(e=>e.MaDh == donHang.MaDh);
@@ -66,13 +66,17 @@ public class DonHangBus:IBus<DonHang>
         donHangUpdate.MaSp = donHang.MaSp;
         donHangUpdate.MaKh = donHang.MaKh;
         db.SaveChanges();
+        return true;
+
     }
 
-    public void DeleteData(object id)
+    public bool DeleteData(object id)
     {
         DonHang donHang = db.DonHangs.FirstOrDefault(e=>e.MaDh == (int)id);
         db.DonHangs.Remove(donHang);
         db.SaveChanges();
+        return true;
+
     }
 
     public List<DonHang> SearchData(string tuKhoa)

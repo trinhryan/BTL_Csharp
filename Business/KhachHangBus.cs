@@ -59,14 +59,14 @@ public class KhachHangBus: IBus<KhachHang>
         return true;
     }
 
-    public void UpdateData(KhachHang obj)
+    public bool UpdateData(KhachHang obj)
     {
         
         throw new NotImplementedException();
         
     }
 
-    public void UpdateData(object T)
+    public bool UpdateData(object T)
     {
         KhachHang khachHang = (KhachHang)T;
         KhachHang khachHangUpdate = db.KhachHangs.FirstOrDefault(e => e.MaKh == khachHang.MaKh);
@@ -74,9 +74,10 @@ public class KhachHangBus: IBus<KhachHang>
         khachHangUpdate.Sdt = khachHang.Sdt;
         khachHangUpdate.DiaChi = khachHang.DiaChi;
         db.SaveChanges();
+        return true;
     }
 
-    public void DeleteData(object id)
+    public bool DeleteData(object id)
     {
         //su entity framework
         KhachHang khachHang = db.KhachHangs.FirstOrDefault(e => e.MaKh == (int)id);
@@ -85,6 +86,7 @@ public class KhachHangBus: IBus<KhachHang>
         
         //su dung cau lenh sql
         //db.Database.ExecuteSqlRaw("delete from KhachHang where MaKh = {0}", id);
+        return true;
     }
 
     public List<KhachHang> SearchData(string ten)

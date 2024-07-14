@@ -14,7 +14,8 @@ namespace GUI
 {
     public partial class NhaCungCapForm : Form
     {
-         NhaCungCapBus bus = new();
+        NhaCungCapBus bus = new();
+
         public NhaCungCapForm()
         {
             InitializeComponent();
@@ -43,7 +44,6 @@ namespace GUI
 
         private void danhMụcKháchHàngToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
             var form = new KhachHangForm();
             form.Show();
             this.Hide();
@@ -94,13 +94,13 @@ namespace GUI
         private void btnThem_Click(object sender, EventArgs e)
         {
             NhaCungCap nhaCungCap = new();
-            nhaCungCap.MaNcc= int.Parse(txtMaNCC.Text);
+            nhaCungCap.MaNcc = int.Parse(txtMaNCC.Text);
             nhaCungCap.TenNcc = txtTenNCC.Text;
-            nhaCungCap.Sdt = int.Parse(txtSdt.Text);
+            nhaCungCap.Sdt = txtSdt.Text;
             nhaCungCap.DiaChi = txtDiaChi.Text;
-            
+
             bus.AddData(nhaCungCap);
-            
+
             MessageBox.Show("Thêm thành công");
         }
 
@@ -115,7 +115,7 @@ namespace GUI
             NhaCungCap nhaCungCap = new();
             nhaCungCap.MaNcc = int.Parse(txtMaNCC.Text);
             nhaCungCap.TenNcc = txtTenNCC.Text;
-            nhaCungCap.Sdt = int.Parse(txtSdt.Text);
+            // nhaCungCap.Sdt = int.Parse(txtSdt.Text);
             nhaCungCap.DiaChi = txtDiaChi.Text;
 
             bus.UpdateData(nhaCungCap);
@@ -143,11 +143,12 @@ namespace GUI
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if(txtSeach.Text == "")
+            if (txtSeach.Text == "")
             {
                 MessageBox.Show("Chưa nhập thông tin tìm kiếm");
                 return;
             }
+
             dgvNcc.DataSource = bus.SearchData(txtSeach.Text);
         }
     }

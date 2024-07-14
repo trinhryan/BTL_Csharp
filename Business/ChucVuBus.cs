@@ -48,7 +48,7 @@ public class ChucVuBus : IBus<ChucVu>
         return true;
     }
 
-    public void UpdateData(ChucVu obj)
+    public bool UpdateData(ChucVu obj)
     {
         var chucVu = db.ChucVus.FirstOrDefault(e => e.MaCv == obj.MaCv);
         if (chucVu != null)
@@ -57,6 +57,7 @@ public class ChucVuBus : IBus<ChucVu>
             db.SaveChanges();
         }
         
+        return true;
     }
 
     public bool AddData(object T)
@@ -64,12 +65,12 @@ public class ChucVuBus : IBus<ChucVu>
         throw new NotImplementedException();
     }
 
-    public void UpdateData(object T)
+    public bool UpdateData(object T)
     {
         throw new NotImplementedException();
     }
 
-    public void DeleteData(object id)
+    public bool DeleteData(object id)
     {
         // var chucVu = db.ChucVus.FirstOrDefault(e => e.MaCv == (int)id);
         // if (chucVu != null)
@@ -78,7 +79,9 @@ public class ChucVuBus : IBus<ChucVu>
         //     db.SaveChanges();
         // }
         // sử dụng sql để xóa dữ liệu
-        db.Database.ExecuteSqlRaw("delete from ChucVus where MaCv = {0}", id);
+        db.Database.ExecuteSqlRaw("delete from ChucVu where MaCv = {0}", id);
+        return true;
+
     }
 
     public List<ChucVu> SearchData(string tuKhoa)

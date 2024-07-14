@@ -37,7 +37,7 @@ public class PhieuXuatBus: IBus<PhieuXuat>
         var data = GetAllData();
         foreach (var item in data)
         {
-            dt.Rows.Add(item.MaPx, item.NgayXuat, item.MaCuaHangNavigation.TenCuaHang, item.MaCuaHangNavigation.TenCuaHang, item.MaQlNavigation.MaQl,item.MaQlNavigation.TenQl, item.MaCuaHangNavigation.DiaChi, item.MaQlNavigation.Sdt, item.MaSPNavigation.MaSp, item.MaSPNavigation.TenSp, item.MaSPNavigation.SoLuong, item.MaSPNavigation.GiaSp);
+            // dt.Rows.Add(item.MaPx, item.NgayXuat, item.MaCuaHangNavigation.TenCuaHang, item.MaCuaHangNavigation.TenCuaHang, item.MaQlNavigation.MaQl,item.MaQlNavigation.TenQl, item.MaCuaHangNavigation.DiaChi, item.MaQlNavigation.Sdt, item.MaSPNavigation.MaSp, item.MaSPNavigation.TenSp, item.MaSPNavigation.SoLuong, item.MaSPNavigation.GiaSp);
         }
 
         return dt;
@@ -60,7 +60,7 @@ public class PhieuXuatBus: IBus<PhieuXuat>
         return true;
     }
 
-    public void UpdateData(PhieuXuat obj)
+    public bool UpdateData(PhieuXuat obj)
     {
         PhieuXuat phieuXuat = (PhieuXuat)obj;
         PhieuXuat phieuXuatUpdate = db.PhieuXuats.FirstOrDefault(e=>e.MaPx == phieuXuat.MaPx);
@@ -73,18 +73,20 @@ public class PhieuXuatBus: IBus<PhieuXuat>
         
         phieuXuatUpdate.MaCuaHangNavigation.DiaChi = phieuXuat.MaCuaHangNavigation.DiaChi;
         phieuXuatUpdate.MaQlNavigation.Sdt = phieuXuat.MaQlNavigation.Sdt;
-        phieuXuatUpdate.MaSPNavigation.MaSp = phieuXuat.MaSPNavigation.MaSp;
-        phieuXuatUpdate.MaSPNavigation.TenSp = phieuXuat.MaSPNavigation.TenSp ;
+        // phieuXuatUpdate.MaSPNavigation.MaSp = phieuXuat.MaSPNavigation.MaSp;
+        // phieuXuatUpdate.MaSPNavigation.TenSp = phieuXuat.MaSPNavigation.TenSp ;
         
        
-        phieuXuatUpdate.MaSPNavigation.SoLuong = phieuXuat.MaSPNavigation.SoLuong;
-        phieuXuatUpdate.MaSPNavigation.GiaSp = phieuXuat.MaSPNavigation.GiaSp;
+        // phieuXuatUpdate.MaSPNavigation.SoLuong = phieuXuat.MaSPNavigation.SoLuong;
+        // phieuXuatUpdate.MaSPNavigation.GiaSp = phieuXuat.MaSPNavigation.GiaSp;
         db.SaveChanges();
+        return true;
     }
 
-    public void DeleteData(object id)
+    public bool DeleteData(object id)
     {
         db.Database.ExecuteSqlRaw("delete from PhieuXuat where MaPhieuXuat = {0}", id);
+        return true;
     }
 
     public List<PhieuXuat> SearchData(string tuKhoa)

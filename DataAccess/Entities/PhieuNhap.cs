@@ -10,20 +10,20 @@ public partial class PhieuNhap
     public DateOnly? NgayNhap { get; set; }
 
     public int? MaNcc { get; set; }
-    
-    public int? SdtNcc { get; set; }
-    
+
+    public string? Sdtncc { get; set; }
+
     public int MaSp { get; set; }
-    
+
     public int? MaCuaHang { get; set; }
+
     public decimal? TongTienHang { get; set; }
 
     public int? MaQl { get; set; }
 
+    public virtual CuaHang? MaCuaHangNavigation { get; set; }
+
     public virtual NhaCungCap? MaNccNavigation { get; set; }
 
     public virtual QuanLy? MaQlNavigation { get; set; }
-    public virtual SanPham? MaSpNavigation { get; set; }
-    public virtual CuaHang? MaCuaHangNavigation { get; set; }
-    
 }

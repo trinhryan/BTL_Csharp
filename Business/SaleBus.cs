@@ -31,7 +31,7 @@ public class SaleBus:IBus<Sale>
         var data = GetAllData();
         foreach (var item in data)
         {
-            dt.Rows.Add(item.MaSale, item.TenSale, item.NgaySinh, item.GioiTinh, item.Sdt, item.ChucVuNavigation.TenCv, item.CuaHangNavigation.TenCuaHang, item.TenDangNhap);
+            // dt.Rows.Add(item.MaSale, item.TenSale, item.NgaySinh, item.GioiTinh, item.Sdt, item.ChucVuNavigation.TenCv, item.CuaHangNavigation.TenCuaHang, item.TenDangNhap);
         }
 
         return dt;
@@ -54,7 +54,7 @@ public class SaleBus:IBus<Sale>
         return true;
     }
 
-    public void UpdateData(Sale obj)
+    public bool UpdateData(Sale obj)
     {
         Sale sale = (Sale)obj;
         Sale saleUpdate = db.Sales.FirstOrDefault(e=>e.MaSale == sale.MaSale);
@@ -62,17 +62,21 @@ public class SaleBus:IBus<Sale>
         saleUpdate.NgaySinh = sale.NgaySinh;
         saleUpdate.GioiTinh = sale.GioiTinh;
         saleUpdate.Sdt = sale.Sdt;
-        saleUpdate.ChucVuNavigation.TenCv = sale.ChucVuNavigation.TenCv;
+        // saleUpdate.ChucVuNavigation.TenCv = sale.ChucVuNavigation.TenCv;
         saleUpdate.MaCuaHang = sale.MaCuaHang;
         saleUpdate.TenDangNhap = sale.TenDangNhap;
         db.SaveChanges();
+        return true;
+
     }
 
-    public void DeleteData(object id)
+    public bool DeleteData(object id)
     {
         Sale sale = db.Sales.FirstOrDefault(e=>e.MaSale == (int)id);
         db.Sales.Remove(sale);
         db.SaveChanges();
+        return true;
+
     }
 
     public List<Sale> SearchData(string tuKhoa)

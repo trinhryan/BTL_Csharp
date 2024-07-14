@@ -11,7 +11,7 @@ public interface IBus<T>
     public DataTable GetAllDataTable();
     public T GetDataById(object id);
     public bool AddData(T obj);
-    public void UpdateData(T obj);
-    public void DeleteData(object id);
+    public bool UpdateData(T obj);
+    public bool DeleteData(object id);
     public List<T> SearchData( string tuKhoa);
 }

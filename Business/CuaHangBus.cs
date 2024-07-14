@@ -50,20 +50,22 @@ public class CuaHangBus:IBus<CuaHang>
         return true;
     }
 
-    public void UpdateData(CuaHang obj)
+    public bool UpdateData(CuaHang obj)
     {
         CuaHang cuaHang = (CuaHang)obj;
         CuaHang cuaHangUpdate = db.CuaHangs.FirstOrDefault(e => e.MaCuaHang == cuaHang.MaCuaHang);
         cuaHangUpdate.TenCuaHang = cuaHang.TenCuaHang;
         cuaHangUpdate.DiaChi = cuaHang.DiaChi;
         db.SaveChanges();
-        
+        return true;
+
     }
 
-    public void DeleteData(object id)
+    public bool DeleteData(object id)
     {
          db.Database.ExecuteSqlRaw("delete from CuaHang where MaCh = {0}", id);
-         
+         return true;
+
     }
 
     public List<CuaHang> SearchData(string tuKhoa)

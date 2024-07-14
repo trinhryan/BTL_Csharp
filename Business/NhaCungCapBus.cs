@@ -51,7 +51,7 @@ public class NhaCungCapBus: IBus<NhaCungCap>
         return true;
     }
 
-    public void UpdateData(NhaCungCap obj)
+    public bool UpdateData(NhaCungCap obj)
     {
         NhaCungCap nhaCungCap = (NhaCungCap)obj;
         NhaCungCap nhaCungCapUpdate = db.NhaCungCaps.FirstOrDefault(e => e.MaNcc == nhaCungCap.MaNcc);
@@ -59,12 +59,13 @@ public class NhaCungCapBus: IBus<NhaCungCap>
         nhaCungCapUpdate.Sdt = nhaCungCap.Sdt;
         nhaCungCapUpdate.DiaChi = nhaCungCap.DiaChi;
         db.SaveChanges();
-        
+        return true;
     }
 
-    public void DeleteData(object id)
+    public bool DeleteData(object id)
     {
        db.Database.ExecuteSqlRaw("delete from NhaCungCap where MaNcc = {0}", id);
+       return true;
     }
 
     public List<NhaCungCap> SearchData(string tuKhoa)

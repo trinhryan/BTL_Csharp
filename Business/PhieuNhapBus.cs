@@ -36,7 +36,7 @@ public class PhieuNhapBus: IBus<PhieuNhap>
         var data = GetAllData();
         foreach (var item in data)
         {
-               dt.Rows.Add(item.MaPn, item.NgayNhap, item.MaCuaHangNavigation?.TenCuaHang,item.MaQlNavigation.MaQl,item.MaNccNavigation.MaNcc, item.MaNccNavigation.TenNcc, item.SdtNcc, item.MaSpNavigation.TenSp, item.MaSpNavigation, item.MaSpNavigation.SoLuong, item.MaSpNavigation.GiaSp);
+               // dt.Rows.Add(item.MaPn, item.NgayNhap, item.MaCuaHangNavigation?.TenCuaHang,item.MaQlNavigation.MaQl,item.MaNccNavigation.MaNcc, item.MaNccNavigation.TenNcc, item.SdtNcc, item.MaSpNavigation.TenSp, item.MaSpNavigation, item.MaSpNavigation.SoLuong, item.MaSpNavigation.GiaSp);
             
         }
 
@@ -62,7 +62,7 @@ public class PhieuNhapBus: IBus<PhieuNhap>
         return true;
     }
 
-    public void UpdateData(PhieuNhap obj)
+    public bool UpdateData(PhieuNhap obj)
     {
         PhieuNhap phieuNhap = (PhieuNhap)obj;
         PhieuNhap phieuNhapUpdate = db.PhieuNhaps.FirstOrDefault(e=>e.MaPn == phieuNhap.MaPn);
@@ -70,24 +70,27 @@ public class PhieuNhapBus: IBus<PhieuNhap>
         phieuNhapUpdate.MaCuaHang = phieuNhap.MaCuaHangNavigation.MaCuaHang;
         phieuNhapUpdate.MaQl = phieuNhap.MaQlNavigation.MaQl;
         phieuNhapUpdate.MaNcc = phieuNhap.MaNccNavigation.MaNcc;
-        phieuNhapUpdate.SdtNcc = phieuNhap.SdtNcc;
-        phieuNhapUpdate.MaSpNavigation.TenSp = phieuNhap.MaSpNavigation.TenSp;
-        phieuNhapUpdate.MaSpNavigation.MaSp = phieuNhap.MaSpNavigation.MaSp;
-        phieuNhapUpdate.MaSpNavigation.SoLuong = phieuNhap.MaSpNavigation.SoLuong;
-        phieuNhapUpdate.MaSpNavigation.GiaSp = phieuNhap.MaSpNavigation.GiaSp;
+        // phieuNhapUpdate.SdtNcc = phieuNhap.SdtNcc;
+        // phieuNhapUpdate.MaSpNavigation.TenSp = phieuNhap.MaSpNavigation.TenSp;
+        // phieuNhapUpdate.MaSpNavigation.MaSp = phieuNhap.MaSpNavigation.MaSp;
+        // phieuNhapUpdate.MaSpNavigation.SoLuong = phieuNhap.MaSpNavigation.SoLuong;
+        // phieuNhapUpdate.MaSpNavigation.GiaSp = phieuNhap.MaSpNavigation.GiaSp;
         db.SaveChanges();
+        return true;
     }
 
-    public void DeleteData(object id)
+    public bool DeleteData(object id)
     {
         PhieuNhap phieuNhap = db.PhieuNhaps.FirstOrDefault(e=>e.MaPn == (int)id);
         db.PhieuNhaps.Remove(phieuNhap);
         db.SaveChanges();
+        return true;
     }
 
     public List<PhieuNhap> SearchData(string tuKhoa)
     {
-        return db.PhieuNhaps.Where(e=>e.MaSpNavigation.TenSp.Contains(tuKhoa)).ToList();
+        // return db.PhieuNhaps.Where(e=>e.MaSpNavigation.TenSp.Contains(tuKhoa)).ToList();
+        return default;
     }
 
     public void InsertData(PhieuNhap phieuNhap)

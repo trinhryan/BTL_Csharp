@@ -7,7 +7,7 @@ public partial class QuanLy
 {
     public int MaQl { get; set; }
 
-    public string? TenQl { get; set; }
+    public string TenQl { get; set; } = null!;
 
     public string? Sdt { get; set; }
 

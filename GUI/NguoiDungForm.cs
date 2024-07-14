@@ -13,6 +13,7 @@ public partial class NguoiDungForm : Form
     {
         InitializeComponent();
         dgvNguoiDung.DataSource = bus.GetAllDataTable();
+        dgvNguoiDung.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
     }
 
     private void btnReload_Click(object sender, EventArgs e)
@@ -54,25 +55,29 @@ public partial class NguoiDungForm : Form
             MessageBox.Show("Chưa chọn tên đăng nhập cần xóa");
             return;
         }
-
-        bus.DeleteData(txtTenDangNhap.Text);
+        var ketQua = bus.DeleteData(txtTenDangNhap.Text);
+        MessageBox.Show(ketQua ? "Xóa thành công" : "Xóa thất bại");
     }
 
     private void dgvNguoiDung_CellClick(object sender, DataGridViewCellEventArgs e)
     {
-        var data = dgvNguoiDung.Rows[e.RowIndex].DataBoundItem as DataRowView;
-        if (data != null)
+        try
         {
+            var data = dgvNguoiDung.Rows[e.RowIndex].DataBoundItem as DataRowView;
+            if (data == null) return;
             txtTenDangNhap.Text = data["TenDangNhap"].ToString();
             txtHoTen.Text = data["HoTen"].ToString();
             txtDiaChi.Text = data["DiaChi"].ToString();
             txtSdt.Text = data["Sdt"].ToString();
         }
+        catch (Exception exception)
+        {
+            Console.WriteLine(exception);
+        }
     }
 
     private void btnSua_Click(object sender, EventArgs e)
     {
-        // validate all fields
         if (txtTenDangNhap.Text == "")
         {
             MessageBox.Show("Chưa chọn tên đăng nhập cần sửa");
@@ -102,9 +107,8 @@ public partial class NguoiDungForm : Form
         nguoiDung.HoTen = txtHoTen.Text;
         nguoiDung.DiaChi = txtDiaChi.Text;
         nguoiDung.Sdt = txtSdt.Text;
-        bus.UpdateData(nguoiDung);
-
-        MessageBox.Show("Sửa thành công");
+        var ketQua = bus.UpdateData(nguoiDung);
+        MessageBox.Show(ketQua ? "Sửa thành công" : "Sửa thất bại | Tên đăng nhập không được thay đổi");
     }
 
     private void quảnLýNgườiDùngToolStripMenuItem_Click(object sender, EventArgs e)
@@ -186,6 +190,20 @@ public partial class NguoiDungForm : Form
             return;
         }
 
-        dgvNguoiDung.DataSource = bus.SearchData(txtSearch.Text);
+        var data = bus.SearchData(txtSearch.Text);
+        
+        var dataTable = new DataTable();
+        dataTable.Columns.Add("TenDangNhap");
+        dataTable.Columns.Add("HoTen");
+        dataTable.Columns.Add("GioiTinh");
+        dataTable.Columns.Add("DiaChi");
+        dataTable.Columns.Add("Sdt");
+        
+        foreach (var nguoiDung in data)
+        {
+            dataTable.Rows.Add(nguoiDung.TenDangNhap, nguoiDung.HoTen, nguoiDung.GioiTinh, nguoiDung.DiaChi, nguoiDung.Sdt);
+        }
+        
+        dgvNguoiDung.DataSource = dataTable;
     }
 }

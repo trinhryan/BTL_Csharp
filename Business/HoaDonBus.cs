@@ -57,7 +57,7 @@ public class HoaDonBus : IBus<HoaDon>
         return true;
     }
 
-    public void UpdateData(HoaDon obj)
+    public bool UpdateData(HoaDon obj)
     {
         HoaDon hoaDon = (HoaDon)obj;
         HoaDon hoaDonUpdate = db.HoaDons.FirstOrDefault(e=>e.MaHd == hoaDon.MaHd);
@@ -68,10 +68,12 @@ public class HoaDonBus : IBus<HoaDon>
         hoaDonUpdate.NgayBan = hoaDon.NgayBan;
         hoaDonUpdate.TongTien = hoaDon.TongTien;
         db.SaveChanges();
+        return true;
+
     }
 
 
-    public void UpdateData(object T)
+    public bool UpdateData(object T)
     {
         HoaDon hoaDon = (HoaDon)T;
         HoaDon hoaDonUpdate = db.HoaDons.FirstOrDefault(e=>e.MaHd == hoaDon.MaHd);
@@ -82,11 +84,15 @@ public class HoaDonBus : IBus<HoaDon>
         hoaDonUpdate.NgayBan = hoaDon.NgayBan;
         hoaDonUpdate.TongTien = hoaDon.TongTien;
         db.SaveChanges();
+        return true;
+
     }
 
-    public void DeleteData(object id)
+    public bool DeleteData(object id)
     {
       db.Database.ExecuteSqlRaw("delete from HoaDon where MaHd = {0}", id);
+      return true;
+
     }
 
     public List<HoaDon> SearchData(string tuKhoa)

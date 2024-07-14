@@ -53,15 +53,18 @@ public class ChiTietDonHangBus:IBus<ChiTietDonHang>
         return true;
     }
 
-    public void UpdateData(ChiTietDonHang obj)
+    public bool UpdateData(ChiTietDonHang obj)
     {
        throw new NotImplementedException();
+       return true;
+
     }
 
-    public void DeleteData(object id)
+    public bool DeleteData(object id)
     {
         db.Database.ExecuteSqlRaw("delete from ChiTietDonHang where MaDh = {0}", id);
-        
+        return true;
+
     }
 
     public List<ChiTietDonHang> SearchData(string tuKhoa)

@@ -7,7 +7,7 @@ public partial class ChucVu
 {
     public int MaCv { get; set; }
 
-    public string? TenCv { get; set; }
+    public string TenCv { get; set; } = null!;
 
     public virtual ICollection<QuanLy> QuanLies { get; set; } = new List<QuanLy>();
 

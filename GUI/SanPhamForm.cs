@@ -19,6 +19,7 @@ namespace GUI
         public SanPhamForm()
         {
             InitializeComponent();
+            dgvSanPham.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -30,9 +31,8 @@ namespace GUI
             sanPham.GiaSp = decimal.Parse(txtGiaTien.Text);
             sanPham.SoLuong = int.Parse(NumberSoLuong.Value.ToString());
             sanPham.Hsd = DateOnly.Parse(txtHsd.Text);
-            sanPham.Nsx =DateOnly.Parse(txtNsx.Text);
+            sanPham.Nsx = DateOnly.Parse(txtNsx.Text);
             bus.AddData(sanPham);
-
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -48,29 +48,49 @@ namespace GUI
         }
 
 
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
-           
-            if(txtSeach.Text == "")
+            if (txtSeach.Text == "")
             {
                 MessageBox.Show("Chưa nhập tên sản phẩm cần tìm");
                 return;
             }
-            dgvSanPham.DataSource = bus.SearchData( txtSeach.Text);
+
+            var dt = new DataTable();
+            dt.Columns.Add("MaSanPham");
+            dt.Columns.Add("TenSanPham");
+            dt.Columns.Add("Gia");
+            dt.Columns.Add("SoLuong");
+            dt.Columns.Add("HanSuDung");
+            dt.Columns.Add("NgaySanXuat");
+            dt.Columns.Add("PhanLoaiSanPham");
+            var data = bus.SearchData(txtSeach.Text);
+            foreach (var item in data)
+            {
+                dt.Rows.Add(item.MaSp, item.TenSp, item.GiaSp, item.SoLuong, item.Hsd, item.Nsx, item.PhanLoaiSp);
+            }
+
+            dgvSanPham.DataSource = dt;
         }
 
         private void dgvSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var data = dgvSanPham.Rows[e.RowIndex].DataBoundItem as DataRowView;
-            if (data != null)
+            try
             {
-                txtMaSanPham.Text = data["MaSp"].ToString();
-                txtTenSP.Text = data["TenSp"].ToString();
-                txtGiaTien.Text = data["GiaSp"].ToString();
-                NumberSoLuong.Value = Convert.ToInt32(data["SoLuong"]);
-                txtHsd.Text = data["Hsd"].ToString();
-                txtNsx.Text = data["Nsx"].ToString();
+                var data = dgvSanPham.Rows[e.RowIndex].DataBoundItem as DataRowView;
+                if (data != null)
+                {
+                    txtMaSanPham.Text = data["MaSp"].ToString();
+                    txtTenSP.Text = data["TenSp"].ToString();
+                    txtGiaTien.Text = data["GiaSp"].ToString();
+                    NumberSoLuong.Value = Convert.ToInt32(data["SoLuong"]);
+                    txtHsd.Text = data["Hsd"].ToString();
+                    txtNsx.Text = data["Nsx"].ToString();
+                }
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
             }
         }
 
@@ -89,7 +109,7 @@ namespace GUI
             sanPham.GiaSp = decimal.Parse(txtGiaTien.Text);
             sanPham.SoLuong = int.Parse(NumberSoLuong.Value.ToString());
             sanPham.Hsd = DateOnly.Parse(txtHsd.Text);
-            sanPham.Nsx =DateOnly.Parse(txtNsx.Text);
+            sanPham.Nsx = DateOnly.Parse(txtNsx.Text);
             bus.UpdateData(sanPham);
 
             MessageBox.Show("Sửa thành công");
@@ -123,7 +143,6 @@ namespace GUI
 
         private void danhMụcKháchHàngToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
             var form = new KhachHangForm();
             form.Show();
             this.Hide();
@@ -159,7 +178,6 @@ namespace GUI
 
         private void phiếuXuấtHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             var form = new PhieuXuatForm();
             form.Show();
             this.Hide();

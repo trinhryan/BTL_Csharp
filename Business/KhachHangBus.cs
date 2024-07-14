@@ -61,6 +61,7 @@ public class KhachHangBus: IBus<KhachHang>
 
     public void UpdateData(KhachHang obj)
     {
+        
         throw new NotImplementedException();
         
     }

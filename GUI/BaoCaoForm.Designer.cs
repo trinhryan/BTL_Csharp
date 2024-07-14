@@ -1,5 +1,5 @@
-﻿using System.ComponentModel;
-
+﻿using System.Drawing;
+using System.Windows.Forms;
 namespace GUI;
 
 partial class BaoCaoForm
@@ -7,7 +7,7 @@ partial class BaoCaoForm
     /// <summary>
     /// Required designer variable.
     /// </summary>
-    private IContainer components = null;
+    private System.ComponentModel.IContainer components = null;
 
     /// <summary>
     /// Clean up any resources being used.
@@ -19,7 +19,6 @@ partial class BaoCaoForm
         {
             components.Dispose();
         }
-
         base.Dispose(disposing);
     }
 

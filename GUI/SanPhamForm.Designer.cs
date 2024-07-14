@@ -32,6 +32,7 @@ namespace GUI
         private void InitializeComponent()
         {
             gbThongTinSapPham = new GroupBox();
+            btnReload = new Button();
             txtPhanLoai = new TextBox();
             txtNsx = new TextBox();
             txtHsd = new TextBox();
@@ -42,7 +43,6 @@ namespace GUI
             txtGiaTien = new TextBox();
             txtTenSP = new TextBox();
             txtMaSanPham = new TextBox();
-            btnSearch = new Button();
             btnThem = new Button();
             btnXoa = new Button();
             btnSua = new Button();
@@ -50,9 +50,9 @@ namespace GUI
             label11 = new Label();
             label10 = new Label();
             label9 = new Label();
+            btnSearch = new Button();
             label1 = new Label();
             dgvSanPham = new DataGridView();
-            btnReload = new Button();
             menuStrip1 = new MenuStrip();
             trangChủToolStripMenuItem = new ToolStripMenuItem();
             quảnLýNgườiDùngToolStripMenuItem = new ToolStripMenuItem();
@@ -67,7 +67,6 @@ namespace GUI
             quảnLýKhoToolStripMenuItem = new ToolStripMenuItem();
             phiếuNhậpHàngToolStripMenuItem = new ToolStripMenuItem();
             phiếuXuấtHàngToolStripMenuItem = new ToolStripMenuItem();
-            báoCáoToolStripMenuItem = new ToolStripMenuItem();
             đăngXuấtToolStripMenuItem = new ToolStripMenuItem();
             txtSeach = new TextBox();
             gbThongTinSapPham.SuspendLayout();
@@ -104,6 +103,17 @@ namespace GUI
             gbThongTinSapPham.TabIndex = 69;
             gbThongTinSapPham.TabStop = false;
             gbThongTinSapPham.Text = "Thông tin sản phầm";
+            // 
+            // btnReload
+            // 
+            btnReload.Location = new Point(700, 191);
+            btnReload.Margin = new Padding(4, 3, 4, 3);
+            btnReload.Name = "btnReload";
+            btnReload.Size = new Size(121, 38);
+            btnReload.TabIndex = 84;
+            btnReload.Text = "Reload";
+            btnReload.UseVisualStyleBackColor = true;
+            btnReload.Click += btnReload_Click;
             // 
             // txtPhanLoai
             // 
@@ -188,17 +198,6 @@ namespace GUI
             txtMaSanPham.Size = new Size(207, 23);
             txtMaSanPham.TabIndex = 19;
             // 
-            // btnSearch
-            // 
-            btnSearch.Location = new Point(740, 337);
-            btnSearch.Margin = new Padding(4, 3, 4, 3);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(121, 23);
-            btnSearch.TabIndex = 15;
-            btnSearch.Text = "Search";
-            btnSearch.UseVisualStyleBackColor = true;
-            btnSearch.Click += btnSearch_Click;
-            // 
             // btnThem
             // 
             btnThem.Location = new Point(700, 21);
@@ -268,6 +267,17 @@ namespace GUI
             label9.TabIndex = 8;
             label9.Text = "Mã sản phẩm";
             // 
+            // btnSearch
+            // 
+            btnSearch.Location = new Point(740, 337);
+            btnSearch.Margin = new Padding(4, 3, 4, 3);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(121, 23);
+            btnSearch.TabIndex = 15;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
+            // 
             // label1
             // 
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -287,20 +297,9 @@ namespace GUI
             dgvSanPham.TabIndex = 70;
             dgvSanPham.CellClick += dgvSanPham_CellClick;
             // 
-            // btnReload
-            // 
-            btnReload.Location = new Point(700, 191);
-            btnReload.Margin = new Padding(4, 3, 4, 3);
-            btnReload.Name = "btnReload";
-            btnReload.Size = new Size(121, 38);
-            btnReload.TabIndex = 84;
-            btnReload.Text = "Reload";
-            btnReload.UseVisualStyleBackColor = true;
-            btnReload.Click += btnReload_Click;
-            // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { trangChủToolStripMenuItem, danhMụcNhânToolStripMenuItem, giaoDịchToolStripMenuItem, đơnHàngToolStripMenuItem, quảnLýKhoToolStripMenuItem, báoCáoToolStripMenuItem, đăngXuấtToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { trangChủToolStripMenuItem, danhMụcNhânToolStripMenuItem, giaoDịchToolStripMenuItem, đơnHàngToolStripMenuItem, quảnLýKhoToolStripMenuItem, đăngXuấtToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(7, 2, 0, 2);
@@ -399,13 +398,6 @@ namespace GUI
             phiếuXuấtHàngToolStripMenuItem.Text = "Phiếu xuất hàng";
             phiếuXuấtHàngToolStripMenuItem.Click += phiếuXuấtHàngToolStripMenuItem_Click;
             // 
-            // báoCáoToolStripMenuItem
-            // 
-            báoCáoToolStripMenuItem.Name = "báoCáoToolStripMenuItem";
-            báoCáoToolStripMenuItem.Size = new Size(63, 20);
-            báoCáoToolStripMenuItem.Text = "Báo Cáo";
-            báoCáoToolStripMenuItem.Click += báoCáoToolStripMenuItem_Click;
-            // 
             // đăngXuấtToolStripMenuItem
             // 
             đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
@@ -480,7 +472,6 @@ namespace GUI
         private ToolStripMenuItem quảnLýKhoToolStripMenuItem;
         private ToolStripMenuItem phiếuNhậpHàngToolStripMenuItem;
         private ToolStripMenuItem phiếuXuấtHàngToolStripMenuItem;
-        private ToolStripMenuItem báoCáoToolStripMenuItem;
         private ToolStripMenuItem đăngXuấtToolStripMenuItem;
         private TextBox txtSeach;
     }

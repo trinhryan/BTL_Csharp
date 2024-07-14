@@ -106,47 +106,47 @@ namespace GUI
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
                 return;
             }
-            
+
             DonHang donHang = new();
             donHang.MaDh = int.Parse(txtMaDonHang.Text);
             donHang.NgayTao = DateOnly.Parse(dateNgayNhap.Text);
-            donHang.MaCuaHangNavigation.TenCuaHang= cobCuaHang.Text;
+            donHang.MaCuaHangNavigation.TenCuaHang = cobCuaHang.Text;
             donHang.MaSp = int.Parse(txtMaSanPham.Text);
             donHang.MaSpNavigation.TenSp = txtTenSP.Text;
-            donHang.MaSpNavigation.SoLuong =  (int)NumberSoLuong.Value;
+            donHang.MaSpNavigation.SoLuong = (int)NumberSoLuong.Value;
             donHang.MaSpNavigation.GiaSp = int.Parse(txtGiaTien.Text);
             donHang.TrangThai = rdbChuaThanhToan.Checked ? "Chưa thanh toán" : "Đã thanh toán";
-            donHang.TongTien= (float?)(donHang.MaSpNavigation.GiaSp * donHang.MaSpNavigation.SoLuong);
+            donHang.TongTien = (float?)(donHang.MaSpNavigation.GiaSp * donHang.MaSpNavigation.SoLuong);
 
             bus.AddData(donHang);
-            
+
             MessageBox.Show("Thêm thành công");
         }
 
         private void btnHuy_Click(object sender, EventArgs e) //Sửa
         {
             // validate all fields
-            if(txtMaDonHang.Text == "")
+            if (txtMaDonHang.Text == "")
             {
                 MessageBox.Show("Chưa chọn mã đơn hàng cần sửa");
                 return;
             }
-            
+
             DonHang donHang = new();
             donHang.MaDh = int.Parse(txtMaDonHang.Text);
             donHang.NgayTao = DateOnly.Parse(dateNgayNhap.Text);
-            donHang.MaCuaHangNavigation.TenCuaHang= cobCuaHang.Text;
+            donHang.MaCuaHangNavigation.TenCuaHang = cobCuaHang.Text;
             donHang.MaSp = int.Parse(txtMaSanPham.Text);
             donHang.MaSpNavigation.TenSp = txtTenSP.Text;
-            donHang.MaSpNavigation.SoLuong =  (int)NumberSoLuong.Value;
+            donHang.MaSpNavigation.SoLuong = (int)NumberSoLuong.Value;
             donHang.MaSpNavigation.GiaSp = int.Parse(txtGiaTien.Text);
             donHang.TrangThai = rdbChuaThanhToan.Checked ? "Chưa thanh toán" : "Đã thanh toán";
-            donHang.TongTien= (float?)(donHang.MaSpNavigation.GiaSp * donHang.MaSpNavigation.SoLuong);
-            
+            donHang.TongTien = (float?)(donHang.MaSpNavigation.GiaSp * donHang.MaSpNavigation.SoLuong);
+
             bus.UpdateData(donHang);
-            
+
             MessageBox.Show("Sửa thành công");
-            
+
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -167,8 +167,16 @@ namespace GUI
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-             
+
             var form = new SanPhamForm();
+            form.Show();
+            this.Hide();
+        }
+
+        private void btnChiTietDonHang_Click(object sender, EventArgs e)
+        {
+
+            var form = new ChiTietDonHang();
             form.Show();
             this.Hide();
         }

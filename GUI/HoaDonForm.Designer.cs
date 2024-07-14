@@ -47,12 +47,11 @@ partial class HoaDonForm
         quảnLýKhoToolStripMenuItem = new ToolStripMenuItem();
         phiếuNhậpHàngToolStripMenuItem = new ToolStripMenuItem();
         phiếuXuấtHàngToolStripMenuItem = new ToolStripMenuItem();
-        báoCáoToolStripMenuItem = new ToolStripMenuItem();
         đăngXuấtToolStripMenuItem = new ToolStripMenuItem();
-        dgvChiTietDonHang = new DataGridView();
+        dgvHoaDon = new DataGridView();
         gbThongTinSapPham = new GroupBox();
-        txtThanhTien = new TextBox();
-        label2 = new Label();
+        dateNgayBan = new DateTimePicker();
+        label4 = new Label();
         txtMaHD = new TextBox();
         label1 = new Label();
         btnReload = new Button();
@@ -71,17 +70,15 @@ partial class HoaDonForm
         label3 = new Label();
         txtTongTien = new TextBox();
         btnInHoaDon = new Button();
-        label4 = new Label();
-        txtNgayBan = new TextBox();
         menuStrip1.SuspendLayout();
-        ((ISupportInitialize)dgvChiTietDonHang).BeginInit();
+        ((ISupportInitialize)dgvHoaDon).BeginInit();
         gbThongTinSapPham.SuspendLayout();
         ((ISupportInitialize)NumberSoLuong).BeginInit();
         SuspendLayout();
         // 
         // menuStrip1
         // 
-        menuStrip1.Items.AddRange(new ToolStripItem[] { trangChủToolStripMenuItem, danhMụcNhânToolStripMenuItem, giaoDịchToolStripMenuItem, đơnHàngToolStripMenuItem, quảnLýKhoToolStripMenuItem, báoCáoToolStripMenuItem, đăngXuấtToolStripMenuItem });
+        menuStrip1.Items.AddRange(new ToolStripItem[] { trangChủToolStripMenuItem, danhMụcNhânToolStripMenuItem, giaoDịchToolStripMenuItem, đơnHàngToolStripMenuItem, quảnLýKhoToolStripMenuItem, đăngXuấtToolStripMenuItem });
         menuStrip1.Location = new Point(0, 0);
         menuStrip1.Name = "menuStrip1";
         menuStrip1.Padding = new Padding(7, 2, 0, 2);
@@ -181,38 +178,30 @@ partial class HoaDonForm
         phiếuXuấtHàngToolStripMenuItem.Text = "Phiếu xuất hàng";
         phiếuXuấtHàngToolStripMenuItem.Click += phiếuXuấtHàngToolStripMenuItem_Click;
         // 
-        // báoCáoToolStripMenuItem
-        // 
-        báoCáoToolStripMenuItem.Name = "báoCáoToolStripMenuItem";
-        báoCáoToolStripMenuItem.Size = new Size(63, 20);
-        báoCáoToolStripMenuItem.Text = "Báo Cáo";
-        báoCáoToolStripMenuItem.Click += báoCáoToolStripMenuItem_Click;
-        // 
         // đăngXuấtToolStripMenuItem
         // 
         đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
         đăngXuấtToolStripMenuItem.Size = new Size(73, 20);
         đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
         // 
-        // dgvChiTietDonHang
+        // dgvHoaDon
         // 
-        dgvChiTietDonHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        dgvChiTietDonHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dgvChiTietDonHang.Location = new Point(18, 191);
-        dgvChiTietDonHang.Margin = new Padding(4, 3, 4, 3);
-        dgvChiTietDonHang.Name = "dgvChiTietDonHang";
-        dgvChiTietDonHang.Size = new Size(836, 207);
-        dgvChiTietDonHang.TabIndex = 89;
+        dgvHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        dgvHoaDon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        dgvHoaDon.Location = new Point(18, 191);
+        dgvHoaDon.Margin = new Padding(4, 3, 4, 3);
+        dgvHoaDon.Name = "dgvHoaDon";
+        dgvHoaDon.Size = new Size(836, 207);
+        dgvHoaDon.TabIndex = 89;
+        dgvHoaDon.CellClick += dgvHoaDon_CellClick;
         // 
         // gbThongTinSapPham
         // 
-        gbThongTinSapPham.Controls.Add(txtNgayBan);
+        gbThongTinSapPham.Controls.Add(dateNgayBan);
         gbThongTinSapPham.Controls.Add(label4);
-        gbThongTinSapPham.Controls.Add(txtThanhTien);
-        gbThongTinSapPham.Controls.Add(label2);
         gbThongTinSapPham.Controls.Add(txtMaHD);
         gbThongTinSapPham.Controls.Add(label1);
-        gbThongTinSapPham.Controls.Add(dgvChiTietDonHang);
+        gbThongTinSapPham.Controls.Add(dgvHoaDon);
         gbThongTinSapPham.Controls.Add(btnReload);
         gbThongTinSapPham.Controls.Add(NumberSoLuong);
         gbThongTinSapPham.Controls.Add(txtGiaTien);
@@ -235,22 +224,21 @@ partial class HoaDonForm
         gbThongTinSapPham.TabStop = false;
         gbThongTinSapPham.Text = "Thông tin các sản phẩm";
         // 
-        // txtThanhTien
+        // dateNgayBan
         // 
-        txtThanhTien.Location = new Point(427, 111);
-        txtThanhTien.Margin = new Padding(4, 3, 4, 3);
-        txtThanhTien.Name = "txtThanhTien";
-        txtThanhTien.Size = new Size(207, 23);
-        txtThanhTien.TabIndex = 93;
+        dateNgayBan.Location = new Point(427, 108);
+        dateNgayBan.Name = "dateNgayBan";
+        dateNgayBan.Size = new Size(208, 23);
+        dateNgayBan.TabIndex = 95;
         // 
-        // label2
+        // label4
         // 
-        label2.Location = new Point(348, 114);
-        label2.Margin = new Padding(4, 0, 4, 0);
-        label2.Name = "label2";
-        label2.Size = new Size(88, 27);
-        label2.TabIndex = 92;
-        label2.Text = "Thành tiền";
+        label4.Location = new Point(348, 111);
+        label4.Margin = new Padding(4, 0, 4, 0);
+        label4.Name = "label4";
+        label4.Size = new Size(69, 27);
+        label4.TabIndex = 94;
+        label4.Text = "Ngày bán";
         // 
         // txtMaHD
         // 
@@ -278,6 +266,7 @@ partial class HoaDonForm
         btnReload.TabIndex = 24;
         btnReload.Text = "Reload";
         btnReload.UseVisualStyleBackColor = true;
+        btnReload.Click += btnReload_Click;
         // 
         // NumberSoLuong
         // 
@@ -320,6 +309,7 @@ partial class HoaDonForm
         btnThoat.TabIndex = 15;
         btnThoat.Text = "Thoát";
         btnThoat.UseVisualStyleBackColor = true;
+        btnThoat.Click += btnThoat_Click;
         // 
         // btnThem
         // 
@@ -330,6 +320,7 @@ partial class HoaDonForm
         btnThem.TabIndex = 14;
         btnThem.Text = "Thêm";
         btnThem.UseVisualStyleBackColor = true;
+        btnThem.Click += btnThem_Click;
         // 
         // btnXoa
         // 
@@ -340,6 +331,7 @@ partial class HoaDonForm
         btnXoa.TabIndex = 13;
         btnXoa.Text = "Xóa";
         btnXoa.UseVisualStyleBackColor = true;
+        btnXoa.Click += btnXoa_Click;
         // 
         // btnHuy
         // 
@@ -350,6 +342,7 @@ partial class HoaDonForm
         btnHuy.TabIndex = 12;
         btnHuy.Text = "Sửa ";
         btnHuy.UseVisualStyleBackColor = true;
+        btnHuy.Click += btnHuy_Click;
         // 
         // label12
         // 
@@ -413,29 +406,13 @@ partial class HoaDonForm
         btnInHoaDon.TabIndex = 94;
         btnInHoaDon.Text = "In hóa đơn";
         btnInHoaDon.UseVisualStyleBackColor = true;
-        // 
-        // label4
-        // 
-        label4.Location = new Point(733, 44);
-        label4.Margin = new Padding(4, 0, 4, 0);
-        label4.Name = "label4";
-        label4.Size = new Size(88, 27);
-        label4.TabIndex = 94;
-        label4.Text = "Ngày bán";
-        // 
-        // txtNgayBan
-        // 
-        txtNgayBan.Location = new Point(658, 74);
-        txtNgayBan.Margin = new Padding(4, 3, 4, 3);
-        txtNgayBan.Name = "txtNgayBan";
-        txtNgayBan.Size = new Size(207, 23);
-        txtNgayBan.TabIndex = 95;
+        btnInHoaDon.Click += btnInHoaDon_Click;
         // 
         // HoaDonForm
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(891, 576);
+        ClientSize = new Size(891, 478);
         Controls.Add(btnInHoaDon);
         Controls.Add(txtTongTien);
         Controls.Add(label3);
@@ -445,7 +422,7 @@ partial class HoaDonForm
         Text = "HoaDonForm";
         menuStrip1.ResumeLayout(false);
         menuStrip1.PerformLayout();
-        ((ISupportInitialize)dgvChiTietDonHang).EndInit();
+        ((ISupportInitialize)dgvHoaDon).EndInit();
         gbThongTinSapPham.ResumeLayout(false);
         gbThongTinSapPham.PerformLayout();
         ((ISupportInitialize)NumberSoLuong).EndInit();
@@ -469,9 +446,8 @@ partial class HoaDonForm
     private ToolStripMenuItem quảnLýKhoToolStripMenuItem;
     private ToolStripMenuItem phiếuNhậpHàngToolStripMenuItem;
     private ToolStripMenuItem phiếuXuấtHàngToolStripMenuItem;
-    private ToolStripMenuItem báoCáoToolStripMenuItem;
     private ToolStripMenuItem đăngXuấtToolStripMenuItem;
-    private DataGridView dgvChiTietDonHang;
+    private DataGridView dgvHoaDon;
     private GroupBox gbThongTinSapPham;
     private Button btnReload;
     private NumericUpDown NumberSoLuong;
@@ -488,11 +464,9 @@ partial class HoaDonForm
     private Label label9;
     private Label label1;
     private TextBox txtMaHD;
-    private Label label2;
-    private TextBox txtThanhTien;
     private Label label3;
     private TextBox txtTongTien;
     private Button btnInHoaDon;
-    private TextBox txtNgayBan;
     private Label label4;
+    private DateTimePicker dateNgayBan;
 }

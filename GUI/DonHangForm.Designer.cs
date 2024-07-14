@@ -73,6 +73,7 @@ namespace GUI
             btnXoa = new Button();
             btnHuy = new Button();
             label5 = new Label();
+            btnChiTietDonHang = new Button();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDonHang).BeginInit();
             gbThongTInDonHang.SuspendLayout();
@@ -218,6 +219,7 @@ namespace GUI
             // 
             // gbThongTInDonHang
             // 
+            gbThongTInDonHang.Controls.Add(btnChiTietDonHang);
             gbThongTInDonHang.Controls.Add(label4);
             gbThongTInDonHang.Controls.Add(rdbChuaThanhToan);
             gbThongTInDonHang.Controls.Add(rdbDaThanhToan);
@@ -457,6 +459,17 @@ namespace GUI
             label5.TabIndex = 92;
             label5.Text = "ĐƠN HÀNG";
             // 
+            // btnChiTietDonHang
+            // 
+            btnChiTietDonHang.Location = new Point(776, 174);
+            btnChiTietDonHang.Margin = new Padding(4, 3, 4, 3);
+            btnChiTietDonHang.Name = "btnChiTietDonHang";
+            btnChiTietDonHang.Size = new Size(121, 38);
+            btnChiTietDonHang.TabIndex = 93;
+            btnChiTietDonHang.Text = "Chi tiết đơn hàng";
+            btnChiTietDonHang.UseVisualStyleBackColor = true;
+            btnChiTietDonHang.Click += btnChiTietDonHang_Click;
+            // 
             // DonHangForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -528,5 +541,6 @@ namespace GUI
         private RadioButton rdbChuaThanhToan;
         private RadioButton rdbDaThanhToan;
         private Label label5;
+        private Button btnChiTietDonHang;
     }
 }

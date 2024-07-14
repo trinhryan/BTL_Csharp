@@ -71,7 +71,6 @@ namespace GUI
             quảnLýKhoToolStripMenuItem = new ToolStripMenuItem();
             phiếuNhậpHàngToolStripMenuItem = new ToolStripMenuItem();
             phiếuXuấtHàngToolStripMenuItem = new ToolStripMenuItem();
-            báoCáoToolStripMenuItem = new ToolStripMenuItem();
             đăngXuấtToolStripMenuItem = new ToolStripMenuItem();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvNhanVien).BeginInit();
@@ -343,7 +342,7 @@ namespace GUI
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { trangChủToolStripMenuItem, danhMụcNhânToolStripMenuItem, giaoDịchToolStripMenuItem, đơnHàngToolStripMenuItem, quảnLýKhoToolStripMenuItem, báoCáoToolStripMenuItem, đăngXuấtToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { trangChủToolStripMenuItem, danhMụcNhânToolStripMenuItem, giaoDịchToolStripMenuItem, đơnHàngToolStripMenuItem, quảnLýKhoToolStripMenuItem, đăngXuấtToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(7, 2, 0, 2);
@@ -442,13 +441,6 @@ namespace GUI
             phiếuXuấtHàngToolStripMenuItem.Text = "Phiếu xuất hàng";
             phiếuXuấtHàngToolStripMenuItem.Click += phiếuXuấtHàngToolStripMenuItem_Click;
             // 
-            // báoCáoToolStripMenuItem
-            // 
-            báoCáoToolStripMenuItem.Name = "báoCáoToolStripMenuItem";
-            báoCáoToolStripMenuItem.Size = new Size(63, 20);
-            báoCáoToolStripMenuItem.Text = "Báo Cáo";
-            báoCáoToolStripMenuItem.Click += báoCáoToolStripMenuItem_Click;
-            // 
             // đăngXuấtToolStripMenuItem
             // 
             đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
@@ -517,7 +509,6 @@ namespace GUI
         private ToolStripMenuItem quảnLýKhoToolStripMenuItem;
         private ToolStripMenuItem phiếuNhậpHàngToolStripMenuItem;
         private ToolStripMenuItem phiếuXuấtHàngToolStripMenuItem;
-        private ToolStripMenuItem báoCáoToolStripMenuItem;
         private ToolStripMenuItem đăngXuấtToolStripMenuItem;
     }
 }

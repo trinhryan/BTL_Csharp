@@ -62,7 +62,6 @@ namespace GUI
             quảnLýKhoToolStripMenuItem = new ToolStripMenuItem();
             phiếuNhậpHàngToolStripMenuItem = new ToolStripMenuItem();
             phiếuXuấtHàngToolStripMenuItem = new ToolStripMenuItem();
-            báoCáoToolStripMenuItem = new ToolStripMenuItem();
             đăngXuấtToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dgvKhacHang).BeginInit();
             groupBox1.SuspendLayout();
@@ -238,7 +237,7 @@ namespace GUI
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { trangChủToolStripMenuItem, danhMụcNhânToolStripMenuItem, giaoDịchToolStripMenuItem, đơnHàngToolStripMenuItem, quảnLýKhoToolStripMenuItem, báoCáoToolStripMenuItem, đăngXuấtToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { trangChủToolStripMenuItem, danhMụcNhânToolStripMenuItem, giaoDịchToolStripMenuItem, đơnHàngToolStripMenuItem, quảnLýKhoToolStripMenuItem, đăngXuấtToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(7, 2, 0, 2);
@@ -304,7 +303,7 @@ namespace GUI
             // hóaĐơnToolStripMenuItem
             // 
             hóaĐơnToolStripMenuItem.Name = "hóaĐơnToolStripMenuItem";
-            hóaĐơnToolStripMenuItem.Size = new Size(180, 22);
+            hóaĐơnToolStripMenuItem.Size = new Size(120, 22);
             hóaĐơnToolStripMenuItem.Text = "Hóa đơn";
             hóaĐơnToolStripMenuItem.Click += hóaĐơnToolStripMenuItem_Click;
             // 
@@ -335,13 +334,6 @@ namespace GUI
             phiếuXuấtHàngToolStripMenuItem.Size = new Size(164, 22);
             phiếuXuấtHàngToolStripMenuItem.Text = "Phiếu xuất hàng";
             phiếuXuấtHàngToolStripMenuItem.Click += phiếuXuấtHàngToolStripMenuItem_Click;
-            // 
-            // báoCáoToolStripMenuItem
-            // 
-            báoCáoToolStripMenuItem.Name = "báoCáoToolStripMenuItem";
-            báoCáoToolStripMenuItem.Size = new Size(63, 20);
-            báoCáoToolStripMenuItem.Text = "Báo Cáo";
-            báoCáoToolStripMenuItem.Click += báoCáoToolStripMenuItem_Click;
             // 
             // đăngXuấtToolStripMenuItem
             // 
@@ -407,7 +399,6 @@ namespace GUI
         private ToolStripMenuItem quảnLýKhoToolStripMenuItem;
         private ToolStripMenuItem phiếuNhậpHàngToolStripMenuItem;
         private ToolStripMenuItem phiếuXuấtHàngToolStripMenuItem;
-        private ToolStripMenuItem báoCáoToolStripMenuItem;
         private ToolStripMenuItem đăngXuấtToolStripMenuItem;
     }
 }

@@ -1,11 +1,13 @@
 ﻿using System.Windows.Forms;
 
-namespace GUI;
-
-public partial class BaoCaoForm : Form
+namespace GUI
 {
-    public BaoCaoForm()
+    public partial class BaoCaoForm : Form
     {
-        InitializeComponent();
+        public BaoCaoForm()
+        {
+            InitializeComponent();
+        }
     }
 }
+
